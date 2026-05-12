@@ -8,23 +8,21 @@ export function AltmanTable({ outcome }: { outcome: AltmanOutcome }) {
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-paper px-4 py-3">
-        <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
           Formula
         </p>
-        <p className="mt-1 font-mono text-sm leading-relaxed text-ink">
-          {FORMULA}
-        </p>
+        <p className="mt-1 font-mono text-sm leading-relaxed text-ink">{FORMULA}</p>
       </div>
 
       {outcome.status === "not_applicable" ? (
         <div className="rounded-xl border border-line bg-slate-50 px-4 py-3">
-          <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
             Not Applicable
           </p>
           <p className="mt-1 text-sm text-ink">{outcome.reason}</p>
           <p className="mt-1 text-xs text-ink-muted">
-            Altman Z-Score is not designed for banks, NBFCs, insurers or
-            other financial-sector balance sheets.
+            Altman Z-Score is not designed for banks, NBFCs, insurers or other
+            financial-sector balance sheets.
           </p>
         </div>
       ) : outcome.status === "not_calculable" ? (
@@ -32,7 +30,7 @@ export function AltmanTable({ outcome }: { outcome: AltmanOutcome }) {
       ) : (
         <div className="overflow-hidden rounded-xl border border-line">
           <table className="w-full text-sm">
-            <thead className="bg-paper text-xs uppercase tracking-wider text-ink-muted">
+            <thead className="bg-paper text-[11px] uppercase tracking-[0.12em] text-ink-muted">
               <tr>
                 <th className="px-4 py-2.5 text-left font-semibold">Variable</th>
                 <th className="px-4 py-2.5 text-left font-semibold">Formula</th>
@@ -56,9 +54,7 @@ export function AltmanTable({ outcome }: { outcome: AltmanOutcome }) {
                 <td className="px-4 py-3 text-ink-muted">—</td>
                 <td className="px-4 py-3 text-right text-ink-muted">—</td>
                 <td className="px-4 py-3 text-right text-ink-muted">—</td>
-                <td className="px-4 py-3 text-right font-semibold">
-                  {fmt(outcome.zScore, 2)}
-                </td>
+                <td className="px-4 py-3 text-right font-semibold">{fmt(outcome.zScore, 2)}</td>
               </tr>
             </tbody>
           </table>

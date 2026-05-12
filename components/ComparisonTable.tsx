@@ -1,30 +1,39 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { calculateAltman, calculateBeneish } from "@/lib/calculations";
 import { fmt } from "@/lib/format";
-import type { CompanyFinancials } from "@/lib/types";
+import type { CompanyFinancials, CompanyMaster } from "@/lib/types";
 import { StatusBadge, type Status } from "./StatusBadge";
 
 interface Row {
-  ticker: string;
-  name: string;
+  master: CompanyMaster;
   m: { display: string; status: Status; label: string };
   z: { display: string; status: Status; label: string };
 }
 
-function buildRow(company: CompanyFinancials, year: number): Row {
-  const sorted = [...company.years].sort((a, b) => a.year - b.year);
-  const idx = sorted.findIndex((y) => y.year === year);
+function loadCached(ticker: string): CompanyFinancials | null {
+  try {
+    const raw = sessionStorage.getItem(`fin:${ticker}`);
+    return raw ? (JSON.parse(raw) as CompanyFinancials) : null;
+  } catch {
+    return null;
+  }
+}
+
+function buildRow(company: CompanyFinancials, fiscalYear: string): Row {
+  const sorted = [...company.years].sort((a, b) =>
+    a.fiscalYear.localeCompare(b.fiscalYear)
+  );
+  const idx = sorted.findIndex((y) => y.fiscalYear === fiscalYear);
   const current = idx >= 0 ? sorted[idx] : sorted[sorted.length - 1];
   const prior = idx > 0 ? sorted[idx - 1] : undefined;
 
   const b = calculateBeneish(current, prior);
-  const a = calculateAltman(company, current);
+  const a = calculateAltman(company.master, current);
 
   return {
-    ticker: company.ticker,
-    name: company.name,
+    master: company.master,
     m:
       b.status === "ok"
         ? {
@@ -57,82 +66,65 @@ function buildRow(company: CompanyFinancials, year: number): Row {
 }
 
 export function ComparisonTable({
-  companies,
-  year,
+  current,
+  fiscalYear,
 }: {
-  companies: CompanyFinancials[];
-  year: number;
+  current: CompanyFinancials;
+  fiscalYear: string;
 }) {
-  const [selected, setSelected] = useState<string[]>(() =>
-    companies.slice(0, Math.min(3, companies.length)).map((c) => c.ticker)
-  );
+  // Pull whatever the user has already fetched into session storage.
+  const [cached, setCached] = useState<CompanyFinancials[]>([]);
 
-  const rows = useMemo(
-    () =>
-      companies
-        .filter((c) => selected.includes(c.ticker))
-        .map((c) => buildRow(c, year)),
-    [companies, selected, year]
-  );
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const found: CompanyFinancials[] = [];
+    for (let i = 0; i < sessionStorage.length; i += 1) {
+      const k = sessionStorage.key(i);
+      if (!k || !k.startsWith("fin:")) continue;
+      const v = loadCached(k.slice(4));
+      if (v && v.years.length > 0) found.push(v);
+    }
+    setCached(found);
+  }, [current]);
 
-  function toggle(ticker: string) {
-    setSelected((prev) =>
-      prev.includes(ticker) ? prev.filter((t) => t !== ticker) : [...prev, ticker]
-    );
-  }
+  const rows = useMemo(() => {
+    const all: CompanyFinancials[] = [
+      current,
+      ...cached.filter((c) => c.master.ticker !== current.master.ticker),
+    ];
+    return all.map((c) => buildRow(c, fiscalYear));
+  }, [cached, current, fiscalYear]);
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap gap-2">
-        {companies.map((c) => {
-          const active = selected.includes(c.ticker);
-          return (
-            <button
-              key={c.ticker}
-              type="button"
-              onClick={() => toggle(c.ticker)}
-              className={`rounded-full px-3 py-1 text-xs font-medium ring-1 transition ${
-                active
-                  ? "bg-ink text-white ring-ink"
-                  : "bg-white text-ink-muted ring-line hover:text-ink"
-              }`}
-            >
-              {c.name}
-            </button>
-          );
-        })}
-      </div>
-
+    <div className="space-y-3">
+      <p className="text-xs text-ink-muted">
+        Companies you&apos;ve already fetched this session, compared at FY {fiscalYear}.
+      </p>
       <div className="overflow-hidden rounded-xl border border-line">
         <table className="w-full text-sm">
-          <thead className="bg-paper text-xs uppercase tracking-wider text-ink-muted">
+          <thead className="bg-paper text-[11px] uppercase tracking-[0.12em] text-ink-muted">
             <tr>
               <th className="px-4 py-2.5 text-left font-semibold">Company</th>
-              <th className="px-4 py-2.5 text-right font-semibold">
-                Beneish M-Score
-              </th>
-              <th className="px-4 py-2.5 text-left font-semibold">
-                Manipulation Risk
-              </th>
-              <th className="px-4 py-2.5 text-right font-semibold">
-                Altman Z-Score
-              </th>
-              <th className="px-4 py-2.5 text-left font-semibold">
-                Distress Risk
-              </th>
+              <th className="px-4 py-2.5 text-right font-semibold">Beneish M-Score</th>
+              <th className="px-4 py-2.5 text-left font-semibold">Manipulation Risk</th>
+              <th className="px-4 py-2.5 text-right font-semibold">Altman Z-Score</th>
+              <th className="px-4 py-2.5 text-left font-semibold">Distress Risk</th>
             </tr>
           </thead>
           <tbody className="tabular">
             {rows.length === 0 && (
               <tr>
                 <td colSpan={5} className="px-4 py-6 text-center text-ink-muted">
-                  Select companies to compare.
+                  No companies cached yet.
                 </td>
               </tr>
             )}
             {rows.map((r) => (
-              <tr key={r.ticker} className="border-t border-line">
-                <td className="px-4 py-3 font-medium">{r.name}</td>
+              <tr key={r.master.ticker} className="border-t border-line">
+                <td className="px-4 py-3">
+                  <div className="font-medium">{r.master.companyName}</div>
+                  <div className="text-[11px] text-ink-subtle">{r.master.sector}</div>
+                </td>
                 <td className="px-4 py-3 text-right">{r.m.display}</td>
                 <td className="px-4 py-3">
                   <StatusBadge status={r.m.status}>{r.m.label}</StatusBadge>

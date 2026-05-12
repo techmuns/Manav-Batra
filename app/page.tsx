@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AltmanTable } from "@/components/AltmanTable";
 import { BeneishTable } from "@/components/BeneishTable";
 import { Card } from "@/components/Card";
@@ -8,116 +8,204 @@ import { CompanySelector } from "@/components/CompanySelector";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { ScoreSummary } from "@/components/ScoreSummary";
 import { TrendChart } from "@/components/TrendChart";
-import { COMPANIES, getCompany, getYear } from "@/data/mockCompanies";
+import { COMPANY_MASTER, findCompany } from "@/data/companies";
 import { calculateAltman, calculateBeneish } from "@/lib/calculations";
+import type {
+  AltmanOutcome,
+  BeneishOutcome,
+  CompanyFinancials,
+} from "@/lib/types";
+
+type LoadState =
+  | { kind: "idle" }
+  | { kind: "loading"; ticker: string }
+  | { kind: "ready"; data: CompanyFinancials }
+  | { kind: "error"; ticker: string; message: string };
 
 export default function Page() {
-  const defaultCompany = COMPANIES[0];
-  const defaultYear =
-    defaultCompany.years[defaultCompany.years.length - 1]?.year ?? 2025;
+  const [selectedTicker, setSelectedTicker] = useState<string | null>(null);
+  const [selectedYear, setSelectedYear] = useState<string | null>(null);
+  const [state, setState] = useState<LoadState>({ kind: "idle" });
 
-  const [selection, setSelection] = useState<{
-    ticker: string;
-    year: number;
-  } | null>(null);
-  const [loading, setLoading] = useState(false);
+  const data = state.kind === "ready" ? state.data : null;
 
-  function handleCalculate(ticker: string, year: number) {
-    setLoading(true);
-    // Brief delay so the loading state is visible; calculations are sync.
-    window.setTimeout(() => {
-      setSelection({ ticker, year });
-      setLoading(false);
-    }, 350);
-  }
+  const availableYears = useMemo(() => {
+    if (!data) return [];
+    return [...data.years]
+      .map((y) => y.fiscalYear)
+      .sort((a, b) => b.localeCompare(a)); // newest first
+  }, [data]);
 
-  const result = useMemo(() => {
-    if (!selection) return null;
-    const company = getCompany(selection.ticker);
-    if (!company) return null;
-    const sorted = [...company.years].sort((a, b) => a.year - b.year);
-    const idx = sorted.findIndex((y) => y.year === selection.year);
+  // When a new dataset lands, default to the latest year.
+  useEffect(() => {
+    if (data && availableYears.length > 0 && !availableYears.includes(selectedYear ?? "")) {
+      setSelectedYear(availableYears[0]);
+    }
+  }, [availableYears, data, selectedYear]);
+
+  const handleCalculate = useCallback(async () => {
+    if (!selectedTicker) return;
+    setState({ kind: "loading", ticker: selectedTicker });
+    try {
+      const res = await fetch(`/api/financials?ticker=${encodeURIComponent(selectedTicker)}`);
+      const json = (await res.json()) as CompanyFinancials & { error?: string };
+      if (!res.ok || json.error) {
+        setState({
+          kind: "error",
+          ticker: selectedTicker,
+          message: json.error ?? `Request failed (HTTP ${res.status})`,
+        });
+        return;
+      }
+      try {
+        sessionStorage.setItem(`fin:${selectedTicker}`, JSON.stringify(json));
+      } catch {
+        /* sessionStorage may be unavailable; ignore */
+      }
+      setState({ kind: "ready", data: json });
+    } catch (err) {
+      setState({
+        kind: "error",
+        ticker: selectedTicker,
+        message: err instanceof Error ? err.message : "Network error",
+      });
+    }
+  }, [selectedTicker]);
+
+  // Recompute scores for the *selected* fiscal year against the *prior* fiscal year.
+  const { beneish, altman, fiscalYear } = useMemo(() => {
+    if (!data || !selectedYear) {
+      const fy = selectedYear ?? "—";
+      return {
+        fiscalYear: fy,
+        beneish: { status: "not_calculable", fiscalYear: fy, missing: [] } as BeneishOutcome,
+        altman: { status: "not_calculable", fiscalYear: fy, missing: [] } as AltmanOutcome,
+      };
+    }
+    const sorted = [...data.years].sort((a, b) =>
+      a.fiscalYear.localeCompare(b.fiscalYear)
+    );
+    const idx = sorted.findIndex((y) => y.fiscalYear === selectedYear);
     const current = idx >= 0 ? sorted[idx] : undefined;
     const prior = idx > 0 ? sorted[idx - 1] : undefined;
-    const beneish = calculateBeneish(current, prior);
-    const altman = calculateAltman(company, current);
-    return { company, year: selection.year, beneish, altman };
-  }, [selection]);
+    return {
+      fiscalYear: selectedYear,
+      beneish: calculateBeneish(current, prior),
+      altman: calculateAltman(data.master, current),
+    };
+  }, [data, selectedYear]);
+
+  const showDashboard = state.kind === "ready" && data;
+  const master = data?.master;
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-6 py-10">
       <header className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-subtle">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
             Financial Risk
           </p>
-          <h1 className="mt-1 text-xl font-semibold tracking-tight text-ink">
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
             Beneish &amp; Altman Dashboard
           </h1>
         </div>
       </header>
 
-      <Card title="Select company">
-        <CompanySelector
-          companies={COMPANIES}
-          initialTicker={defaultCompany.ticker}
-          initialYear={defaultYear}
-          onCalculate={handleCalculate}
-          loading={loading}
-        />
-      </Card>
+      {!showDashboard && (
+        <Card title="Select company" subtitle={`${COMPANY_MASTER.length} Indian listed companies`}>
+          <CompanySelector
+            companies={COMPANY_MASTER}
+            selectedTicker={selectedTicker}
+            selectedYear={selectedYear}
+            availableYears={availableYears}
+            onSelectCompany={(t) => {
+              setSelectedTicker(t);
+              setSelectedYear(null);
+            }}
+            onSelectYear={setSelectedYear}
+            onCalculate={handleCalculate}
+            loading={state.kind === "loading"}
+          />
+        </Card>
+      )}
 
-      {loading && (
+      {state.kind === "loading" && !data && (
         <Card>
           <div className="flex items-center gap-3 text-sm text-ink-muted">
             <span className="h-3 w-3 animate-spin rounded-full border-2 border-ink/20 border-t-ink" />
-            Crunching ratios…
+            Fetching financial data for {state.ticker}…
           </div>
         </Card>
       )}
 
-      {!loading && result && (
+      {state.kind === "error" && (
+        <Card title="Data unavailable">
+          <p className="text-sm text-ink">
+            We couldn&apos;t retrieve financial data for {findCompany(state.ticker)?.companyName ?? state.ticker}.
+          </p>
+          <p className="mt-1 text-xs text-ink-muted">Reason: {state.message}</p>
+          <p className="mt-3 text-xs text-ink-subtle">
+            No scores are shown because no real data is available — mock or
+            placeholder financials are never displayed in their place.
+          </p>
+          <button
+            type="button"
+            onClick={() => setState({ kind: "idle" })}
+            className="mt-4 rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted hover:text-ink"
+          >
+            Back to selector
+          </button>
+        </Card>
+      )}
+
+      {showDashboard && master && (
         <>
           <ScoreSummary
-            company={result.company}
-            year={result.year}
-            beneish={result.beneish}
-            altman={result.altman}
+            master={master}
+            fiscalYear={fiscalYear}
+            beneish={beneish}
+            altman={altman}
+            onChangeCompany={() => {
+              setState({ kind: "idle" });
+              setSelectedYear(null);
+            }}
           />
 
-          <Card
-            title="Beneish M-Score"
-            subtitle="Eight-variable manipulation detection model"
-          >
-            <BeneishTable outcome={result.beneish} />
+          <Card title="Year">
+            <div className="flex flex-wrap items-center gap-2">
+              {availableYears.map((y) => (
+                <button
+                  key={y}
+                  type="button"
+                  onClick={() => setSelectedYear(y)}
+                  className={`rounded-full px-3 py-1 text-xs font-medium ring-1 transition ${
+                    selectedYear === y
+                      ? "bg-ink text-white ring-ink"
+                      : "bg-white text-ink-muted ring-line hover:text-ink"
+                  }`}
+                >
+                  FY {y}
+                </button>
+              ))}
+            </div>
           </Card>
 
-          <Card
-            title="Altman Z-Score"
-            subtitle="Five-variable bankruptcy distress model"
-          >
-            <AltmanTable outcome={result.altman} />
+          <Card title="Beneish M-Score" subtitle="Eight-variable manipulation detection model">
+            <BeneishTable outcome={beneish} />
+          </Card>
+
+          <Card title="Altman Z-Score" subtitle="Five-variable bankruptcy distress model">
+            <AltmanTable outcome={altman} />
           </Card>
 
           <Card title="Score trend">
-            <TrendChart company={result.company} />
+            <TrendChart company={data} />
           </Card>
 
-          <Card
-            title="Company comparison"
-            subtitle={`At FY ${result.year}`}
-          >
-            <ComparisonTable companies={COMPANIES} year={result.year} />
+          <Card title="Comparison" subtitle={`At FY ${fiscalYear}`}>
+            <ComparisonTable current={data} fiscalYear={fiscalYear} />
           </Card>
         </>
-      )}
-
-      {!loading && !result && (
-        <Card>
-          <p className="text-sm text-ink-muted">
-            Pick a company and year, then press <span className="font-medium text-ink">Calculate</span> to view the scores.
-          </p>
-        </Card>
       )}
     </main>
   );

@@ -1,8 +1,8 @@
 import type {
   AltmanOutcome,
   AltmanVariable,
-  CompanyFinancials,
-  YearFinancials,
+  CompanyMaster,
+  FinancialYearData,
 } from "@/lib/types";
 
 export const ALTMAN_WEIGHTS = {
@@ -24,70 +24,87 @@ export const ALTMAN_FORMULAS = {
   X5: "Sales / Total Assets",
 } as const;
 
-function num(v: number | undefined): v is number {
-  return typeof v === "number" && Number.isFinite(v);
+const REQUIRED: Array<[keyof FinancialYearData, string]> = [
+  ["currentAssets", "Current Assets"],
+  ["currentLiabilities", "Current Liabilities"],
+  ["totalAssets", "Total Assets"],
+  ["retainedEarnings", "Retained Earnings"],
+  ["ebit", "EBIT"],
+  ["marketValueEquity", "Market Value of Equity"],
+  ["totalLiabilities", "Total Liabilities"],
+  ["sales", "Sales"],
+];
+
+function ok(n: number | null | undefined): n is number {
+  return typeof n === "number" && Number.isFinite(n);
 }
 
 export function calculateAltman(
-  company: CompanyFinancials,
-  year: YearFinancials | undefined
+  master: CompanyMaster,
+  year: FinancialYearData | undefined
 ): AltmanOutcome {
-  if (company.sector === "financial") {
+  const fiscalYear = year?.fiscalYear ?? "—";
+
+  if (master.isFinancialCompany) {
     return {
       status: "not_applicable",
+      fiscalYear,
       reason: "Not Comparable / Sector Model Needed",
     };
   }
 
-  const missing: string[] = [];
   if (!year) {
-    missing.push("Current year financials");
-    return { status: "not_calculable", missing };
+    return {
+      status: "not_calculable",
+      fiscalYear,
+      missing: ["Selected year financials"],
+    };
   }
 
-  const required: Array<[keyof YearFinancials, string]> = [
-    ["currentAssets", "Current Assets"],
-    ["currentLiabilities", "Current Liabilities"],
-    ["totalAssets", "Total Assets"],
-    ["retainedEarnings", "Retained Earnings"],
-    ["ebit", "EBIT"],
-    ["marketCap", "Market Value of Equity"],
-    ["totalLiabilities", "Total Liabilities"],
-    ["sales", "Sales"],
-  ];
-  for (const [field, label] of required) {
-    if (!num(year[field] as number | undefined)) missing.push(label);
+  const missing: string[] = [];
+  for (const [field, label] of REQUIRED) {
+    if (!ok(year[field] as number | null)) missing.push(label);
   }
-  if (missing.length > 0) return { status: "not_calculable", missing };
+  if (!ok(year.totalAssets) || (year.totalAssets ?? 0) === 0) {
+    if (!missing.includes("Total Assets")) missing.push("Total Assets");
+  }
+  if (!ok(year.totalLiabilities) || (year.totalLiabilities ?? 0) === 0) {
+    if (!missing.includes("Total Liabilities")) missing.push("Total Liabilities");
+  }
+  if (missing.length > 0) return { status: "not_calculable", fiscalYear, missing };
 
-  const y = year as Required<YearFinancials>;
-  const workingCapital = y.currentAssets - y.currentLiabilities;
+  const g = (k: keyof FinancialYearData): number => year[k] as number;
+  const ca = g("currentAssets");
+  const cl = g("currentLiabilities");
+  const ta = g("totalAssets");
+  const re = g("retainedEarnings");
+  const ebit_ = g("ebit");
+  const mve = g("marketValueEquity");
+  const tl = g("totalLiabilities");
+  const sales = g("sales");
+  const workingCapital = ca - cl;
 
   const values = {
-    X1: workingCapital / y.totalAssets,
-    X2: y.retainedEarnings / y.totalAssets,
-    X3: y.ebit / y.totalAssets,
-    X4: y.marketCap / y.totalLiabilities,
-    X5: y.sales / y.totalAssets,
+    X1: workingCapital / ta,
+    X2: re / ta,
+    X3: ebit_ / ta,
+    X4: mve / tl,
+    X5: sales / ta,
   };
 
   const variables: AltmanVariable[] = (
     Object.keys(ALTMAN_WEIGHTS) as Array<keyof typeof ALTMAN_WEIGHTS>
-  ).map((key) => {
-    const value = values[key];
-    const weight = ALTMAN_WEIGHTS[key];
-    return {
-      key,
-      formula: ALTMAN_FORMULAS[key],
-      value,
-      weight,
-      contribution: value * weight,
-    };
-  });
+  ).map((key) => ({
+    key,
+    formula: ALTMAN_FORMULAS[key],
+    value: values[key],
+    weight: ALTMAN_WEIGHTS[key],
+    contribution: values[key] * ALTMAN_WEIGHTS[key],
+  }));
 
   const zScore = variables.reduce((sum, v) => sum + v.contribution, 0);
   const interpretation =
     zScore < ALTMAN_DISTRESS ? "distress" : zScore > ALTMAN_SAFE ? "safe" : "grey";
 
-  return { status: "ok", variables, zScore, interpretation };
+  return { status: "ok", fiscalYear, variables, zScore, interpretation };
 }

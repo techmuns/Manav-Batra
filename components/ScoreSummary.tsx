@@ -2,7 +2,7 @@ import { fmt } from "@/lib/format";
 import type {
   AltmanOutcome,
   BeneishOutcome,
-  CompanyFinancials,
+  CompanyMaster,
 } from "@/lib/types";
 import { StatusBadge, type Status } from "./StatusBadge";
 
@@ -10,7 +10,6 @@ function beneishStatus(o: BeneishOutcome): Status {
   if (o.status !== "ok") return "neutral";
   return o.interpretation === "high" ? "risk" : "safe";
 }
-
 function altmanStatus(o: AltmanOutcome): Status {
   if (o.status === "ok") {
     if (o.interpretation === "safe") return "safe";
@@ -19,14 +18,10 @@ function altmanStatus(o: AltmanOutcome): Status {
   }
   return "neutral";
 }
-
 function beneishLabel(o: BeneishOutcome): string {
   if (o.status !== "ok") return "Not Calculable";
-  return o.interpretation === "high"
-    ? "High manipulation risk"
-    : "Low manipulation risk";
+  return o.interpretation === "high" ? "High manipulation risk" : "Low manipulation risk";
 }
-
 function altmanLabel(o: AltmanOutcome): string {
   if (o.status === "not_applicable") return o.reason;
   if (o.status === "not_calculable") return "Not Calculable";
@@ -36,25 +31,39 @@ function altmanLabel(o: AltmanOutcome): string {
 }
 
 export function ScoreSummary({
-  company,
-  year,
+  master,
+  fiscalYear,
   beneish,
   altman,
+  onChangeCompany,
 }: {
-  company: CompanyFinancials;
-  year: number;
+  master: CompanyMaster;
+  fiscalYear: string;
   beneish: BeneishOutcome;
   altman: AltmanOutcome;
+  onChangeCompany: () => void;
 }) {
   return (
-    <div className="grid gap-5">
-      <header className="flex flex-wrap items-end justify-between gap-2">
+    <div className="space-y-5">
+      <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-ink">
-            {company.name}
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
+            {master.sector}
+          </p>
+          <h1 className="mt-1 text-3xl font-semibold tracking-tight text-ink">
+            {master.companyName}
           </h1>
-          <p className="text-sm text-ink-muted">FY {year}</p>
+          <p className="mt-1 text-sm text-ink-muted">
+            {master.ticker} · FY {fiscalYear}
+          </p>
         </div>
+        <button
+          type="button"
+          onClick={onChangeCompany}
+          className="rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
+        >
+          Change company
+        </button>
       </header>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -66,9 +75,7 @@ export function ScoreSummary({
           hint={
             beneish.status === "ok"
               ? "Cutoff: −1.78"
-              : beneish.status === "not_calculable"
-                ? `${beneish.missing.length} variable(s) missing`
-                : ""
+              : `${beneish.missing.length} variable(s) missing`
           }
         />
         <ScoreCard
@@ -105,12 +112,12 @@ function ScoreCard({
   return (
     <div className="rounded-2xl border border-line bg-white p-6 shadow-card">
       <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
           {label}
         </p>
         <StatusBadge status={status}>{statusLabel}</StatusBadge>
       </div>
-      <p className="mt-3 text-4xl font-semibold tracking-tight tabular text-ink">
+      <p className="mt-3 text-5xl font-semibold tracking-tight tabular text-ink">
         {value}
       </p>
       {hint && <p className="mt-2 text-xs text-ink-subtle">{hint}</p>}

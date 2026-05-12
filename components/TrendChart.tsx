@@ -23,19 +23,19 @@ import type { CompanyFinancials } from "@/lib/types";
 type Window = 5 | 10;
 
 interface Point {
-  year: number;
+  year: string;
   m: number | null;
   z: number | null;
 }
 
 function buildSeries(company: CompanyFinancials): Point[] {
-  const years = [...company.years].sort((a, b) => a.year - b.year);
+  const years = [...company.years].sort((a, b) => a.fiscalYear.localeCompare(b.fiscalYear));
   return years.map((y, idx) => {
     const prior = idx > 0 ? years[idx - 1] : undefined;
     const b = calculateBeneish(y, prior);
-    const a = calculateAltman(company, y);
+    const a = calculateAltman(company.master, y);
     return {
-      year: y.year,
+      year: y.fiscalYear,
       m: b.status === "ok" ? +b.mScore.toFixed(3) : null,
       z: a.status === "ok" ? +a.zScore.toFixed(3) : null,
     };
@@ -43,10 +43,12 @@ function buildSeries(company: CompanyFinancials): Point[] {
 }
 
 export function TrendChart({ company }: { company: CompanyFinancials }) {
-  const [win, setWin] = useState<Window>(5);
+  const [win, setWin] = useState<Window>(10);
   const series = useMemo(() => buildSeries(company), [company]);
   const data = series.slice(-win);
-  const isFinancial = company.sector === "financial";
+  const hasAnyM = data.some((d) => d.m != null);
+  const hasAnyZ = data.some((d) => d.z != null);
+  const isFinancial = company.master.isFinancialCompany;
 
   return (
     <div className="space-y-5">
@@ -72,21 +74,26 @@ export function TrendChart({ company }: { company: CompanyFinancials }) {
           title="Beneish M-Score"
           data={data}
           dataKey="m"
-          domain={[-5, 0]}
-          color="#0f172a"
+          domain={[-6, 1]}
           refs={[{ y: BENEISH_CUTOFF, label: "Cutoff −1.78", color: "#dc2626" }]}
+          empty={hasAnyM ? undefined : "No years had complete inputs for M-Score"}
         />
         <ChartBlock
           title="Altman Z-Score"
           data={data}
           dataKey="z"
-          domain={[0, 6]}
-          color="#0f172a"
+          domain={[0, 8]}
           refs={[
             { y: ALTMAN_DISTRESS, label: "Distress 1.8", color: "#dc2626" },
             { y: ALTMAN_SAFE, label: "Safe 3.0", color: "#16a34a" },
           ]}
-          empty={isFinancial ? "Not applicable for financial companies" : undefined}
+          empty={
+            isFinancial
+              ? "Not applicable for financial companies"
+              : hasAnyZ
+                ? undefined
+                : "No years had complete inputs for Z-Score"
+          }
         />
       </div>
     </div>
@@ -98,7 +105,6 @@ function ChartBlock({
   data,
   dataKey,
   domain,
-  color,
   refs,
   empty,
 }: {
@@ -106,14 +112,13 @@ function ChartBlock({
   data: Point[];
   dataKey: "m" | "z";
   domain: [number, number];
-  color: string;
   refs: Array<{ y: number; label: string; color: string }>;
   empty?: string;
 }) {
   return (
     <div className="rounded-2xl border border-line bg-white p-4 shadow-card">
       <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-wider text-ink-muted">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
           {title}
         </p>
       </div>
@@ -147,17 +152,22 @@ function ChartBlock({
                   y={r.y}
                   stroke={r.color}
                   strokeDasharray="4 4"
-                  label={{ value: r.label, position: "insideTopRight", fill: r.color, fontSize: 10 }}
+                  label={{
+                    value: r.label,
+                    position: "insideTopRight",
+                    fill: r.color,
+                    fontSize: 10,
+                  }}
                 />
               ))}
               <Line
                 type="monotone"
                 dataKey={dataKey}
-                stroke={color}
+                stroke="#0f172a"
                 strokeWidth={2}
                 dot={{ r: 3 }}
                 activeDot={{ r: 5 }}
-                connectNulls
+                connectNulls={false}
               />
             </LineChart>
           </ResponsiveContainer>
