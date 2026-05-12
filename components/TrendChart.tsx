@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   CartesianGrid,
   Line,
@@ -11,44 +11,22 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import {
-  ALTMAN_DISTRESS,
-  ALTMAN_SAFE,
-  BENEISH_CUTOFF,
-  calculateAltman,
-  calculateBeneish,
-} from "@/lib/calculations";
-import type { CompanyFinancials } from "@/lib/types";
+import { ALTMAN_DISTRESS, ALTMAN_SAFE, BENEISH_CUTOFF } from "@/lib/calculations";
+import type { TrendPoint } from "@/lib/types";
 
 type Window = 5 | 10;
 
-interface Point {
-  year: string;
-  m: number | null;
-  z: number | null;
-}
-
-function buildSeries(company: CompanyFinancials): Point[] {
-  const years = [...company.years].sort((a, b) => a.fiscalYear.localeCompare(b.fiscalYear));
-  return years.map((y, idx) => {
-    const prior = idx > 0 ? years[idx - 1] : undefined;
-    const b = calculateBeneish(y, prior);
-    const a = calculateAltman(company.master, y);
-    return {
-      year: y.fiscalYear,
-      m: b.status === "ok" ? +b.mScore.toFixed(3) : null,
-      z: a.status === "ok" ? +a.zScore.toFixed(3) : null,
-    };
-  });
-}
-
-export function TrendChart({ company }: { company: CompanyFinancials }) {
+export function TrendChart({
+  trend,
+  isFinancial,
+}: {
+  trend: TrendPoint[];
+  isFinancial: boolean;
+}) {
   const [win, setWin] = useState<Window>(10);
-  const series = useMemo(() => buildSeries(company), [company]);
-  const data = series.slice(-win);
-  const hasAnyM = data.some((d) => d.m != null);
-  const hasAnyZ = data.some((d) => d.z != null);
-  const isFinancial = company.master.isFinancialCompany;
+  const data = trend.slice(-win);
+  const hasAnyM = data.some((d) => d.mScore != null);
+  const hasAnyZ = data.some((d) => d.zScore != null);
 
   return (
     <div className="space-y-5">
@@ -73,7 +51,7 @@ export function TrendChart({ company }: { company: CompanyFinancials }) {
         <ChartBlock
           title="Beneish M-Score"
           data={data}
-          dataKey="m"
+          dataKey="mScore"
           domain={[-6, 1]}
           refs={[{ y: BENEISH_CUTOFF, label: "Cutoff −1.78", color: "#dc2626" }]}
           empty={hasAnyM ? undefined : "No years had complete inputs for M-Score"}
@@ -81,7 +59,7 @@ export function TrendChart({ company }: { company: CompanyFinancials }) {
         <ChartBlock
           title="Altman Z-Score"
           data={data}
-          dataKey="z"
+          dataKey="zScore"
           domain={[0, 8]}
           refs={[
             { y: ALTMAN_DISTRESS, label: "Distress 1.8", color: "#dc2626" },
@@ -109,19 +87,17 @@ function ChartBlock({
   empty,
 }: {
   title: string;
-  data: Point[];
-  dataKey: "m" | "z";
+  data: TrendPoint[];
+  dataKey: "mScore" | "zScore";
   domain: [number, number];
   refs: Array<{ y: number; label: string; color: string }>;
   empty?: string;
 }) {
   return (
     <div className="rounded-2xl border border-line bg-white p-4 shadow-card">
-      <div className="flex items-center justify-between">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-          {title}
-        </p>
-      </div>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
+        {title}
+      </p>
       <div className="mt-3 h-60">
         {empty ? (
           <div className="flex h-full items-center justify-center text-sm text-ink-muted">
@@ -131,21 +107,9 @@ function ChartBlock({
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
-              <XAxis dataKey="year" stroke="#94a3b8" fontSize={12} tickLine={false} />
-              <YAxis
-                domain={domain}
-                stroke="#94a3b8"
-                fontSize={12}
-                tickLine={false}
-                width={40}
-              />
-              <Tooltip
-                contentStyle={{
-                  borderRadius: 8,
-                  border: "1px solid #e2e8f0",
-                  fontSize: 12,
-                }}
-              />
+              <XAxis dataKey="fiscalYear" stroke="#94a3b8" fontSize={12} tickLine={false} />
+              <YAxis domain={domain} stroke="#94a3b8" fontSize={12} tickLine={false} width={40} />
+              <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #e2e8f0", fontSize: 12 }} />
               {refs.map((r) => (
                 <ReferenceLine
                   key={r.label}

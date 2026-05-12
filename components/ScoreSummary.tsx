@@ -36,12 +36,14 @@ export function ScoreSummary({
   beneish,
   altman,
   onChangeCompany,
+  onRecalculate,
 }: {
   master: CompanyMaster;
   fiscalYear: string;
   beneish: BeneishOutcome;
   altman: AltmanOutcome;
   onChangeCompany: () => void;
+  onRecalculate?: () => void;
 }) {
   return (
     <div className="space-y-5">
@@ -57,13 +59,24 @@ export function ScoreSummary({
             {master.ticker} · FY {fiscalYear}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onChangeCompany}
-          className="rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
-        >
-          Change company
-        </button>
+        <div className="flex items-center gap-2">
+          {onRecalculate && (
+            <button
+              type="button"
+              onClick={onRecalculate}
+              className="rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
+            >
+              Recalculate
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onChangeCompany}
+            className="rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
+          >
+            Change company
+          </button>
+        </div>
       </header>
 
       <div className="grid gap-4 md:grid-cols-2">

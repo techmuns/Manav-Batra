@@ -110,3 +110,30 @@ export interface NotApplicable {
 
 export type BeneishOutcome = BeneishResult | NotCalculable;
 export type AltmanOutcome = AltmanResult | NotCalculable | NotApplicable;
+
+// ----- API contract -----------------------------------------------------
+
+export interface TrendPoint {
+  fiscalYear: string;
+  mScore: number | null;
+  zScore: number | null;
+}
+
+export interface ScoresResponse {
+  master: CompanyMaster;
+  fiscalYear: string;
+  availableYears: string[]; // newest first, for the year selector
+  beneish: BeneishOutcome;
+  altman: AltmanOutcome;
+  trend: TrendPoint[]; // ascending order for the chart
+  /** Internal: which path produced the data. UI may use to render a
+   * sample-data banner when source === "dev_mock". */
+  source: "screener" | "dev_mock";
+  fetchedAt: string;
+}
+
+export interface ScoresError {
+  error: "fetch_failed" | "unknown_ticker" | "no_data" | "year_unavailable" | "missing_slug";
+  message: string;
+  master?: CompanyMaster;
+}
