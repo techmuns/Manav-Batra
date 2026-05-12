@@ -13,7 +13,7 @@
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { resolve } from "node:path";
 
 import { COMPANY_MASTER } from "../data/companies";
 import { normalize } from "../lib/screener/fetch";
@@ -25,7 +25,9 @@ import type {
   GeneratedFinancialSnapshot,
 } from "../lib/types";
 
-const OUTPUT_PATH = resolve(__dirname, "..", "data", "generated", "screener-financials.json");
+const OUTPUT_DIR = resolve(__dirname, "..", "data", "generated");
+const OUTPUT_JSON = resolve(OUTPUT_DIR, "screener-financials.json");
+const OUTPUT_TS = resolve(OUTPUT_DIR, "screener-financials.ts");
 
 // Stagger requests so we don't hammer Screener.  At ~50 companies the
 // total wall-clock is around 50 * (700ms + ~1s fetch) ~= 85s.
@@ -164,9 +166,18 @@ async function main() {
     companies,
   };
 
-  mkdirSync(dirname(OUTPUT_PATH), { recursive: true });
-  writeFileSync(OUTPUT_PATH, JSON.stringify(snapshot, null, 2) + "\n", "utf8");
-  console.log(`[ingest] wrote ${OUTPUT_PATH}`);
+  mkdirSync(OUTPUT_DIR, { recursive: true });
+  const jsonBody = JSON.stringify(snapshot, null, 2);
+  writeFileSync(OUTPUT_JSON, jsonBody + "\n", "utf8");
+  // Also write the TS module the runtime imports — JSON imports are
+  // unreliable on Cloudflare's edge runtime via Turbopack.
+  const tsBody = `// Auto-generated from screener-financials.json — do not edit by hand.
+import type { GeneratedFinancialSnapshot } from "@/lib/types";
+const snapshot: GeneratedFinancialSnapshot = ${jsonBody};
+export default snapshot;
+`;
+  writeFileSync(OUTPUT_TS, tsBody, "utf8");
+  console.log(`[ingest] wrote ${OUTPUT_JSON} and ${OUTPUT_TS}`);
   console.log(`[ingest] summary: ok=${ok} failed=${failed} total=${COMPANY_MASTER.length}`);
 }
 
