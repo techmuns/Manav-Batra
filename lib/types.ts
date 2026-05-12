@@ -148,7 +148,35 @@ export type ErrorCode =
   | "YEAR_NOT_FOUND"
   | "UNKNOWN_TICKER"
   | "MISSING_SLUG"
-  | "ROUTE_FAILED";
+  | "ROUTE_FAILED"
+  | "NO_SNAPSHOT"
+  | "SNAPSHOT_NOT_INGESTED";
+
+// ----- GitHub-Actions-generated snapshot --------------------------------
+
+export type CompanySnapshotStatus =
+  | "ok"
+  | "fetch_failed"
+  | "parser_failed"
+  | "no_data";
+
+export interface CompanyFinancialSnapshot {
+  companyName: string;
+  ticker: string;
+  screenerSlug: string;
+  sector: string;
+  isFinancialCompany: boolean;
+  status: CompanySnapshotStatus;
+  /** Year-keyed financial data.  Keys are fiscal-year strings, e.g. "2025". */
+  years: Record<string, FinancialYearData>;
+  errors?: string[];
+}
+
+export interface GeneratedFinancialSnapshot {
+  generatedAt: string | null;
+  source: "screener_github_actions";
+  companies: Record<string, CompanyFinancialSnapshot>;
+}
 
 export interface ScoresError {
   ok: false;

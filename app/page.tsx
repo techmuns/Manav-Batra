@@ -26,13 +26,11 @@ export default function Page() {
     const url = new URL("/api/scores", window.location.origin);
     url.searchParams.set("slug", ticker);
     url.searchParams.set("year", year);
-    const params = new URLSearchParams(window.location.search);
-    // Dev mode flag — pass through if present so we can demo the dashboard
-    // when Screener is unreachable.  Not used in production.
-    if (params.get("dev") === "1") url.searchParams.set("dev", "1");
     // Debug flag — when present, surface upstream diagnostics in the
-    // error response so we can see the exact Screener status / body.
-    if (params.get("debug") === "1") url.searchParams.set("debug", "1");
+    // error response so we can see the exact ingestion-failure details.
+    if (new URLSearchParams(window.location.search).get("debug") === "1") {
+      url.searchParams.set("debug", "1");
+    }
 
     try {
       const res = await fetch(url.toString());
@@ -104,14 +102,6 @@ export default function Page() {
   const data = state.data;
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-6 py-10">
-      {data.source === "dev_mock" && (
-        <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
-          <span className="font-semibold">Sample data.</span> Live data fetch was unavailable;
-          this view uses dev-only sample financials. Do not interpret these numbers as real
-          values.
-        </div>
-      )}
-
       <ScoreSummary
         master={data.master}
         fiscalYear={data.fiscalYear}

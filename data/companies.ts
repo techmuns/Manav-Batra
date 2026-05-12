@@ -130,10 +130,6 @@ export const COMPANY_MASTER: CompanyMaster[] = [
   make("Asian Paints", "ASIANPAINT", "Paints"),
   make("Berger Paints", "BERGEPAINT", "Paints"),
   make("Pidilite Industries", "PIDILITIND", "Chemicals"),
-
-  // Dev / demo company — intentionally incomplete data so the
-  // "Not Calculable" branch is easy to exercise.
-  make("Sample Co. (incomplete data)", "SAMPLE_INCOMPLETE", "Demo"),
 ];
 
 export function findCompany(ticker: string): CompanyMaster | undefined {

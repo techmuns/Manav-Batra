@@ -34,6 +34,16 @@ const COPY: Record<ErrorCode, { title: string; detail: string }> = {
     title: "Request failed",
     detail: "The Calculate request couldn't complete. Please try again.",
   },
+  NO_SNAPSHOT: {
+    title: "Data not ingested yet",
+    detail:
+      "The Screener snapshot pipeline hasn't produced any data yet. Once the GitHub Actions ingestion job runs, scores will be available.",
+  },
+  SNAPSHOT_NOT_INGESTED: {
+    title: "Company not ingested yet",
+    detail:
+      "This company isn't in the latest snapshot. The next ingestion run should pick it up.",
+  },
 };
 
 export function ErrorScreen({
