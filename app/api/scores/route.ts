@@ -29,6 +29,22 @@ function err(payload: ScoresError, status: number) {
 }
 
 export async function GET(req: Request) {
+  try {
+    return await handle(req);
+  } catch (e) {
+    // Last-resort guard: never let Cloudflare serve an HTML error page.
+    const message = e instanceof Error ? e.message : String(e);
+    console.error("[scores] uncaught", message, e);
+    const payload: ScoresError = {
+      ok: false,
+      errorCode: "ROUTE_FAILED",
+      message: `Edge route threw: ${message}`,
+    };
+    return NextResponse.json(payload, { status: 500, headers: RESPONSE_HEADERS });
+  }
+}
+
+async function handle(req: Request) {
   const url = new URL(req.url);
   const slug = (url.searchParams.get("slug") ?? url.searchParams.get("ticker"))?.trim();
   const yearParam = url.searchParams.get("year")?.replace(/^FY/i, "").trim();
