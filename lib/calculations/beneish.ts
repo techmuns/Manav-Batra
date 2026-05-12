@@ -73,13 +73,13 @@ export function calculateBeneish(
   const missing: string[] = [];
 
   if (!current) {
-    return { status: "not_calculable", fiscalYear, missing: ["Current year financials"] };
+    return { status: "not_calculable", fiscalYear, missingVariables: ["Current year financials"] };
   }
   if (!prior) {
     return {
       status: "not_calculable",
       fiscalYear,
-      missing: ["Prior year financials (required for year-over-year ratios)"],
+      missingVariables: ["Prior year financials (required for year-over-year ratios)"],
     };
   }
 
@@ -107,7 +107,8 @@ export function calculateBeneish(
     if (!nonzero(v as number | null) && !missing.includes(label)) missing.push(label);
   }
 
-  if (missing.length > 0) return { status: "not_calculable", fiscalYear, missing };
+  if (missing.length > 0)
+    return { status: "not_calculable", fiscalYear, missingVariables: missing };
 
   // Every input is verified non-null above; pull into a non-null view.
   const g = (y: FinancialYearData, k: keyof FinancialYearData): number =>
@@ -141,7 +142,7 @@ export function calculateBeneish(
   const grossMarginPrior = p_gp / p_sales;
   const grossMarginCurrent = c_gp / c_sales;
   if (grossMarginCurrent === 0) {
-    return { status: "not_calculable", fiscalYear, missing: ["Current Gross Margin is zero"] };
+    return { status: "not_calculable", fiscalYear, missingVariables: ["Current Gross Margin is zero"] };
   }
   const GMI = grossMarginPrior / grossMarginCurrent;
 
@@ -154,7 +155,7 @@ export function calculateBeneish(
     return {
       status: "not_calculable",
       fiscalYear,
-      missing: ["Depreciation + PPE is zero in current or prior year"],
+      missingVariables: ["Depreciation + PPE is zero in current or prior year"],
     };
   }
   const DEPI = (p_dep / depPriorDenom) / (c_dep / depCurrentDenom);
@@ -169,7 +170,7 @@ export function calculateBeneish(
       return {
         status: "not_calculable",
         fiscalYear,
-        missing: [`${key} could not be computed (division-by-zero or invalid input)`],
+        missingVariables: [`${key} could not be computed (division-by-zero or invalid input)`],
       };
     }
   }
@@ -186,7 +187,7 @@ export function calculateBeneish(
     BENEISH_CONSTANT + variables.reduce((sum, v) => sum + v.contribution, 0);
 
   return {
-    status: "ok",
+    status: "calculated",
     fiscalYear,
     constant: BENEISH_CONSTANT,
     variables,

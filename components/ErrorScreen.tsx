@@ -1,38 +1,38 @@
 "use client";
 
-import type { ScoresError } from "@/lib/types";
+import type { ErrorCode, ScoresError } from "@/lib/types";
 
-const COPY: Record<ScoresError["error"], { title: string; detail: string }> = {
-  fetch_failed: {
+const COPY: Record<ErrorCode, { title: string; detail: string }> = {
+  SCREENER_FETCH_FAILED: {
     title: "Unable to fetch company financials",
     detail:
       "We couldn't retrieve the data needed to calculate scores. Please try again in a moment.",
   },
-  screener_fetch_blocked: {
+  SCREENER_FETCH_BLOCKED: {
     title: "Live data source is currently unreachable",
     detail:
-      "The upstream data source returned a non-OK response — most likely a bot block on the request from this environment.",
+      "The upstream data source returned a non-OK response — most likely a bot block on requests from this environment.",
   },
-  parser_failed: {
+  PARSER_FAILED: {
     title: "Couldn't read financial tables",
     detail:
       "The upstream page loaded but we couldn't extract the financial tables we need.",
   },
-  unknown_ticker: {
+  YEAR_NOT_FOUND: {
+    title: "Fiscal year not available",
+    detail: "The selected fiscal year is not available for this company.",
+  },
+  UNKNOWN_TICKER: {
     title: "Company not found",
     detail: "The selected ticker isn't in our company list.",
   },
-  no_data: {
-    title: "No financial data available",
-    detail: "Nothing was returned for this company.",
-  },
-  year_unavailable: {
-    title: "Year not available",
-    detail: "The selected fiscal year is not available for this company.",
-  },
-  missing_slug: {
+  MISSING_SLUG: {
     title: "Missing company selection",
     detail: "Please pick a company before calculating.",
+  },
+  ROUTE_FAILED: {
+    title: "Request failed",
+    detail: "The Calculate request couldn't complete. Please try again.",
   },
 };
 
@@ -45,7 +45,7 @@ export function ErrorScreen({
   onBack: () => void;
   onRetry: () => void;
 }) {
-  const copy = COPY[error.error] ?? {
+  const copy = COPY[error.errorCode] ?? {
     title: "Something went wrong",
     detail: error.message,
   };
@@ -54,7 +54,7 @@ export function ErrorScreen({
     <div className="mx-auto flex max-w-2xl flex-col px-6 py-16">
       <div className="rounded-3xl border border-line bg-white p-8 shadow-card">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
-          Data unavailable
+          {error.errorCode}
         </p>
         <h2 className="mt-1.5 text-2xl font-semibold tracking-tight text-ink">
           {copy.title}

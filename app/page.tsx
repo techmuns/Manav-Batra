@@ -37,7 +37,9 @@ export default function Page() {
     try {
       const res = await fetch(url.toString());
       const body = (await res.json()) as ScoresResponse | ScoresError;
-      if (!res.ok || "error" in body) {
+      // Discriminate purely by `ok`.  not_calculable results still come
+      // back with ok:true and are rendered as score cards, NOT errors.
+      if (!body || (body as ScoresError).ok === false) {
         const errBody = body as ScoresError;
         setState({
           kind: "error",
@@ -57,7 +59,8 @@ export default function Page() {
         ticker,
         year,
         error: {
-          error: "fetch_failed",
+          ok: false,
+          errorCode: "ROUTE_FAILED",
           message: e instanceof Error ? e.message : "Network error",
           master: findCompany(ticker),
         },

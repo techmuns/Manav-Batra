@@ -16,7 +16,7 @@ export function BeneishTable({ outcome }: { outcome: BeneishOutcome }) {
       </div>
 
       {outcome.status === "not_calculable" ? (
-        <MissingDataWarning missing={outcome.missing} />
+        <MissingDataWarning missing={outcome.missingVariables} />
       ) : (
         <div className="overflow-hidden rounded-xl border border-line">
           <table className="w-full text-sm">

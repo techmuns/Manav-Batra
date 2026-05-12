@@ -14,7 +14,7 @@ export function AltmanTable({ outcome }: { outcome: AltmanOutcome }) {
         <p className="mt-1 font-mono text-sm leading-relaxed text-ink">{FORMULA}</p>
       </div>
 
-      {outcome.status === "not_applicable" ? (
+      {outcome.status === "not_comparable" ? (
         <div className="rounded-xl border border-line bg-slate-50 px-4 py-3">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
             Not Applicable
@@ -26,7 +26,7 @@ export function AltmanTable({ outcome }: { outcome: AltmanOutcome }) {
           </p>
         </div>
       ) : outcome.status === "not_calculable" ? (
-        <MissingDataWarning missing={outcome.missing} />
+        <MissingDataWarning missing={outcome.missingVariables} />
       ) : (
         <div className="overflow-hidden rounded-xl border border-line">
           <table className="w-full text-sm">

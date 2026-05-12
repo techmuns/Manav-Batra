@@ -47,7 +47,7 @@ export function calculateAltman(
 
   if (master.isFinancialCompany) {
     return {
-      status: "not_applicable",
+      status: "not_comparable",
       fiscalYear,
       reason: "Not Comparable / Sector Model Needed",
     };
@@ -57,7 +57,7 @@ export function calculateAltman(
     return {
       status: "not_calculable",
       fiscalYear,
-      missing: ["Selected year financials"],
+      missingVariables: ["Selected year financials"],
     };
   }
 
@@ -71,7 +71,8 @@ export function calculateAltman(
   if (!ok(year.totalLiabilities) || (year.totalLiabilities ?? 0) === 0) {
     if (!missing.includes("Total Liabilities")) missing.push("Total Liabilities");
   }
-  if (missing.length > 0) return { status: "not_calculable", fiscalYear, missing };
+  if (missing.length > 0)
+    return { status: "not_calculable", fiscalYear, missingVariables: missing };
 
   const g = (k: keyof FinancialYearData): number => year[k] as number;
   const ca = g("currentAssets");
@@ -106,5 +107,5 @@ export function calculateAltman(
   const interpretation =
     zScore < ALTMAN_DISTRESS ? "distress" : zScore > ALTMAN_SAFE ? "safe" : "grey";
 
-  return { status: "ok", fiscalYear, variables, zScore, interpretation };
+  return { status: "calculated", fiscalYear, variables, zScore, interpretation };
 }

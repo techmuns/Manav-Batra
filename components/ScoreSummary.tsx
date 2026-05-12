@@ -7,11 +7,11 @@ import type {
 import { StatusBadge, type Status } from "./StatusBadge";
 
 function beneishStatus(o: BeneishOutcome): Status {
-  if (o.status !== "ok") return "neutral";
+  if (o.status !== "calculated") return "neutral";
   return o.interpretation === "high" ? "risk" : "safe";
 }
 function altmanStatus(o: AltmanOutcome): Status {
-  if (o.status === "ok") {
+  if (o.status === "calculated") {
     if (o.interpretation === "safe") return "safe";
     if (o.interpretation === "grey") return "watch";
     return "risk";
@@ -19,11 +19,11 @@ function altmanStatus(o: AltmanOutcome): Status {
   return "neutral";
 }
 function beneishLabel(o: BeneishOutcome): string {
-  if (o.status !== "ok") return "Not Calculable";
+  if (o.status !== "calculated") return "Not Calculable";
   return o.interpretation === "high" ? "High manipulation risk" : "Low manipulation risk";
 }
 function altmanLabel(o: AltmanOutcome): string {
-  if (o.status === "not_applicable") return o.reason;
+  if (o.status === "not_comparable") return o.reason;
   if (o.status === "not_calculable") return "Not Calculable";
   if (o.interpretation === "safe") return "Safe zone";
   if (o.interpretation === "grey") return "Grey zone";
@@ -82,25 +82,25 @@ export function ScoreSummary({
       <div className="grid gap-4 md:grid-cols-2">
         <ScoreCard
           label="Beneish M-Score"
-          value={beneish.status === "ok" ? fmt(beneish.mScore, 2) : "—"}
+          value={beneish.status === "calculated" ? fmt(beneish.mScore, 2) : "—"}
           status={beneishStatus(beneish)}
           statusLabel={beneishLabel(beneish)}
           hint={
-            beneish.status === "ok"
+            beneish.status === "calculated"
               ? "Cutoff: −1.78"
-              : `${beneish.missing.length} variable(s) missing`
+              : `${beneish.missingVariables.length} variable(s) missing`
           }
         />
         <ScoreCard
           label="Altman Z-Score"
-          value={altman.status === "ok" ? fmt(altman.zScore, 2) : "—"}
+          value={altman.status === "calculated" ? fmt(altman.zScore, 2) : "—"}
           status={altmanStatus(altman)}
           statusLabel={altmanLabel(altman)}
           hint={
-            altman.status === "ok"
+            altman.status === "calculated"
               ? "Distress < 1.8 · Safe > 3.0"
               : altman.status === "not_calculable"
-                ? `${altman.missing.length} variable(s) missing`
+                ? `${altman.missingVariables.length} variable(s) missing`
                 : ""
           }
         />

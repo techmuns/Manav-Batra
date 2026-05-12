@@ -66,7 +66,7 @@ export interface BeneishVariable {
 }
 
 export interface BeneishResult {
-  status: "ok";
+  status: "calculated";
   fiscalYear: string;
   constant: number;
   variables: BeneishVariable[];
@@ -87,7 +87,7 @@ export interface AltmanVariable {
 }
 
 export interface AltmanResult {
-  status: "ok";
+  status: "calculated";
   fiscalYear: string;
   variables: AltmanVariable[];
   zScore: number;
@@ -99,11 +99,11 @@ export interface AltmanResult {
 export interface NotCalculable {
   status: "not_calculable";
   fiscalYear: string;
-  missing: string[];
+  missingVariables: string[];
 }
 
 export interface NotApplicable {
-  status: "not_applicable";
+  status: "not_comparable";
   fiscalYear: string;
   reason: string;
 }
@@ -120,6 +120,15 @@ export interface TrendPoint {
 }
 
 export interface ScoresResponse {
+  ok: true;
+  company: {
+    name: string;
+    ticker: string;
+    fiscalYear: string;
+    sector: string;
+    isFinancialCompany: boolean;
+  };
+  /** Echoed for UI convenience. */
   master: CompanyMaster;
   fiscalYear: string;
   availableYears: string[]; // newest first, for the year selector
@@ -132,15 +141,18 @@ export interface ScoresResponse {
   fetchedAt: string;
 }
 
+export type ErrorCode =
+  | "SCREENER_FETCH_FAILED"
+  | "SCREENER_FETCH_BLOCKED"
+  | "PARSER_FAILED"
+  | "YEAR_NOT_FOUND"
+  | "UNKNOWN_TICKER"
+  | "MISSING_SLUG"
+  | "ROUTE_FAILED";
+
 export interface ScoresError {
-  error:
-    | "fetch_failed"
-    | "screener_fetch_blocked"
-    | "parser_failed"
-    | "unknown_ticker"
-    | "no_data"
-    | "year_unavailable"
-    | "missing_slug";
+  ok: false;
+  errorCode: ErrorCode;
   message: string;
   master?: CompanyMaster;
   /** Optional diagnostics — only returned when ?debug=1 is set. */
@@ -148,7 +160,7 @@ export interface ScoresError {
     slug?: string;
     year?: string;
     screenerUrl?: string;
-    httpStatus?: number;
+    status?: number;
     bodySnippet?: string;
     columnsExtracted?: string[];
   };
