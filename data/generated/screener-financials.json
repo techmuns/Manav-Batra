@@ -1,5 +1,1410 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-05-12T11:35:12.309Z",
   "source": "screener_github_actions",
-  "companies": {}
+  "companies": {
+    "HDFCBANK": {
+      "companyName": "HDFC Bank",
+      "ticker": "HDFCBANK",
+      "screenerSlug": "HDFCBANK",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "ok",
+      "years": {
+        "2021": {
+          "fiscalYear": "2021",
+          "sales": 120858,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 4910,
+          "totalAssets": 1746871,
+          "depreciation": 1300,
+          "sgaExpense": null,
+          "totalDebt": null,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 41010,
+          "marketValueEquity": 820000,
+          "totalLiabilities": 1543180,
+          "operatingCashFlow": 19510,
+          "netIncome": 31117
+        },
+        "2022": {
+          "fiscalYear": "2022",
+          "sales": 127753,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 6080,
+          "totalAssets": 2068535,
+          "depreciation": 1480,
+          "sgaExpense": null,
+          "totalDebt": null,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 44550,
+          "marketValueEquity": 810000,
+          "totalLiabilities": 1839520,
+          "operatingCashFlow": -1530,
+          "netIncome": 36961
+        },
+        "2023": {
+          "fiscalYear": "2023",
+          "sales": 161585,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 8020,
+          "totalAssets": 2466081,
+          "depreciation": 1730,
+          "sgaExpense": null,
+          "totalDebt": null,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 53120,
+          "marketValueEquity": 920000,
+          "totalLiabilities": 2185640,
+          "operatingCashFlow": 21810,
+          "netIncome": 44109
+        },
+        "2024": {
+          "fiscalYear": "2024",
+          "sales": 283649,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 11930,
+          "totalAssets": 3617623,
+          "depreciation": 2440,
+          "sgaExpense": null,
+          "totalDebt": null,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 76610,
+          "marketValueEquity": 1170000,
+          "totalLiabilities": 3215280,
+          "operatingCashFlow": 7530,
+          "netIncome": 60812
+        },
+        "2025": {
+          "fiscalYear": "2025",
+          "sales": 336367,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 12810,
+          "totalAssets": 3892410,
+          "depreciation": 2660,
+          "sgaExpense": null,
+          "totalDebt": null,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 84050,
+          "marketValueEquity": 1450000,
+          "totalLiabilities": 3458790,
+          "operatingCashFlow": 33920,
+          "netIncome": 67347
+        }
+      }
+    },
+    "ICICIBANK": {
+      "companyName": "ICICI Bank",
+      "ticker": "ICICIBANK",
+      "screenerSlug": "ICICIBANK",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "SBIN": {
+      "companyName": "State Bank of India",
+      "ticker": "SBIN",
+      "screenerSlug": "SBIN",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "KOTAKBANK": {
+      "companyName": "Kotak Mahindra Bank",
+      "ticker": "KOTAKBANK",
+      "screenerSlug": "KOTAKBANK",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "AXISBANK": {
+      "companyName": "Axis Bank",
+      "ticker": "AXISBANK",
+      "screenerSlug": "AXISBANK",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "INDUSINDBK": {
+      "companyName": "IndusInd Bank",
+      "ticker": "INDUSINDBK",
+      "screenerSlug": "INDUSINDBK",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BANKBARODA": {
+      "companyName": "Bank of Baroda",
+      "ticker": "BANKBARODA",
+      "screenerSlug": "BANKBARODA",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "PNB": {
+      "companyName": "Punjab National Bank",
+      "ticker": "PNB",
+      "screenerSlug": "PNB",
+      "sector": "Bank",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BAJFINANCE": {
+      "companyName": "Bajaj Finance",
+      "ticker": "BAJFINANCE",
+      "screenerSlug": "BAJFINANCE",
+      "sector": "NBFC",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BAJAJFINSV": {
+      "companyName": "Bajaj Finserv",
+      "ticker": "BAJAJFINSV",
+      "screenerSlug": "BAJAJFINSV",
+      "sector": "Financial Services",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "CHOLAFIN": {
+      "companyName": "Cholamandalam Investment",
+      "ticker": "CHOLAFIN",
+      "screenerSlug": "CHOLAFIN",
+      "sector": "NBFC",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "SHRIRAMFIN": {
+      "companyName": "Shriram Finance",
+      "ticker": "SHRIRAMFIN",
+      "screenerSlug": "SHRIRAMFIN",
+      "sector": "NBFC",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "SBILIFE": {
+      "companyName": "SBI Life Insurance",
+      "ticker": "SBILIFE",
+      "screenerSlug": "SBILIFE",
+      "sector": "Insurance",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "HDFCLIFE": {
+      "companyName": "HDFC Life Insurance",
+      "ticker": "HDFCLIFE",
+      "screenerSlug": "HDFCLIFE",
+      "sector": "Insurance",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ICICIPRULI": {
+      "companyName": "ICICI Prudential Life",
+      "ticker": "ICICIPRULI",
+      "screenerSlug": "ICICIPRULI",
+      "sector": "Insurance",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ICICIGI": {
+      "companyName": "ICICI Lombard General",
+      "ticker": "ICICIGI",
+      "screenerSlug": "ICICIGI",
+      "sector": "Insurance",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "LICI": {
+      "companyName": "Life Insurance Corp",
+      "ticker": "LICI",
+      "screenerSlug": "LICI",
+      "sector": "Insurance",
+      "isFinancialCompany": true,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TCS": {
+      "companyName": "Tata Consultancy Services",
+      "ticker": "TCS",
+      "screenerSlug": "TCS",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "ok",
+      "years": {
+        "2021": {
+          "fiscalYear": "2021",
+          "sales": 164177,
+          "receivables": 30532,
+          "grossProfit": 56240,
+          "currentAssets": 70730,
+          "ppe": 8950,
+          "totalAssets": 109330,
+          "depreciation": 4250,
+          "sgaExpense": 12400,
+          "totalDebt": 1200,
+          "currentLiabilities": 28560,
+          "retainedEarnings": 71430,
+          "ebit": 45040,
+          "marketValueEquity": 1180000,
+          "totalLiabilities": 36420,
+          "operatingCashFlow": 38802,
+          "netIncome": 32430
+        },
+        "2022": {
+          "fiscalYear": "2022",
+          "sales": 191754,
+          "receivables": 35280,
+          "grossProfit": 63930,
+          "currentAssets": 73320,
+          "ppe": 9550,
+          "totalAssets": 116760,
+          "depreciation": 4470,
+          "sgaExpense": 13050,
+          "totalDebt": 1340,
+          "currentLiabilities": 32100,
+          "retainedEarnings": 75620,
+          "ebit": 49580,
+          "marketValueEquity": 1370000,
+          "totalLiabilities": 40320,
+          "operatingCashFlow": 39935,
+          "netIncome": 38327
+        },
+        "2023": {
+          "fiscalYear": "2023",
+          "sales": 225458,
+          "receivables": 41070,
+          "grossProfit": 71990,
+          "currentAssets": 75880,
+          "ppe": 10200,
+          "totalAssets": 121640,
+          "depreciation": 4810,
+          "sgaExpense": 13770,
+          "totalDebt": 1480,
+          "currentLiabilities": 35540,
+          "retainedEarnings": 78240,
+          "ebit": 54250,
+          "marketValueEquity": 1180000,
+          "totalLiabilities": 43100,
+          "operatingCashFlow": 41965,
+          "netIncome": 42147
+        },
+        "2024": {
+          "fiscalYear": "2024",
+          "sales": 240893,
+          "receivables": 43480,
+          "grossProfit": 76660,
+          "currentAssets": 80690,
+          "ppe": 10930,
+          "totalAssets": 130350,
+          "depreciation": 5150,
+          "sgaExpense": 14550,
+          "totalDebt": 1660,
+          "currentLiabilities": 38500,
+          "retainedEarnings": 82490,
+          "ebit": 58950,
+          "marketValueEquity": 1380000,
+          "totalLiabilities": 46150,
+          "operatingCashFlow": 44338,
+          "netIncome": 45908
+        },
+        "2025": {
+          "fiscalYear": "2025",
+          "sales": 254000,
+          "receivables": 45700,
+          "grossProfit": 80520,
+          "currentAssets": 84500,
+          "ppe": 11600,
+          "totalAssets": 138400,
+          "depreciation": 5460,
+          "sgaExpense": 15280,
+          "totalDebt": 1780,
+          "currentLiabilities": 41200,
+          "retainedEarnings": 87580,
+          "ebit": 62820,
+          "marketValueEquity": 1430000,
+          "totalLiabilities": 49000,
+          "operatingCashFlow": 46950,
+          "netIncome": 48723
+        }
+      }
+    },
+    "INFY": {
+      "companyName": "Infosys",
+      "ticker": "INFY",
+      "screenerSlug": "INFY",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "ok",
+      "years": {
+        "2021": {
+          "fiscalYear": "2021",
+          "sales": 100472,
+          "receivables": 18870,
+          "grossProfit": 31650,
+          "currentAssets": 64560,
+          "ppe": 9300,
+          "totalAssets": 95560,
+          "depreciation": 2950,
+          "sgaExpense": 7100,
+          "totalDebt": 6500,
+          "currentLiabilities": 21300,
+          "retainedEarnings": 52840,
+          "ebit": 26312,
+          "marketValueEquity": 580000,
+          "totalLiabilities": 31580,
+          "operatingCashFlow": 23438,
+          "netIncome": 19351
+        },
+        "2022": {
+          "fiscalYear": "2022",
+          "sales": 121641,
+          "receivables": 22433,
+          "grossProfit": 38020,
+          "currentAssets": 67510,
+          "ppe": 9800,
+          "totalAssets": 103180,
+          "depreciation": 3120,
+          "sgaExpense": 7900,
+          "totalDebt": 6900,
+          "currentLiabilities": 25700,
+          "retainedEarnings": 58700,
+          "ebit": 30880,
+          "marketValueEquity": 760000,
+          "totalLiabilities": 36420,
+          "operatingCashFlow": 23885,
+          "netIncome": 22146
+        },
+        "2023": {
+          "fiscalYear": "2023",
+          "sales": 146767,
+          "receivables": 27210,
+          "grossProfit": 43620,
+          "currentAssets": 70950,
+          "ppe": 10650,
+          "totalAssets": 110415,
+          "depreciation": 3600,
+          "sgaExpense": 9050,
+          "totalDebt": 7200,
+          "currentLiabilities": 29100,
+          "retainedEarnings": 64740,
+          "ebit": 35470,
+          "marketValueEquity": 600000,
+          "totalLiabilities": 39310,
+          "operatingCashFlow": 22440,
+          "netIncome": 24108
+        },
+        "2024": {
+          "fiscalYear": "2024",
+          "sales": 153670,
+          "receivables": 28860,
+          "grossProfit": 45400,
+          "currentAssets": 74450,
+          "ppe": 11150,
+          "totalAssets": 119615,
+          "depreciation": 3850,
+          "sgaExpense": 9700,
+          "totalDebt": 7350,
+          "currentLiabilities": 30880,
+          "retainedEarnings": 70260,
+          "ebit": 36120,
+          "marketValueEquity": 620000,
+          "totalLiabilities": 41200,
+          "operatingCashFlow": 25196,
+          "netIncome": 26233
+        },
+        "2025": {
+          "fiscalYear": "2025",
+          "sales": 162990,
+          "receivables": 31040,
+          "grossProfit": 49000,
+          "currentAssets": 78400,
+          "ppe": 11800,
+          "totalAssets": 128815,
+          "depreciation": 4100,
+          "sgaExpense": 10380,
+          "totalDebt": 7600,
+          "currentLiabilities": 32600,
+          "retainedEarnings": 76310,
+          "ebit": 39430,
+          "marketValueEquity": 712341,
+          "totalLiabilities": 43830,
+          "operatingCashFlow": 27460,
+          "netIncome": 28611
+        }
+      }
+    },
+    "HCLTECH": {
+      "companyName": "HCL Technologies",
+      "ticker": "HCLTECH",
+      "screenerSlug": "HCLTECH",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "WIPRO": {
+      "companyName": "Wipro",
+      "ticker": "WIPRO",
+      "screenerSlug": "WIPRO",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TECHM": {
+      "companyName": "Tech Mahindra",
+      "ticker": "TECHM",
+      "screenerSlug": "TECHM",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "LTIM": {
+      "companyName": "LTIMindtree",
+      "ticker": "LTIM",
+      "screenerSlug": "LTIM",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "MPHASIS": {
+      "companyName": "Mphasis",
+      "ticker": "MPHASIS",
+      "screenerSlug": "MPHASIS",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "COFORGE": {
+      "companyName": "Coforge",
+      "ticker": "COFORGE",
+      "screenerSlug": "COFORGE",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "PERSISTENT": {
+      "companyName": "Persistent Systems",
+      "ticker": "PERSISTENT",
+      "screenerSlug": "PERSISTENT",
+      "sector": "IT Services",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "RELIANCE": {
+      "companyName": "Reliance Industries",
+      "ticker": "RELIANCE",
+      "screenerSlug": "RELIANCE",
+      "sector": "Diversified",
+      "isFinancialCompany": false,
+      "status": "ok",
+      "years": {
+        "2021": {
+          "fiscalYear": "2021",
+          "sales": 466307,
+          "receivables": 19478,
+          "grossProfit": 89060,
+          "currentAssets": 213910,
+          "ppe": 472160,
+          "totalAssets": 1321710,
+          "depreciation": 26572,
+          "sgaExpense": 32500,
+          "totalDebt": 251811,
+          "currentLiabilities": 222860,
+          "retainedEarnings": 459570,
+          "ebit": 53480,
+          "marketValueEquity": 1320000,
+          "totalLiabilities": 627040,
+          "operatingCashFlow": 36906,
+          "netIncome": 49128
+        },
+        "2022": {
+          "fiscalYear": "2022",
+          "sales": 698672,
+          "receivables": 22013,
+          "grossProfit": 158450,
+          "currentAssets": 252610,
+          "ppe": 502740,
+          "totalAssets": 1469410,
+          "depreciation": 29782,
+          "sgaExpense": 41250,
+          "totalDebt": 266305,
+          "currentLiabilities": 248930,
+          "retainedEarnings": 487260,
+          "ebit": 90640,
+          "marketValueEquity": 1740000,
+          "totalLiabilities": 683410,
+          "operatingCashFlow": 110654,
+          "netIncome": 60705
+        },
+        "2023": {
+          "fiscalYear": "2023",
+          "sales": 876396,
+          "receivables": 26102,
+          "grossProfit": 162110,
+          "currentAssets": 281300,
+          "ppe": 532680,
+          "totalAssets": 1614570,
+          "depreciation": 39817,
+          "sgaExpense": 49800,
+          "totalDebt": 277370,
+          "currentLiabilities": 276500,
+          "retainedEarnings": 513240,
+          "ebit": 109490,
+          "marketValueEquity": 1580000,
+          "totalLiabilities": 731860,
+          "operatingCashFlow": 99762,
+          "netIncome": 66702
+        },
+        "2024": {
+          "fiscalYear": "2024",
+          "sales": 901064,
+          "receivables": 28940,
+          "grossProfit": 174080,
+          "currentAssets": 296800,
+          "ppe": 560110,
+          "totalAssets": 1697830,
+          "depreciation": 50832,
+          "sgaExpense": 54300,
+          "totalDebt": 309854,
+          "currentLiabilities": 290110,
+          "retainedEarnings": 536270,
+          "ebit": 118390,
+          "marketValueEquity": 1990000,
+          "totalLiabilities": 775020,
+          "operatingCashFlow": 156803,
+          "netIncome": 69621
+        },
+        "2025": {
+          "fiscalYear": "2025",
+          "sales": 970000,
+          "receivables": 31250,
+          "grossProfit": 187340,
+          "currentAssets": 312000,
+          "ppe": 587200,
+          "totalAssets": 1768000,
+          "depreciation": 53180,
+          "sgaExpense": 58100,
+          "totalDebt": 318600,
+          "currentLiabilities": 305300,
+          "retainedEarnings": 558700,
+          "ebit": 122500,
+          "marketValueEquity": 1850000,
+          "totalLiabilities": 812700,
+          "operatingCashFlow": 168400,
+          "netIncome": 75200
+        }
+      }
+    },
+    "ONGC": {
+      "companyName": "ONGC",
+      "ticker": "ONGC",
+      "screenerSlug": "ONGC",
+      "sector": "Oil & Gas",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "IOC": {
+      "companyName": "Indian Oil Corp",
+      "ticker": "IOC",
+      "screenerSlug": "IOC",
+      "sector": "Oil & Gas",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BPCL": {
+      "companyName": "BPCL",
+      "ticker": "BPCL",
+      "screenerSlug": "BPCL",
+      "sector": "Oil & Gas",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "GAIL": {
+      "companyName": "GAIL India",
+      "ticker": "GAIL",
+      "screenerSlug": "GAIL",
+      "sector": "Gas",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "POWERGRID": {
+      "companyName": "Power Grid Corp",
+      "ticker": "POWERGRID",
+      "screenerSlug": "POWERGRID",
+      "sector": "Power",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "NTPC": {
+      "companyName": "NTPC",
+      "ticker": "NTPC",
+      "screenerSlug": "NTPC",
+      "sector": "Power",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "COALINDIA": {
+      "companyName": "Coal India",
+      "ticker": "COALINDIA",
+      "screenerSlug": "COALINDIA",
+      "sector": "Mining",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ADANIENT": {
+      "companyName": "Adani Enterprises",
+      "ticker": "ADANIENT",
+      "screenerSlug": "ADANIENT",
+      "sector": "Diversified",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ADANIPOWER": {
+      "companyName": "Adani Power",
+      "ticker": "ADANIPOWER",
+      "screenerSlug": "ADANIPOWER",
+      "sector": "Power",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ADANIGREEN": {
+      "companyName": "Adani Green Energy",
+      "ticker": "ADANIGREEN",
+      "screenerSlug": "ADANIGREEN",
+      "sector": "Power",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ADANIPORTS": {
+      "companyName": "Adani Ports",
+      "ticker": "ADANIPORTS",
+      "screenerSlug": "ADANIPORTS",
+      "sector": "Infrastructure",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TATAPOWER": {
+      "companyName": "Tata Power",
+      "ticker": "TATAPOWER",
+      "screenerSlug": "TATAPOWER",
+      "sector": "Power",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "MARUTI": {
+      "companyName": "Maruti Suzuki",
+      "ticker": "MARUTI",
+      "screenerSlug": "MARUTI",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TATAMOTORS": {
+      "companyName": "Tata Motors",
+      "ticker": "TATAMOTORS",
+      "screenerSlug": "TATAMOTORS",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "M&M": {
+      "companyName": "Mahindra & Mahindra",
+      "ticker": "M&M",
+      "screenerSlug": "M&M",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BAJAJ-AUTO": {
+      "companyName": "Bajaj Auto",
+      "ticker": "BAJAJ-AUTO",
+      "screenerSlug": "BAJAJ-AUTO",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "HEROMOTOCO": {
+      "companyName": "Hero MotoCorp",
+      "ticker": "HEROMOTOCO",
+      "screenerSlug": "HEROMOTOCO",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "EICHERMOT": {
+      "companyName": "Eicher Motors",
+      "ticker": "EICHERMOT",
+      "screenerSlug": "EICHERMOT",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TVSMOTOR": {
+      "companyName": "TVS Motor",
+      "ticker": "TVSMOTOR",
+      "screenerSlug": "TVSMOTOR",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ASHOKLEY": {
+      "companyName": "Ashok Leyland",
+      "ticker": "ASHOKLEY",
+      "screenerSlug": "ASHOKLEY",
+      "sector": "Auto",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TATASTEEL": {
+      "companyName": "Tata Steel",
+      "ticker": "TATASTEEL",
+      "screenerSlug": "TATASTEEL",
+      "sector": "Metals",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "JSWSTEEL": {
+      "companyName": "JSW Steel",
+      "ticker": "JSWSTEEL",
+      "screenerSlug": "JSWSTEEL",
+      "sector": "Metals",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "HINDALCO": {
+      "companyName": "Hindalco",
+      "ticker": "HINDALCO",
+      "screenerSlug": "HINDALCO",
+      "sector": "Metals",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "VEDL": {
+      "companyName": "Vedanta",
+      "ticker": "VEDL",
+      "screenerSlug": "VEDL",
+      "sector": "Metals",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "NMDC": {
+      "companyName": "NMDC",
+      "ticker": "NMDC",
+      "screenerSlug": "NMDC",
+      "sector": "Metals",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "SUNPHARMA": {
+      "companyName": "Sun Pharmaceutical",
+      "ticker": "SUNPHARMA",
+      "screenerSlug": "SUNPHARMA",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "DRREDDY": {
+      "companyName": "Dr. Reddy's Labs",
+      "ticker": "DRREDDY",
+      "screenerSlug": "DRREDDY",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "CIPLA": {
+      "companyName": "Cipla",
+      "ticker": "CIPLA",
+      "screenerSlug": "CIPLA",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "LUPIN": {
+      "companyName": "Lupin",
+      "ticker": "LUPIN",
+      "screenerSlug": "LUPIN",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "DIVISLAB": {
+      "companyName": "Divi's Laboratories",
+      "ticker": "DIVISLAB",
+      "screenerSlug": "DIVISLAB",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "AUROPHARMA": {
+      "companyName": "Aurobindo Pharma",
+      "ticker": "AUROPHARMA",
+      "screenerSlug": "AUROPHARMA",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BIOCON": {
+      "companyName": "Biocon",
+      "ticker": "BIOCON",
+      "screenerSlug": "BIOCON",
+      "sector": "Pharma",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "HINDUNILVR": {
+      "companyName": "Hindustan Unilever",
+      "ticker": "HINDUNILVR",
+      "screenerSlug": "HINDUNILVR",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ITC": {
+      "companyName": "ITC",
+      "ticker": "ITC",
+      "screenerSlug": "ITC",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "NESTLEIND": {
+      "companyName": "Nestle India",
+      "ticker": "NESTLEIND",
+      "screenerSlug": "NESTLEIND",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BRITANNIA": {
+      "companyName": "Britannia Industries",
+      "ticker": "BRITANNIA",
+      "screenerSlug": "BRITANNIA",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "DABUR": {
+      "companyName": "Dabur India",
+      "ticker": "DABUR",
+      "screenerSlug": "DABUR",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "MARICO": {
+      "companyName": "Marico",
+      "ticker": "MARICO",
+      "screenerSlug": "MARICO",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "GODREJCP": {
+      "companyName": "Godrej Consumer",
+      "ticker": "GODREJCP",
+      "screenerSlug": "GODREJCP",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "COLPAL": {
+      "companyName": "Colgate-Palmolive",
+      "ticker": "COLPAL",
+      "screenerSlug": "COLPAL",
+      "sector": "FMCG",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ULTRACEMCO": {
+      "companyName": "UltraTech Cement",
+      "ticker": "ULTRACEMCO",
+      "screenerSlug": "ULTRACEMCO",
+      "sector": "Cement",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "SHREECEM": {
+      "companyName": "Shree Cement",
+      "ticker": "SHREECEM",
+      "screenerSlug": "SHREECEM",
+      "sector": "Cement",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "AMBUJACEM": {
+      "companyName": "Ambuja Cements",
+      "ticker": "AMBUJACEM",
+      "screenerSlug": "AMBUJACEM",
+      "sector": "Cement",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ACC": {
+      "companyName": "ACC",
+      "ticker": "ACC",
+      "screenerSlug": "ACC",
+      "sector": "Cement",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BHARTIARTL": {
+      "companyName": "Bharti Airtel",
+      "ticker": "BHARTIARTL",
+      "screenerSlug": "BHARTIARTL",
+      "sector": "Telecom",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "IDEA": {
+      "companyName": "Vodafone Idea",
+      "ticker": "IDEA",
+      "screenerSlug": "IDEA",
+      "sector": "Telecom",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "LT": {
+      "companyName": "Larsen & Toubro",
+      "ticker": "LT",
+      "screenerSlug": "LT",
+      "sector": "Capital Goods",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "SIEMENS": {
+      "companyName": "Siemens",
+      "ticker": "SIEMENS",
+      "screenerSlug": "SIEMENS",
+      "sector": "Capital Goods",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ABB": {
+      "companyName": "ABB India",
+      "ticker": "ABB",
+      "screenerSlug": "ABB",
+      "sector": "Capital Goods",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BEL": {
+      "companyName": "Bharat Electronics",
+      "ticker": "BEL",
+      "screenerSlug": "BEL",
+      "sector": "Defence",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "HAL": {
+      "companyName": "Hindustan Aeronautics",
+      "ticker": "HAL",
+      "screenerSlug": "HAL",
+      "sector": "Defence",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "DLF": {
+      "companyName": "DLF",
+      "ticker": "DLF",
+      "screenerSlug": "DLF",
+      "sector": "Real Estate",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "GODREJPROP": {
+      "companyName": "Godrej Properties",
+      "ticker": "GODREJPROP",
+      "screenerSlug": "GODREJPROP",
+      "sector": "Real Estate",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "DMART": {
+      "companyName": "Avenue Supermarts",
+      "ticker": "DMART",
+      "screenerSlug": "DMART",
+      "sector": "Retail",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TRENT": {
+      "companyName": "Trent",
+      "ticker": "TRENT",
+      "screenerSlug": "TRENT",
+      "sector": "Retail",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "TITAN": {
+      "companyName": "Titan Company",
+      "ticker": "TITAN",
+      "screenerSlug": "TITAN",
+      "sector": "Consumer Durables",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "ASIANPAINT": {
+      "companyName": "Asian Paints",
+      "ticker": "ASIANPAINT",
+      "screenerSlug": "ASIANPAINT",
+      "sector": "Paints",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "BERGEPAINT": {
+      "companyName": "Berger Paints",
+      "ticker": "BERGEPAINT",
+      "screenerSlug": "BERGEPAINT",
+      "sector": "Paints",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    },
+    "PIDILITIND": {
+      "companyName": "Pidilite Industries",
+      "ticker": "PIDILITIND",
+      "screenerSlug": "PIDILITIND",
+      "sector": "Chemicals",
+      "isFinancialCompany": false,
+      "status": "no_data",
+      "years": {},
+      "errors": [
+        "Not yet ingested. Trigger the GitHub Actions ingestion workflow."
+      ]
+    }
+  }
 }
