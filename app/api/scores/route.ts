@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import SNAPSHOT from "@/data/generated/screener-financials";
+import SNAPSHOT from "./snapshot";
 import { findCompany } from "@/data/companies";
 import { calculateAltman, calculateBeneish } from "@/lib/calculations";
 import type {
@@ -10,7 +10,11 @@ import type {
   TrendPoint,
 } from "@/lib/types";
 
-export const runtime = "edge";
+// Note: leaving runtime as Next.js default (nodejs).  OpenNext for
+// Cloudflare's edge-runtime API route bundling can silently drop the
+// handler from the Worker output; the default runtime is reliably
+// included.  Cloudflare runs both via the same Worker thanks to
+// nodejs_compat in wrangler.jsonc.
 
 // The snapshot is bundled with the Worker at build time.  It's authored
 // in TypeScript (not JSON) so Turbopack reliably inlines it into the

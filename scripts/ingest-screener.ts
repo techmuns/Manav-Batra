@@ -28,6 +28,10 @@ import type {
 const OUTPUT_DIR = resolve(__dirname, "..", "data", "generated");
 const OUTPUT_JSON = resolve(OUTPUT_DIR, "screener-financials.json");
 const OUTPUT_TS = resolve(OUTPUT_DIR, "screener-financials.ts");
+// Also write a sibling .ts to the route folder so OpenNext / Turbopack
+// reliably bundles the data into the edge worker.  (Files referenced from
+// `data/` paths sometimes drop out of the production bundle.)
+const ROUTE_SNAPSHOT_TS = resolve(__dirname, "..", "app", "api", "scores", "snapshot.ts");
 
 // Stagger requests so we don't hammer Screener.  At ~50 companies the
 // total wall-clock is around 50 * (700ms + ~1s fetch) ~= 85s.
@@ -177,7 +181,8 @@ const snapshot: GeneratedFinancialSnapshot = ${jsonBody};
 export default snapshot;
 `;
   writeFileSync(OUTPUT_TS, tsBody, "utf8");
-  console.log(`[ingest] wrote ${OUTPUT_JSON} and ${OUTPUT_TS}`);
+  writeFileSync(ROUTE_SNAPSHOT_TS, tsBody, "utf8");
+  console.log(`[ingest] wrote ${OUTPUT_JSON}, ${OUTPUT_TS}, and ${ROUTE_SNAPSHOT_TS}`);
   console.log(`[ingest] summary: ok=${ok} failed=${failed} total=${COMPANY_MASTER.length}`);
 }
 
