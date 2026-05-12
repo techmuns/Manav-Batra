@@ -133,7 +133,23 @@ export interface ScoresResponse {
 }
 
 export interface ScoresError {
-  error: "fetch_failed" | "unknown_ticker" | "no_data" | "year_unavailable" | "missing_slug";
+  error:
+    | "fetch_failed"
+    | "screener_fetch_blocked"
+    | "parser_failed"
+    | "unknown_ticker"
+    | "no_data"
+    | "year_unavailable"
+    | "missing_slug";
   message: string;
   master?: CompanyMaster;
+  /** Optional diagnostics — only returned when ?debug=1 is set. */
+  debug?: {
+    slug?: string;
+    year?: string;
+    screenerUrl?: string;
+    httpStatus?: number;
+    bodySnippet?: string;
+    columnsExtracted?: string[];
+  };
 }

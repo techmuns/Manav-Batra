@@ -11,11 +11,15 @@ export interface FetchOutcome {
   ok: boolean;
   years: FinancialYearData[];
   error?: string;
-  // Internal-only diagnostics — never shipped to the UI.
+  /** Categorised failure mode so the API can surface a specific code. */
+  failureKind?: "blocked" | "parser" | "network";
+  // Internal-only diagnostics — kept available so the API can return them
+  // under a `?debug=1` query when troubleshooting production.
   _diagnostics?: {
     url: string;
     columnsExtracted?: string[];
     httpStatus?: number;
+    bodySnippet?: string;
   };
 }
 
@@ -174,58 +178,95 @@ export function normalize(
   return out;
 }
 
+const BROWSER_HEADERS: HeadersInit = {
+  "User-Agent":
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+  Accept:
+    "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+  "Accept-Language": "en-IN,en-US;q=0.9,en;q=0.8",
+  "Cache-Control": "no-cache",
+};
+
+async function fetchHtml(
+  url: string,
+  signal?: AbortSignal
+): Promise<{ status: number; body: string } | { error: string }> {
+  // One immediate retry on transient 5xx / network errors.
+  let lastErr: unknown;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const res = await fetch(url, {
+        signal,
+        headers: BROWSER_HEADERS,
+        redirect: "follow",
+      } as RequestInit);
+      const body = await res.text();
+      if (res.status >= 500 && attempt === 0) {
+        await new Promise((r) => setTimeout(r, 250));
+        continue;
+      }
+      return { status: res.status, body };
+    } catch (err) {
+      lastErr = err;
+      if (attempt === 0) await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  return {
+    error: lastErr instanceof Error ? lastErr.message : "fetch threw an unknown error",
+  };
+}
+
 export async function fetchFromScreener(
   master: CompanyMaster,
   signal?: AbortSignal
 ): Promise<FetchOutcome> {
-  const url = `https://www.screener.in/company/${encodeURIComponent(master.screenerSlug)}/consolidated/`;
-  try {
-    const res = await fetch(url, {
-      signal,
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml",
-      },
-    } as RequestInit);
-    if (!res.ok) {
+  const slug = encodeURIComponent(master.screenerSlug);
+  const consolidatedUrl = `https://www.screener.in/company/${slug}/consolidated/`;
+  const standaloneUrl = `https://www.screener.in/company/${slug}/`;
+
+  for (const url of [consolidatedUrl, standaloneUrl]) {
+    const result = await fetchHtml(url, signal);
+    if ("error" in result) {
       return {
         ok: false,
         years: [],
-        error: `Upstream returned HTTP ${res.status}`,
-        _diagnostics: { url, httpStatus: res.status },
+        failureKind: "network",
+        error: result.error,
+        _diagnostics: { url },
       };
     }
-    const html = await res.text();
-    const parsed = parseScreenerHtml(html);
-    const years = normalize(parsed);
-    if (years.length === 0) {
-      // Try the standalone page as a fallback (some smaller listings only have one).
-      const standaloneUrl = `https://www.screener.in/company/${encodeURIComponent(master.screenerSlug)}/`;
-      const res2 = await fetch(standaloneUrl, {
-        signal,
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    const { status, body } = result;
+    if (status < 200 || status >= 300) {
+      // Try the next URL only on 404; everything else is treated as a hard block.
+      if (status === 404) continue;
+      return {
+        ok: false,
+        years: [],
+        failureKind: "blocked",
+        error: `Upstream returned HTTP ${status}`,
+        _diagnostics: {
+          url,
+          httpStatus: status,
+          bodySnippet: body.slice(0, 300),
         },
-      });
-      if (res2.ok) {
-        const html2 = await res2.text();
-        const parsed2 = parseScreenerHtml(html2);
-        const years2 = normalize(parsed2);
-        if (years2.length > 0)
-          return { ok: true, years: years2, _diagnostics: { url: standaloneUrl } };
-      }
-      return {
-        ok: false,
-        years: [],
-        error: "Financial tables not found on the upstream page",
-        _diagnostics: { url, columnsExtracted: parsed.profitLoss?.columns },
       };
     }
-    return { ok: true, years, _diagnostics: { url, columnsExtracted: parsed.profitLoss?.columns } };
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : "fetch failed";
-    return { ok: false, years: [], error: msg, _diagnostics: { url } };
+    const parsed = parseScreenerHtml(body);
+    const years = normalize(parsed);
+    if (years.length === 0) continue; // try next URL form
+
+    return {
+      ok: true,
+      years,
+      _diagnostics: { url, httpStatus: status, columnsExtracted: parsed.profitLoss?.columns },
+    };
   }
+
+  return {
+    ok: false,
+    years: [],
+    failureKind: "parser",
+    error: "Financial tables not found on any Screener page variant",
+    _diagnostics: { url: consolidatedUrl },
+  };
 }

@@ -8,6 +8,16 @@ const COPY: Record<ScoresError["error"], { title: string; detail: string }> = {
     detail:
       "We couldn't retrieve the data needed to calculate scores. Please try again in a moment.",
   },
+  screener_fetch_blocked: {
+    title: "Live data source is currently unreachable",
+    detail:
+      "The upstream data source returned a non-OK response — most likely a bot block on the request from this environment.",
+  },
+  parser_failed: {
+    title: "Couldn't read financial tables",
+    detail:
+      "The upstream page loaded but we couldn't extract the financial tables we need.",
+  },
   unknown_ticker: {
     title: "Company not found",
     detail: "The selected ticker isn't in our company list.",
@@ -55,10 +65,26 @@ export function ErrorScreen({
           </p>
         )}
         <p className="mt-4 text-sm text-ink-muted">{copy.detail}</p>
+        {error.message && error.message !== copy.detail && (
+          <p className="mt-2 rounded-lg bg-paper px-3 py-2 font-mono text-[11px] text-ink-muted">
+            {error.message}
+          </p>
+        )}
         <p className="mt-3 text-xs text-ink-subtle">
           No scores are shown because no real data is available — placeholder
           or mock financials are never displayed in their place.
         </p>
+
+        {error.debug && (
+          <details className="mt-4 rounded-lg border border-line bg-paper/70 px-3 py-2 text-[11px]">
+            <summary className="cursor-pointer font-semibold text-ink-muted">
+              Debug
+            </summary>
+            <pre className="mt-2 overflow-auto whitespace-pre-wrap font-mono text-[11px] text-ink-muted">
+{JSON.stringify(error.debug, null, 2)}
+            </pre>
+          </details>
+        )}
 
         <div className="mt-6 flex flex-wrap gap-2">
           <button

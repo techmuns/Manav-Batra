@@ -27,25 +27,32 @@ export async function GET(req: Request) {
   // Accept either "2025" or "FY2025".
   const yearParam = url.searchParams.get("year")?.replace(/^FY/i, "").trim();
   const dev = url.searchParams.get("dev") === "1";
+  const debug = url.searchParams.get("debug") === "1";
 
   if (!slug) {
     return err({ error: "missing_slug", message: "Missing company slug." }, 400);
   }
   const master = findCompany(slug.toUpperCase());
   if (!master) {
-    return err({ error: "unknown_ticker", message: "Company not found in master." }, 404);
+    return err(
+      {
+        error: "unknown_ticker",
+        message: "Company not found in master.",
+        ...(debug ? { debug: { slug } } : {}),
+      },
+      404
+    );
   }
 
   // 1. Try real Screener first.
   let years: FinancialYearData[] = [];
   let source: ScoresResponse["source"] = "screener";
-  let fetchError: string | undefined;
+  let lastFetch: Awaited<ReturnType<typeof fetchFromScreener>> | undefined;
 
   const result = await fetchFromScreener(master);
+  lastFetch = result;
   if (result.ok && result.years.length > 0) {
     years = result.years;
-  } else {
-    fetchError = result.error;
   }
 
   // 2. Dev mock — ONLY when explicitly requested via ?dev=1.
@@ -59,12 +66,35 @@ export async function GET(req: Request) {
 
   // 3. Honest failure — never substitute mock silently.
   if (years.length === 0) {
+    const code =
+      lastFetch?.failureKind === "blocked"
+        ? ("screener_fetch_blocked" as const)
+        : lastFetch?.failureKind === "parser"
+          ? ("parser_failed" as const)
+          : ("fetch_failed" as const);
+    const message =
+      code === "screener_fetch_blocked"
+        ? `Screener blocked the request (HTTP ${lastFetch?._diagnostics?.httpStatus ?? "?"}). Live data is currently not reachable from this environment.`
+        : code === "parser_failed"
+          ? "Screener returned a page we couldn't parse financial tables from."
+          : "Unable to fetch company financials right now. Please try again.";
     return err(
       {
-        error: "fetch_failed",
-        message:
-          "Unable to fetch company financials right now. Please try again.",
+        error: code,
+        message,
         master,
+        ...(debug
+          ? {
+              debug: {
+                slug: master.screenerSlug,
+                year: yearParam,
+                screenerUrl: lastFetch?._diagnostics?.url,
+                httpStatus: lastFetch?._diagnostics?.httpStatus,
+                bodySnippet: lastFetch?._diagnostics?.bodySnippet,
+                columnsExtracted: lastFetch?._diagnostics?.columnsExtracted,
+              },
+            }
+          : {}),
       },
       502
     );
@@ -129,8 +159,8 @@ export async function GET(req: Request) {
     fetchedAt: new Date().toISOString(),
   };
 
-  // Suppress unused — kept available for future debug headers if needed.
-  void fetchError;
+  // Suppress unused warning — `lastFetch` is held for debug branches above.
+  void lastFetch;
 
   return NextResponse.json(payload, { status: 200, headers: NO_STORE });
 }
