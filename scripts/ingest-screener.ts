@@ -55,12 +55,21 @@ async function fetchOne(slug: string): Promise<FetchResult | { error: string; ur
   ];
   let lastError = "no attempt";
   for (const url of urls) {
+    // Per-URL timeout so a hung TCP socket can't stall the whole run.
+    const ac = new AbortController();
+    const timer = setTimeout(() => ac.abort(), 15_000);
     try {
-      const res = await fetch(url, { headers: BROWSER_HEADERS, redirect: "follow" });
+      const res = await fetch(url, {
+        headers: BROWSER_HEADERS,
+        redirect: "follow",
+        signal: ac.signal,
+      });
       const body = await res.text();
+      clearTimeout(timer);
       if (res.status === 404) continue; // try the next URL form
       return { status: res.status, body, url };
     } catch (err) {
+      clearTimeout(timer);
       lastError = err instanceof Error ? err.message : "fetch threw";
     }
   }
