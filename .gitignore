@@ -7,3 +7,6 @@ dist
 .DS_Store
 next-env.d.ts
 tsconfig.tsbuildinfo
+.open-next
+.dev.vars
+.wrangler

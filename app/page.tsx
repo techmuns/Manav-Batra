@@ -9,6 +9,7 @@ import { ComparisonTable } from "@/components/ComparisonTable";
 import { ScoreSummary } from "@/components/ScoreSummary";
 import { TrendChart } from "@/components/TrendChart";
 import { COMPANY_MASTER, findCompany } from "@/data/companies";
+import { DEV_MOCK_AVAILABLE_YEARS } from "@/data/devMockFinancials";
 import { calculateAltman, calculateBeneish } from "@/lib/calculations";
 import type {
   AltmanOutcome,
@@ -16,10 +17,12 @@ import type {
   CompanyFinancials,
 } from "@/lib/types";
 
+type ApiPayload = CompanyFinancials & { usingSampleData?: boolean; error?: string };
+
 type LoadState =
   | { kind: "idle" }
   | { kind: "loading"; ticker: string }
-  | { kind: "ready"; data: CompanyFinancials }
+  | { kind: "ready"; data: ApiPayload }
   | { kind: "error"; ticker: string; message: string };
 
 export default function Page() {
@@ -29,27 +32,31 @@ export default function Page() {
 
   const data = state.kind === "ready" ? state.data : null;
 
+  // Years available for the selected company.  Before Calculate is
+  // pressed, fall back to the static dev-mock year list so the year
+  // selector is never empty.
   const availableYears = useMemo(() => {
-    if (!data) return [];
-    return [...data.years]
-      .map((y) => y.fiscalYear)
-      .sort((a, b) => b.localeCompare(a)); // newest first
+    if (data && data.years.length > 0) {
+      return [...data.years].map((y) => y.fiscalYear).sort((a, b) => b.localeCompare(a));
+    }
+    return DEV_MOCK_AVAILABLE_YEARS;
   }, [data]);
 
-  // When a new dataset lands, default to the latest year.
+  // Initialise default year (latest) whenever the available list shifts.
   useEffect(() => {
-    if (data && availableYears.length > 0 && !availableYears.includes(selectedYear ?? "")) {
+    if (availableYears.length === 0) return;
+    if (!selectedYear || !availableYears.includes(selectedYear)) {
       setSelectedYear(availableYears[0]);
     }
-  }, [availableYears, data, selectedYear]);
+  }, [availableYears, selectedYear]);
 
   const handleCalculate = useCallback(async () => {
     if (!selectedTicker) return;
     setState({ kind: "loading", ticker: selectedTicker });
     try {
       const res = await fetch(`/api/financials?ticker=${encodeURIComponent(selectedTicker)}`);
-      const json = (await res.json()) as CompanyFinancials & { error?: string };
-      if (!res.ok || json.error) {
+      const json = (await res.json()) as ApiPayload;
+      if (!res.ok && (!json.years || json.years.length === 0)) {
         setState({
           kind: "error",
           ticker: selectedTicker,
@@ -60,7 +67,7 @@ export default function Page() {
       try {
         sessionStorage.setItem(`fin:${selectedTicker}`, JSON.stringify(json));
       } catch {
-        /* sessionStorage may be unavailable; ignore */
+        /* sessionStorage unavailable; ignore */
       }
       setState({ kind: "ready", data: json });
     } catch (err) {
@@ -73,6 +80,8 @@ export default function Page() {
   }, [selectedTicker]);
 
   // Recompute scores for the *selected* fiscal year against the *prior* fiscal year.
+  // This runs whenever data OR selectedYear changes — that is exactly how the
+  // year selector triggers a recalc.
   const { beneish, altman, fiscalYear } = useMemo(() => {
     if (!data || !selectedYear) {
       const fy = selectedYear ?? "—";
@@ -97,6 +106,7 @@ export default function Page() {
 
   const showDashboard = state.kind === "ready" && data;
   const master = data?.master;
+  const usingSampleData = state.kind === "ready" && state.data.usingSampleData === true;
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-6 py-10">
@@ -109,6 +119,12 @@ export default function Page() {
             Beneish &amp; Altman Dashboard
           </h1>
         </div>
+        {showDashboard && (
+          <div className="flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-medium text-ink-muted">
+            <span className="h-1.5 w-1.5 rounded-full bg-ink" />
+            Selected FY:&nbsp;<span className="font-semibold text-ink">FY {fiscalYear}</span>
+          </div>
+        )}
       </header>
 
       {!showDashboard && (
@@ -120,7 +136,6 @@ export default function Page() {
             availableYears={availableYears}
             onSelectCompany={(t) => {
               setSelectedTicker(t);
-              setSelectedYear(null);
             }}
             onSelectYear={setSelectedYear}
             onCalculate={handleCalculate}
@@ -160,6 +175,15 @@ export default function Page() {
 
       {showDashboard && master && (
         <>
+          {usingSampleData && (
+            <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
+              <span className="font-semibold">Sample data.</span>{" "}
+              Real Screener ingestion is not currently available in this environment, so this
+              company is shown with illustrative dev-only financials. Do not interpret these
+              numbers as live data.
+            </div>
+          )}
+
           <ScoreSummary
             master={master}
             fiscalYear={fiscalYear}
@@ -171,7 +195,10 @@ export default function Page() {
             }}
           />
 
-          <Card title="Year">
+          <Card
+            title="Fiscal year"
+            subtitle="Select a year — scores, calculation tables and trend recompute instantly."
+          >
             <div className="flex flex-wrap items-center gap-2">
               {availableYears.map((y) => (
                 <button
@@ -198,7 +225,7 @@ export default function Page() {
             <AltmanTable outcome={altman} />
           </Card>
 
-          <Card title="Score trend">
+          <Card title="Score trend" subtitle="Per-year M-Score and Z-Score; gaps where inputs are missing.">
             <TrendChart company={data} />
           </Card>
 
