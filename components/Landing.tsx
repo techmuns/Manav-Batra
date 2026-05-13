@@ -104,7 +104,15 @@ export function Landing({
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                // If the user starts editing the search field after picking,
+                // drop the selection so the two stay in sync.
+                if (selected && e.target.value !== selected.companyName) {
+                  setTicker(null);
+                  setYear(null);
+                }
+              }}
               placeholder="Search company or ticker"
               className="w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] outline-none transition focus:border-ink focus:ring-4 focus:ring-ink/10"
             />
@@ -129,7 +137,13 @@ export function Landing({
               <button
                 key={c.ticker}
                 type="button"
-                onClick={() => setTicker(c.ticker)}
+                onClick={() => {
+                  setTicker(c.ticker);
+                  // Reflect the pick in the search field so the user can see
+                  // their selection at the top of the card.  They can clear
+                  // the field to browse the full list again.
+                  setQuery(c.companyName);
+                }}
                 className={`flex w-full items-center justify-between border-b border-line/60 px-4 py-3 text-left text-sm transition last:border-b-0 hover:bg-white ${
                   ticker === c.ticker ? "bg-white" : ""
                 }`}
