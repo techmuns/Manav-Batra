@@ -9,7 +9,7 @@ import { Landing } from "@/components/Landing";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { ScoreSummary } from "@/components/ScoreSummary";
 import { TrendChart } from "@/components/TrendChart";
-import { COMPANY_MASTER, findCompany } from "@/data/companies";
+import { findCompany } from "@/data/companies";
 import type { ScoresError, ScoresResponse } from "@/lib/types";
 
 type AppState =
@@ -69,7 +69,7 @@ export default function Page() {
   if (state.kind === "idle") {
     return (
       <main className="min-h-screen">
-        <Landing companies={COMPANY_MASTER} onCalculate={calculate} />
+        <Landing onCalculate={calculate} />
       </main>
     );
   }

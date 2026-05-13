@@ -24,9 +24,13 @@ export function TrendChart({
   isFinancial: boolean;
 }) {
   const [win, setWin] = useState<Window>(10);
-  const data = trend.slice(-win);
-  const hasAnyM = data.some((d) => d.mScore != null);
-  const hasAnyZ = data.some((d) => d.zScore != null);
+  // Eligibility rule: only plot fiscal years that produced BOTH a Beneish
+  // M-Score and an Altman Z-Score.  Missing-input years are dropped, not
+  // shown as fake points.
+  const eligible = trend.filter((d) => d.mScore != null && d.zScore != null);
+  const data = eligible.slice(-win);
+  const hasAnyM = data.length > 0;
+  const hasAnyZ = data.length > 0;
 
   return (
     <div className="space-y-5">

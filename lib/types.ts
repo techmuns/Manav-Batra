@@ -181,6 +181,23 @@ export interface GeneratedFinancialSnapshot {
   companies: Record<string, CompanyFinancialSnapshot>;
 }
 
+// ----- Eligibility universe ---------------------------------------------
+
+export interface EligibleCompany {
+  companyName: string;
+  ticker: string;
+  screenerSlug: string;
+  sector: string;
+  /** Fiscal years where BOTH Beneish and Altman would calculate.  Newest first. */
+  availableFiscalYears: string[];
+}
+
+export interface EligibleScoreUniverse {
+  generatedAt: string;
+  source: "derived_from_verified_snapshot";
+  companies: EligibleCompany[];
+}
+
 export interface ScoresError {
   ok: false;
   errorCode: ErrorCode;
