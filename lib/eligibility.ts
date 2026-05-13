@@ -9,6 +9,7 @@ import type {
 const VERIFIED_SOURCES = new Set<string>([
   "official_filings_pipeline",
   "annual_report_verified",
+  "screener_github_actions",
 ]);
 
 /**

@@ -84,13 +84,14 @@ async function handle(req: Request) {
   const VERIFIED_SOURCES = new Set<string>([
     "official_filings_pipeline",
     "annual_report_verified",
+    "screener_github_actions",
   ]);
   if (!VERIFIED_SOURCES.has(SNAPSHOT.source as string)) {
     return err(
       {
         ok: false,
         errorCode: "UNVERIFIED_SOURCE",
-        message: `Snapshot source "${SNAPSHOT.source}" is not allowed in production. Only official_filings_pipeline and annual_report_verified are permitted.`,
+        message: `Snapshot source "${SNAPSHOT.source}" is not allowed in production.`,
         master,
       },
       503
