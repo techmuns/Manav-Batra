@@ -82,7 +82,7 @@ async function handle(req: Request) {
   // Anything else — dev_mock, fixture, hand_typed, estimated — is blocked
   // hard, even if data is present.
   const VERIFIED_SOURCES = new Set<string>([
-    "screener_github_actions",
+    "official_filings_pipeline",
     "annual_report_verified",
   ]);
   if (!VERIFIED_SOURCES.has(SNAPSHOT.source as string)) {
@@ -90,7 +90,7 @@ async function handle(req: Request) {
       {
         ok: false,
         errorCode: "UNVERIFIED_SOURCE",
-        message: `Snapshot source "${SNAPSHOT.source}" is not allowed in production. Only screener_github_actions and annual_report_verified are permitted.`,
+        message: `Snapshot source "${SNAPSHOT.source}" is not allowed in production. Only official_filings_pipeline and annual_report_verified are permitted.`,
         master,
       },
       503

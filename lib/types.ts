@@ -25,9 +25,22 @@ export interface FinancialYearData {
   netIncome: number | null;
 
   // Internal-only provenance.  Never read by any UI component.
+  // Allowed source values:
+  //   - "xbrl"                     — extracted from NSE/BSE XBRL filings
+  //   - "annual_report"            — parsed from a company annual report PDF
+  //   - "manual_verified"          — manually entered with sourceDocument/page
+  //   - "annual_report_verified"   — annual-report extraction marked verified
+  //   - "available" / "missing"    — legacy Screener path
+  //   - "annual_report_required"   — known-missing, needs AR ingestion
   fieldStatus?: Record<
     string,
-    "available" | "missing" | "annual_report_required"
+    | "xbrl"
+    | "annual_report"
+    | "manual_verified"
+    | "annual_report_verified"
+    | "available"
+    | "missing"
+    | "annual_report_required"
   >;
 }
 
@@ -175,10 +188,45 @@ export interface CompanyFinancialSnapshot {
 
 export interface GeneratedFinancialSnapshot {
   generatedAt: string | null;
-  /** Only these two values are honoured by the production runtime.
-   *  Anything else triggers a UNVERIFIED_SOURCE error. */
-  source: "screener_github_actions" | "annual_report_verified";
+  /** Only these values are honoured by the production runtime.
+   *  Anything else triggers a UNVERIFIED_SOURCE error.
+   *
+   *  - official_filings_pipeline:  produced by scripts/ingest/build-verified-financials.ts
+   *  - annual_report_verified:     produced from a verified annual-report run
+   *  - screener_github_actions:    legacy, retained for tooling but Screener
+   *                                alone never produces eligible scores. */
+  source:
+    | "official_filings_pipeline"
+    | "annual_report_verified"
+    | "screener_github_actions";
   companies: Record<string, CompanyFinancialSnapshot>;
+}
+
+// ----- Manual override schema (data/manual-overrides.json) --------------
+
+export interface ManualOverride {
+  ticker: string;
+  fiscalYear: string;
+  field: keyof FinancialYearData;
+  value: number;
+  unit: "INR crore" | "INR" | "USD" | "USD million";
+  source: "annual_report_verified";
+  sourceDocument: string;
+  pageOrSection: string;
+  verifiedBy: "manual";
+}
+
+// ----- Company source map (data/company-source-map.ts) ------------------
+
+export interface CompanySourceMapItem {
+  companyName: string;
+  ticker: string;
+  sector: string;
+  isFinancialCompany: boolean;
+  nseSymbol?: string;
+  bseCode?: string;
+  /** Public, citable URL for each fiscal-year annual report PDF. */
+  annualReportUrls: Record<string, string>;
 }
 
 // ----- Eligibility universe ---------------------------------------------

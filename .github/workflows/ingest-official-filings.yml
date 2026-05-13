@@ -1,0 +1,48 @@
+name: Ingest official filings
+
+on:
+  schedule:
+    # Weekly, Sunday 03:00 UTC.  Official filings change at quarterly cadence.
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingest-official-filings
+  cancel-in-progress: false
+
+jobs:
+  build-verified-financials:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Build verified-financials snapshot
+        run: npm run ingest:official-filings
+
+      - name: Commit updated snapshot
+        run: |
+          if git diff --quiet -- data/generated/verified-financials.json data/generated/verified-financials.ts app/api/scores/snapshot.ts; then
+            echo "No changes — skipping commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/generated/verified-financials.json data/generated/verified-financials.ts app/api/scores/snapshot.ts
+          git commit -m "chore(data): refresh verified-financials snapshot $(date -u +%Y-%m-%d)"
+          git push

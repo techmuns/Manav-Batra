@@ -7,7 +7,7 @@ import type {
 } from "@/lib/types";
 
 const VERIFIED_SOURCES = new Set<string>([
-  "screener_github_actions",
+  "official_filings_pipeline",
   "annual_report_verified",
 ]);
 
