@@ -150,7 +150,8 @@ export type ErrorCode =
   | "MISSING_SLUG"
   | "ROUTE_FAILED"
   | "NO_SNAPSHOT"
-  | "SNAPSHOT_NOT_INGESTED";
+  | "SNAPSHOT_NOT_INGESTED"
+  | "UNVERIFIED_SOURCE";
 
 // ----- GitHub-Actions-generated snapshot --------------------------------
 
@@ -174,7 +175,9 @@ export interface CompanyFinancialSnapshot {
 
 export interface GeneratedFinancialSnapshot {
   generatedAt: string | null;
-  source: "screener_github_actions";
+  /** Only these two values are honoured by the production runtime.
+   *  Anything else triggers a UNVERIFIED_SOURCE error. */
+  source: "screener_github_actions" | "annual_report_verified";
   companies: Record<string, CompanyFinancialSnapshot>;
 }
 

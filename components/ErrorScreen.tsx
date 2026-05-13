@@ -35,14 +35,19 @@ const COPY: Record<ErrorCode, { title: string; detail: string }> = {
     detail: "The Calculate request couldn't complete. Please try again.",
   },
   NO_SNAPSHOT: {
-    title: "Data not ingested yet",
+    title: "Verified data not available",
     detail:
-      "The Screener snapshot pipeline hasn't produced any data yet. Once the GitHub Actions ingestion job runs, scores will be available.",
+      "Run the GitHub Actions ingestion workflow before calculating scores. Only data fetched from primary sources (Screener / annual reports) is shown in production.",
   },
   SNAPSHOT_NOT_INGESTED: {
     title: "Company not ingested yet",
     detail:
-      "This company isn't in the latest snapshot. The next ingestion run should pick it up.",
+      "This company isn't in the latest verified snapshot. The next ingestion run should pick it up.",
+  },
+  UNVERIFIED_SOURCE: {
+    title: "Snapshot source is not verified",
+    detail:
+      "The current snapshot wasn't tagged as a verified source. Production only accepts data from the GitHub Actions ingestion or manually-verified annual reports.",
   },
 };
 

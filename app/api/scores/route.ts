@@ -78,14 +78,33 @@ async function handle(req: Request) {
     );
   }
 
-  // 0. Has ingestion ever run?
+  // 0a. Production may only render scores from a verified source.
+  // Anything else — dev_mock, fixture, hand_typed, estimated — is blocked
+  // hard, even if data is present.
+  const VERIFIED_SOURCES = new Set<string>([
+    "screener_github_actions",
+    "annual_report_verified",
+  ]);
+  if (!VERIFIED_SOURCES.has(SNAPSHOT.source as string)) {
+    return err(
+      {
+        ok: false,
+        errorCode: "UNVERIFIED_SOURCE",
+        message: `Snapshot source "${SNAPSHOT.source}" is not allowed in production. Only screener_github_actions and annual_report_verified are permitted.`,
+        master,
+      },
+      503
+    );
+  }
+
+  // 0b. Has ingestion ever run?
   if (!SNAPSHOT.generatedAt) {
     return err(
       {
         ok: false,
         errorCode: "NO_SNAPSHOT",
         message:
-          "Data has not been ingested yet. The GitHub Actions snapshot pipeline must run before scores can be calculated.",
+          "Verified financial data is not available yet. Run the GitHub Actions ingestion workflow before calculating scores.",
         master,
       },
       503
