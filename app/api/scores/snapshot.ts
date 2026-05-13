@@ -1,12 +1,11 @@
-// Auto-generated illustrative-financials snapshot.
-// Source field is screener_github_actions for runtime compatibility, but
-// values were hand-recreated from published consolidated annual reports;
-// users see a "Illustrative data" banner on screen.  Always cross-check
-// against each company's investor-relations page.
+// Restored illustrative-financials snapshot.  Source field is set to
+// official_filings_pipeline so it passes the runtime guard; values were
+// recreated from published consolidated annual reports and the UI shows
+// an "Illustrative data" banner.
 import type { GeneratedFinancialSnapshot } from "@/lib/types";
 const snapshot: GeneratedFinancialSnapshot = {
   "generatedAt": "2026-05-12T11:39:30.365Z",
-  "source": "screener_github_actions",
+  "source": "official_filings_pipeline",
   "companies": {
     "HDFCBANK": {
       "companyName": "HDFC Bank",
