@@ -146,22 +146,10 @@ export function Landing({
             ))}
           </div>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_180px_auto] sm:items-end">
+          <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
             <div>
               <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-ink-muted">
-                Selected
-              </label>
-              <div className="mt-1.5 rounded-xl border border-line bg-paper/50 px-4 py-3 text-sm">
-                {selected ? (
-                  <span className="font-medium text-ink">{selected.companyName}</span>
-                ) : (
-                  <span className="text-ink-subtle">Choose a company above</span>
-                )}
-              </div>
-            </div>
-            <div>
-              <label className="block text-[11px] font-medium uppercase tracking-[0.12em] text-ink-muted">
-                Fiscal year
+                Fiscal year {selected ? `· ${selected.companyName}` : ""}
               </label>
               <select
                 value={year ?? ""}
@@ -169,7 +157,7 @@ export function Landing({
                 disabled={!selected}
                 className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none focus:border-ink disabled:opacity-50"
               >
-                {!selected && <option value="">—</option>}
+                {!selected && <option value="">Choose a company above</option>}
                 {selected?.availableFiscalYears.map((y) => (
                   <option key={y} value={y}>
                     FY {y}
