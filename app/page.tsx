@@ -102,14 +102,6 @@ export default function Page() {
   const data = state.data;
   return (
     <main className="mx-auto max-w-6xl space-y-6 px-6 py-10">
-      <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
-        <span className="font-semibold">Illustrative data.</span>{" "}
-        These figures were recreated from published consolidated annual
-        reports for demonstration purposes; please cross-check any
-        decision-critical number against the company&apos;s official
-        investor-relations page.
-      </div>
-
       <ScoreSummary
         master={data.master}
         fiscalYear={data.fiscalYear}
