@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T11:39:04.400Z",
+  "generatedAt": "2026-05-14T11:07:08.381Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -18836,7 +18836,7 @@
           "ebit": 7052,
           "marketValueEquity": null,
           "totalLiabilities": 46936,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 1867,
           "netIncome": 3186,
           "fieldStatus": {
             "sales": "available",
@@ -18853,7 +18853,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
@@ -22922,7 +22922,7 @@
           "ebit": 5278,
           "marketValueEquity": null,
           "totalLiabilities": 8064,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 3940,
           "netIncome": 3862,
           "fieldStatus": {
             "sales": "available",
@@ -22939,7 +22939,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
@@ -29662,43 +29662,6 @@
       "isFinancialCompany": false,
       "status": "ok",
       "years": {
-        "2014": {
-          "fiscalYear": "2014",
-          "sales": 85864,
-          "receivables": null,
-          "grossProfit": null,
-          "currentAssets": null,
-          "ppe": 140614,
-          "totalAssets": 181492,
-          "depreciation": 15650,
-          "sgaExpense": null,
-          "totalDebt": 75896,
-          "currentLiabilities": null,
-          "retainedEarnings": null,
-          "ebit": 13743,
-          "marketValueEquity": null,
-          "totalLiabilities": 121736,
-          "operatingCashFlow": 26233,
-          "netIncome": 3019,
-          "fieldStatus": {
-            "sales": "available",
-            "receivables": "missing",
-            "grossProfit": "annual_report_required",
-            "currentAssets": "annual_report_required",
-            "ppe": "available",
-            "totalAssets": "available",
-            "depreciation": "available",
-            "sgaExpense": "annual_report_required",
-            "totalDebt": "available",
-            "currentLiabilities": "annual_report_required",
-            "retainedEarnings": "annual_report_required",
-            "ebit": "available",
-            "marketValueEquity": "annual_report_required",
-            "totalLiabilities": "available",
-            "operatingCashFlow": "available",
-            "netIncome": "available"
-          }
-        },
         "2015": {
           "fiscalYear": "2015",
           "sales": 96101,
@@ -30087,6 +30050,43 @@
           "totalLiabilities": 391334,
           "operatingCashFlow": 98332,
           "netIncome": 37481,
+          "fieldStatus": {
+            "sales": "available",
+            "receivables": "missing",
+            "grossProfit": "annual_report_required",
+            "currentAssets": "annual_report_required",
+            "ppe": "available",
+            "totalAssets": "available",
+            "depreciation": "available",
+            "sgaExpense": "annual_report_required",
+            "totalDebt": "available",
+            "currentLiabilities": "annual_report_required",
+            "retainedEarnings": "annual_report_required",
+            "ebit": "available",
+            "marketValueEquity": "annual_report_required",
+            "totalLiabilities": "available",
+            "operatingCashFlow": "available",
+            "netIncome": "available"
+          }
+        },
+        "2026": {
+          "fiscalYear": "2026",
+          "sales": 210973,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 419275,
+          "totalAssets": 552152,
+          "depreciation": 52711,
+          "sgaExpense": null,
+          "totalDebt": 195412,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 66728,
+          "marketValueEquity": null,
+          "totalLiabilities": 403095,
+          "operatingCashFlow": 122230,
+          "netIncome": 33823,
           "fieldStatus": {
             "sales": "available",
             "receivables": "missing",
@@ -32496,35 +32496,25 @@
             "operatingCashFlow": "available",
             "netIncome": "available"
           }
-        }
-      }
-    },
-    "DLF": {
-      "companyName": "DLF",
-      "ticker": "DLF",
-      "screenerSlug": "DLF",
-      "sector": "Real Estate",
-      "isFinancialCompany": false,
-      "status": "ok",
-      "years": {
-        "2014": {
-          "fiscalYear": "2014",
-          "sales": 8298,
+        },
+        "2026": {
+          "fiscalYear": "2026",
+          "sales": 33089,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
-          "ppe": 24814,
-          "totalAssets": 64525,
-          "depreciation": 663,
+          "ppe": 10607,
+          "totalAssets": 132415,
+          "depreciation": 1355,
           "sgaExpense": null,
-          "totalDebt": 24133,
+          "totalDebt": 11,
           "currentLiabilities": null,
           "retainedEarnings": null,
-          "ebit": 2963,
+          "ebit": 12158,
           "marketValueEquity": null,
-          "totalLiabilities": 37130,
-          "operatingCashFlow": 1468,
-          "netIncome": 590,
+          "totalLiabilities": 91373,
+          "operatingCashFlow": null,
+          "netIncome": 9116,
           "fieldStatus": {
             "sales": "available",
             "receivables": "missing",
@@ -32540,10 +32530,20 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "available",
+            "operatingCashFlow": "missing",
             "netIncome": "available"
           }
-        },
+        }
+      }
+    },
+    "DLF": {
+      "companyName": "DLF",
+      "ticker": "DLF",
+      "screenerSlug": "DLF",
+      "sector": "Real Estate",
+      "isFinancialCompany": false,
+      "status": "ok",
+      "years": {
         "2015": {
           "fiscalYear": "2015",
           "sales": 7649,
@@ -32948,6 +32948,43 @@
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
             "operatingCashFlow": "available",
+            "netIncome": "available"
+          }
+        },
+        "2026": {
+          "fiscalYear": "2026",
+          "sales": 8194,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 4276,
+          "totalAssets": 74875,
+          "depreciation": 142,
+          "sgaExpense": null,
+          "totalDebt": 306,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 3131,
+          "marketValueEquity": null,
+          "totalLiabilities": 29402,
+          "operatingCashFlow": null,
+          "netIncome": 4415,
+          "fieldStatus": {
+            "sales": "available",
+            "receivables": "missing",
+            "grossProfit": "annual_report_required",
+            "currentAssets": "annual_report_required",
+            "ppe": "available",
+            "totalAssets": "available",
+            "depreciation": "available",
+            "sgaExpense": "annual_report_required",
+            "totalDebt": "available",
+            "currentLiabilities": "annual_report_required",
+            "retainedEarnings": "annual_report_required",
+            "ebit": "available",
+            "marketValueEquity": "annual_report_required",
+            "totalLiabilities": "available",
+            "operatingCashFlow": "missing",
             "netIncome": "available"
           }
         }
