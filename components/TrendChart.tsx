@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   CartesianGrid,
   Line,
@@ -14,8 +13,6 @@ import {
 import { ALTMAN_DISTRESS, ALTMAN_SAFE, BENEISH_CUTOFF } from "@/lib/calculations";
 import type { TrendPoint } from "@/lib/types";
 
-type Window = 5 | 10;
-
 export function TrendChart({
   trend,
   isFinancial,
@@ -23,61 +20,39 @@ export function TrendChart({
   trend: TrendPoint[];
   isFinancial: boolean;
 }) {
-  const [win, setWin] = useState<Window>(10);
   // Eligibility rule: only plot fiscal years that produced BOTH a Beneish
   // M-Score and an Altman Z-Score.  Missing-input years are dropped, not
   // shown as fake points.
-  const eligible = trend.filter((d) => d.mScore != null && d.zScore != null);
-  const data = eligible.slice(-win);
-  const hasAnyM = data.length > 0;
-  const hasAnyZ = data.length > 0;
+  const data = trend.filter((d) => d.mScore != null && d.zScore != null);
+  const hasAny = data.length > 0;
 
   return (
-    <div className="space-y-5">
-      <div className="flex items-center justify-end gap-2">
-        {[5, 10].map((n) => (
-          <button
-            key={n}
-            type="button"
-            onClick={() => setWin(n as Window)}
-            className={`rounded-full px-3 py-1 text-xs font-medium ring-1 transition ${
-              win === n
-                ? "bg-ink text-white ring-ink"
-                : "bg-white text-ink-muted ring-line hover:text-ink"
-            }`}
-          >
-            {n}Y
-          </button>
-        ))}
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        <ChartBlock
-          title="Beneish M-Score"
-          data={data}
-          dataKey="mScore"
-          domain={[-6, 1]}
-          refs={[{ y: BENEISH_CUTOFF, label: "Cutoff −1.78", color: "#dc2626" }]}
-          empty={hasAnyM ? undefined : "No years had complete inputs for M-Score"}
-        />
-        <ChartBlock
-          title="Altman Z-Score"
-          data={data}
-          dataKey="zScore"
-          domain={[0, 8]}
-          refs={[
-            { y: ALTMAN_DISTRESS, label: "Distress 1.8", color: "#dc2626" },
-            { y: ALTMAN_SAFE, label: "Safe 3.0", color: "#16a34a" },
-          ]}
-          empty={
-            isFinancial
-              ? "Not applicable for financial companies"
-              : hasAnyZ
-                ? undefined
-                : "No years had complete inputs for Z-Score"
-          }
-        />
-      </div>
+    <div className="grid gap-6 lg:grid-cols-2">
+      <ChartBlock
+        title="Beneish M-Score"
+        data={data}
+        dataKey="mScore"
+        domain={[-6, 1]}
+        refs={[{ y: BENEISH_CUTOFF, label: "Cutoff −1.78", color: "#dc2626" }]}
+        empty={hasAny ? undefined : "No years had complete inputs for M-Score"}
+      />
+      <ChartBlock
+        title="Altman Z-Score"
+        data={data}
+        dataKey="zScore"
+        domain={[0, 8]}
+        refs={[
+          { y: ALTMAN_DISTRESS, label: "Distress 1.8", color: "#dc2626" },
+          { y: ALTMAN_SAFE, label: "Safe 3.0", color: "#16a34a" },
+        ]}
+        empty={
+          isFinancial
+            ? "Not applicable for financial companies"
+            : hasAny
+              ? undefined
+              : "No years had complete inputs for Z-Score"
+        }
+      />
     </div>
   );
 }
