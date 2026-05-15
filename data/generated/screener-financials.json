@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T11:07:08.381Z",
+  "generatedAt": "2026-05-15T11:10:22.687Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -19775,43 +19775,6 @@
       "isFinancialCompany": false,
       "status": "ok",
       "years": {
-        "2014": {
-          "fiscalYear": "2014",
-          "sales": 51220,
-          "receivables": null,
-          "grossProfit": null,
-          "currentAssets": null,
-          "ppe": 56446,
-          "totalAssets": 77640,
-          "depreciation": 3183,
-          "sgaExpense": null,
-          "totalDebt": 35527,
-          "currentLiabilities": null,
-          "retainedEarnings": null,
-          "ebit": 4356,
-          "marketValueEquity": null,
-          "totalLiabilities": 56466,
-          "operatingCashFlow": 2594,
-          "netIncome": 402,
-          "fieldStatus": {
-            "sales": "available",
-            "receivables": "missing",
-            "grossProfit": "annual_report_required",
-            "currentAssets": "annual_report_required",
-            "ppe": "available",
-            "totalAssets": "available",
-            "depreciation": "available",
-            "sgaExpense": "annual_report_required",
-            "totalDebt": "available",
-            "currentLiabilities": "annual_report_required",
-            "retainedEarnings": "annual_report_required",
-            "ebit": "available",
-            "marketValueEquity": "annual_report_required",
-            "totalLiabilities": "available",
-            "operatingCashFlow": "available",
-            "netIncome": "available"
-          }
-        },
         "2015": {
           "fiscalYear": "2015",
           "sales": 52972,
@@ -20216,6 +20179,43 @@
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
             "operatingCashFlow": "available",
+            "netIncome": "available"
+          }
+        },
+        "2026": {
+          "fiscalYear": "2026",
+          "sales": 185470,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 139444,
+          "totalAssets": 269676,
+          "depreciation": 9601,
+          "sgaExpense": null,
+          "totalDebt": 99310,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 38352,
+          "marketValueEquity": null,
+          "totalLiabilities": 169623,
+          "operatingCashFlow": null,
+          "netIncome": 25508,
+          "fieldStatus": {
+            "sales": "available",
+            "receivables": "missing",
+            "grossProfit": "annual_report_required",
+            "currentAssets": "annual_report_required",
+            "ppe": "available",
+            "totalAssets": "available",
+            "depreciation": "available",
+            "sgaExpense": "annual_report_required",
+            "totalDebt": "available",
+            "currentLiabilities": "annual_report_required",
+            "retainedEarnings": "annual_report_required",
+            "ebit": "available",
+            "marketValueEquity": "annual_report_required",
+            "totalLiabilities": "available",
+            "operatingCashFlow": "missing",
             "netIncome": "available"
           }
         }
@@ -32513,7 +32513,7 @@
           "ebit": 12158,
           "marketValueEquity": null,
           "totalLiabilities": 91373,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 10906,
           "netIncome": 9116,
           "fieldStatus": {
             "sales": "available",
@@ -32530,7 +32530,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
@@ -32967,7 +32967,7 @@
           "ebit": 3131,
           "marketValueEquity": null,
           "totalLiabilities": 29402,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 6347,
           "netIncome": 4415,
           "fieldStatus": {
             "sales": "available",
@@ -32984,7 +32984,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
