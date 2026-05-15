@@ -135,7 +135,7 @@ export function BeneishDashboard({
               label="Latest Beneish M-Score"
               value={latest ? (latest.mScore as number).toFixed(2) : "—"}
               sub={latest ? `FY ${latest.fiscalYear}` : ""}
-              accent="from-slate-200 via-slate-50 to-white"
+              accent="from-blue-200 via-sky-50 to-white"
             />
             <HeroCard
               label="Manipulation risk"
@@ -165,7 +165,7 @@ export function BeneishDashboard({
                 latestComponentVal != null ? latestComponentVal.toFixed(3) : "—"
               }
               sub={meta.fullName}
-              accent="from-indigo-200 via-indigo-50 to-white"
+              accent="from-cyan-200 via-cyan-50 to-white"
             />
             <HeroCard
               label={`${component} trend`}
@@ -182,7 +182,7 @@ export function BeneishDashboard({
                   ? "from-amber-200 via-amber-50 to-white"
                   : componentDir === "falling"
                     ? "from-emerald-200 via-emerald-50 to-white"
-                    : "from-slate-200 via-slate-50 to-white"
+                    : "from-blue-200 via-blue-50 to-white"
               }
             />
           </div>
@@ -250,7 +250,7 @@ export function BeneishDashboard({
                   />
                   <YAxis
                     yAxisId="left"
-                    stroke="#0f172a"
+                    stroke="#1d4ed8"
                     fontSize={12}
                     tickLine={false}
                     width={40}
@@ -288,7 +288,7 @@ export function BeneishDashboard({
                     type="monotone"
                     dataKey="mScore"
                     name="M-Score (left)"
-                    stroke="#0f172a"
+                    stroke="#1d4ed8"
                     strokeWidth={2.5}
                     dot={{ r: 4 }}
                   />

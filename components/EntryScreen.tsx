@@ -70,7 +70,7 @@ export function EntryScreen({
     <div className="relative isolate min-h-screen overflow-hidden">
       <div className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu blur-3xl">
         <div
-          className="mx-auto aspect-[1155/678] w-[80rem] bg-gradient-to-tr from-indigo-300 via-rose-200 to-amber-200 opacity-30"
+          className="mx-auto aspect-[1155/678] w-[80rem] bg-gradient-to-tr from-blue-400 via-sky-300 to-indigo-200 opacity-40"
           style={{ clipPath: "polygon(74% 44%, 100% 61%, 87% 100%, 0 80%, 14% 0)" }}
         />
       </div>
@@ -186,7 +186,7 @@ export function EntryScreen({
                   title="Altman Z-Score"
                   subtitle="Bankruptcy distress model"
                   description="Five-factor model. Safe > 3.0, Grey 1.8–3.0, Distress < 1.8."
-                  accent="from-emerald-100 via-emerald-50 to-white"
+                  accent="from-sky-200 via-blue-50 to-white"
                 />
                 <ScoreTypeCard
                   active={scoreType === "beneish"}
@@ -194,7 +194,7 @@ export function EntryScreen({
                   title="Beneish M-Score"
                   subtitle="Earnings-manipulation model"
                   description="Eight-variable composite. Cutoff −1.78; higher = elevated risk."
-                  accent="from-rose-100 via-rose-50 to-white"
+                  accent="from-indigo-200 via-indigo-50 to-white"
                 />
               </div>
               <div className="mt-6 rounded-xl border border-line bg-paper/40 px-4 py-3 text-xs text-ink-muted">

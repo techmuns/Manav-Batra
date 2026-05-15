@@ -137,7 +137,7 @@ export function AltmanDashboard({
               <Line
                 type="monotone"
                 dataKey="zScore"
-                stroke="#0f172a"
+                stroke="#1d4ed8"
                 strokeWidth={2.5}
                 dot={{ r: 4 }}
                 activeDot={{ r: 6 }}

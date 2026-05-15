@@ -8,8 +8,12 @@
 
 html,
 body {
-  background: #f8fafc;
-  color: #0f172a;
+  background:
+    radial-gradient(at 0% 0%, rgba(99, 120, 255, 0.10) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+    linear-gradient(180deg, #eaf1fb 0%, #f4f8ff 100%);
+  background-attachment: fixed;
+  color: #0b2a6b;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
