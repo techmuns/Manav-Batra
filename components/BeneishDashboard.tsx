@@ -77,7 +77,7 @@ export function BeneishDashboard({
       <div className="mt-6 grid gap-6 lg:grid-cols-[260px_1fr]">
         {/* Left rail */}
         <aside className="space-y-4">
-          <div className="rounded-3xl border border-line bg-white p-5 shadow-card">
+          <div className="rounded-3xl border border-line bg-surface p-5 shadow-card">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
               Company
             </p>
@@ -93,7 +93,7 @@ export function BeneishDashboard({
             </p>
           </div>
 
-          <div className="rounded-3xl border border-line bg-white p-5 shadow-card">
+          <div className="rounded-3xl border border-line bg-surface p-5 shadow-card">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
               Beneish components
             </p>
@@ -135,7 +135,7 @@ export function BeneishDashboard({
               label="Latest Beneish M-Score"
               value={latest ? (latest.mScore as number).toFixed(2) : "—"}
               sub={latest ? `FY ${latest.fiscalYear}` : ""}
-              accent="from-blue-200 via-sky-50 to-white"
+              accent="from-blue-200 via-sky-50 to-[#e7eefa]"
             />
             <HeroCard
               label="Manipulation risk"
@@ -155,8 +155,8 @@ export function BeneishDashboard({
               }
               accent={
                 latest && (latest.mScore as number) > BENEISH_CUTOFF
-                  ? "from-rose-200 via-rose-50 to-white"
-                  : "from-emerald-200 via-emerald-50 to-white"
+                  ? "from-rose-200 via-rose-50 to-[#e7eefa]"
+                  : "from-emerald-200 via-emerald-50 to-[#e7eefa]"
               }
             />
             <HeroCard
@@ -165,7 +165,7 @@ export function BeneishDashboard({
                 latestComponentVal != null ? latestComponentVal.toFixed(3) : "—"
               }
               sub={meta.fullName}
-              accent="from-cyan-200 via-cyan-50 to-white"
+              accent="from-cyan-200 via-cyan-50 to-[#e7eefa]"
             />
             <HeroCard
               label={`${component} trend`}
@@ -179,16 +179,16 @@ export function BeneishDashboard({
               sub={`across ${componentValues.length} ${componentValues.length === 1 ? "year" : "years"}`}
               accent={
                 componentDir === "rising"
-                  ? "from-amber-200 via-amber-50 to-white"
+                  ? "from-amber-200 via-amber-50 to-[#e7eefa]"
                   : componentDir === "falling"
-                    ? "from-emerald-200 via-emerald-50 to-white"
-                    : "from-blue-200 via-blue-50 to-white"
+                    ? "from-emerald-200 via-emerald-50 to-[#e7eefa]"
+                    : "from-blue-200 via-blue-50 to-[#e7eefa]"
               }
             />
           </div>
 
           {/* Year strip */}
-          <div className="rounded-3xl border border-line bg-white p-5 shadow-card">
+          <div className="rounded-3xl border border-line bg-surface p-5 shadow-card">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
               All available years
             </p>
@@ -226,7 +226,7 @@ export function BeneishDashboard({
           </div>
 
           {/* Combo trend */}
-          <div className="rounded-3xl border border-line bg-white p-6 shadow-card">
+          <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
                 Beneish M-Score &amp; {component} trend
@@ -365,7 +365,7 @@ function HeroCard({
   accent: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-line bg-white p-5 shadow-card">
+    <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-5 shadow-card">
       <div
         className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${accent} opacity-70`}
       />
@@ -382,7 +382,7 @@ function HeroCard({
 
 function InsightCard({ title, lines }: { title: string; lines: string[] }) {
   return (
-    <div className="rounded-3xl border border-line bg-white p-6 shadow-card">
+    <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
         {title}
       </p>

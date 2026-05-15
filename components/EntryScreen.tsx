@@ -90,20 +90,20 @@ export function EntryScreen({
         </div>
 
         {state.kind === "loading" && (
-          <div className="mt-12 w-full rounded-3xl border border-line bg-white/80 p-10 text-center text-sm text-ink-muted shadow-card backdrop-blur">
+          <div className="mt-12 w-full rounded-3xl border border-line bg-surface/80 p-10 text-center text-sm text-ink-muted shadow-card backdrop-blur">
             Loading available companies…
           </div>
         )}
 
         {state.kind === "error" && (
-          <div className="mt-12 w-full rounded-3xl border border-line bg-white p-8 shadow-card">
+          <div className="mt-12 w-full rounded-3xl border border-line bg-surface p-8 shadow-card">
             <p className="text-sm font-semibold text-ink">Couldn&apos;t load the company list.</p>
             <p className="mt-1 text-xs text-ink-muted">{state.message}</p>
           </div>
         )}
 
         {state.kind === "ready" && companies.length === 0 && (
-          <div className="mt-12 w-full rounded-3xl border border-line bg-white p-8 shadow-card">
+          <div className="mt-12 w-full rounded-3xl border border-line bg-surface p-8 shadow-card">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
               No eligible companies
             </p>
@@ -116,7 +116,7 @@ export function EntryScreen({
         {state.kind === "ready" && companies.length > 0 && (
           <div className="mt-12 grid w-full gap-6 lg:grid-cols-[1fr_1.1fr]">
             {/* Company picker */}
-            <div className="rounded-3xl border border-line bg-white p-6 shadow-card">
+            <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
                 Step 1 · Company
               </p>
@@ -175,7 +175,7 @@ export function EntryScreen({
             </div>
 
             {/* Score-type picker */}
-            <div className="rounded-3xl border border-line bg-white p-6 shadow-card">
+            <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
                 Step 2 · Score type
               </p>
@@ -186,7 +186,7 @@ export function EntryScreen({
                   title="Altman Z-Score"
                   subtitle="Bankruptcy distress model"
                   description="Five-factor model. Safe > 3.0, Grey 1.8–3.0, Distress < 1.8."
-                  accent="from-sky-200 via-blue-50 to-white"
+                  accent="from-sky-200 via-blue-50 to-[#e7eefa]"
                 />
                 <ScoreTypeCard
                   active={scoreType === "beneish"}
@@ -194,7 +194,7 @@ export function EntryScreen({
                   title="Beneish M-Score"
                   subtitle="Earnings-manipulation model"
                   description="Eight-variable composite. Cutoff −1.78; higher = elevated risk."
-                  accent="from-indigo-200 via-indigo-50 to-white"
+                  accent="from-indigo-200 via-indigo-50 to-[#e7eefa]"
                 />
               </div>
               <div className="mt-6 rounded-xl border border-line bg-paper/40 px-4 py-3 text-xs text-ink-muted">
@@ -251,7 +251,7 @@ function ScoreTypeCard({
     <button
       type="button"
       onClick={onClick}
-      className={`group relative overflow-hidden rounded-2xl border bg-white p-5 text-left transition ${
+      className={`group relative overflow-hidden rounded-2xl border bg-surface p-5 text-left transition ${
         active
           ? "border-ink shadow-card ring-2 ring-ink/10"
           : "border-line hover:border-ink/40 hover:shadow-card"

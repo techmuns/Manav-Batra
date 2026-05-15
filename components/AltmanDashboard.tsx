@@ -53,10 +53,10 @@ export function AltmanDashboard({
           sub={latest ? `FY ${latest.fiscalYear}` : ""}
           accent={
             latestZone === "safe"
-              ? "from-emerald-200 via-emerald-50 to-white"
+              ? "from-emerald-200 via-emerald-50 to-[#e7eefa]"
               : latestZone === "grey"
-                ? "from-amber-200 via-amber-50 to-white"
-                : "from-rose-200 via-rose-50 to-white"
+                ? "from-amber-200 via-amber-50 to-[#e7eefa]"
+                : "from-rose-200 via-rose-50 to-[#e7eefa]"
           }
         />
         <HeroStatus zone={latestZone} />
@@ -70,7 +70,7 @@ export function AltmanDashboard({
       </div>
 
       {/* Year strip */}
-      <section className="rounded-3xl border border-line bg-white p-6 shadow-card">
+      <section className="rounded-3xl border border-line bg-surface p-6 shadow-card">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
           All available years
         </p>
@@ -106,7 +106,7 @@ export function AltmanDashboard({
       </section>
 
       {/* Trend */}
-      <section className="rounded-3xl border border-line bg-white p-6 shadow-card">
+      <section className="rounded-3xl border border-line bg-surface p-6 shadow-card">
         <div className="flex items-baseline justify-between">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
             Z-Score trend
@@ -149,7 +149,7 @@ export function AltmanDashboard({
 
       {/* Interpretation + comparison strip */}
       <section className="grid gap-4 md:grid-cols-[2fr_1fr]">
-        <div className="rounded-3xl border border-line bg-white p-6 shadow-card">
+        <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
             Interpretation
           </p>
@@ -164,7 +164,7 @@ export function AltmanDashboard({
             ))}
           </ul>
         </div>
-        <div className="space-y-3 rounded-3xl border border-line bg-white p-6 shadow-card">
+        <div className="space-y-3 rounded-3xl border border-line bg-surface p-6 shadow-card">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
             At a glance
           </p>
@@ -228,7 +228,7 @@ function HeroNumber({
   accent: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-line bg-white p-6 shadow-card">
+    <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-6 shadow-card">
       <div className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${accent} opacity-70`} />
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
         {label}
@@ -241,14 +241,14 @@ function HeroNumber({
 
 function HeroStatus({ zone }: { zone: "safe" | "grey" | "distress" | null }) {
   const cfg = zone === "safe"
-    ? { title: "Safe Zone", body: "Z above 3.0 — bankruptcy risk is low on this model.", accent: "from-emerald-200 via-emerald-50 to-white", color: "text-emerald-700" }
+    ? { title: "Safe Zone", body: "Z above 3.0 — bankruptcy risk is low on this model.", accent: "from-emerald-200 via-emerald-50 to-[#e7eefa]", color: "text-emerald-700" }
     : zone === "grey"
-      ? { title: "Grey Zone", body: "Z between 1.8 and 3.0 — model gives no clear verdict.", accent: "from-amber-200 via-amber-50 to-white", color: "text-amber-700" }
+      ? { title: "Grey Zone", body: "Z between 1.8 and 3.0 — model gives no clear verdict.", accent: "from-amber-200 via-amber-50 to-[#e7eefa]", color: "text-amber-700" }
       : zone === "distress"
-        ? { title: "Distress Zone", body: "Z below 1.8 — model flags elevated bankruptcy risk.", accent: "from-rose-200 via-rose-50 to-white", color: "text-rose-700" }
-        : { title: "—", body: "No data", accent: "from-slate-200 via-slate-50 to-white", color: "text-ink-muted" };
+        ? { title: "Distress Zone", body: "Z below 1.8 — model flags elevated bankruptcy risk.", accent: "from-rose-200 via-rose-50 to-[#e7eefa]", color: "text-rose-700" }
+        : { title: "—", body: "No data", accent: "from-slate-200 via-slate-50 to-[#e7eefa]", color: "text-ink-muted" };
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-line bg-white p-6 shadow-card">
+    <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-6 shadow-card">
       <div className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${cfg.accent} opacity-70`} />
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
         Latest status
@@ -261,7 +261,7 @@ function HeroStatus({ zone }: { zone: "safe" | "grey" | "distress" | null }) {
 
 function HeroMeta({ rows }: { rows: Array<{ label: string; value: string }> }) {
   return (
-    <div className="rounded-3xl border border-line bg-white p-6 shadow-card">
+    <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">Context</p>
       <ul className="mt-3 space-y-2.5">
         {rows.map((r) => (

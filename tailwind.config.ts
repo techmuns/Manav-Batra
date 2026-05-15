@@ -13,7 +13,9 @@ const config: Config = {
           muted: "#3b5d9e",     // secondary text
           subtle: "#7c92b8",    // labels, hints
         },
-        paper: "#eaf1fb",       // soft blue page / surface tint
+        paper: "#eaf1fb",       // soft blue page surface
+        surface: "#e7eefa",     // primary card surface — visibly blue, not white
+        "surface-soft": "#f4f8ff", // lighter inner section / hover state
         line: "#cfdcef",        // borders
         accent: "#1d4ed8",      // brand accent (bright blue)
         safe: "#16a34a",        // semantic — kept green for clarity
