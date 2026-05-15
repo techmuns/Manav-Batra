@@ -130,6 +130,10 @@ export interface TrendPoint {
   fiscalYear: string;
   mScore: number | null;
   zScore: number | null;
+  /** Per-year Beneish component values (only populated when M-Score was calculated). */
+  beneishVariables?: Partial<Record<BeneishVariableKey, number>> | null;
+  /** Per-year Altman component values (only populated when Z-Score was calculated). */
+  altmanVariables?: Partial<Record<AltmanVariableKey, number>> | null;
 }
 
 export interface ScoresResponse {

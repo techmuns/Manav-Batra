@@ -211,16 +211,28 @@ async function handle(req: Request) {
     altmanStatus: altman.status,
   });
 
-  // 3. Per-year trend across the company's whole snapshot.
+  // 3. Per-year trend across the company's whole snapshot, including
+  //    each per-year Beneish and Altman variable value so the redesigned
+  //    Beneish dashboard can render any component's trend on demand.
   const trend: TrendPoint[] = availableAsc.map((fy, i) => {
     const cur = stripStatus(yearMap[fy]);
     const pri = i > 0 ? stripStatus(yearMap[availableAsc[i - 1]]) : undefined;
     const b = calculateBeneish(cur, pri);
     const a = calculateAltman(master, cur);
+    const beneishVariables =
+      b.status === "calculated"
+        ? Object.fromEntries(b.variables.map((v) => [v.key, +v.value.toFixed(3)]))
+        : null;
+    const altmanVariables =
+      a.status === "calculated"
+        ? Object.fromEntries(a.variables.map((v) => [v.key, +v.value.toFixed(3)]))
+        : null;
     return {
       fiscalYear: fy,
       mScore: b.status === "calculated" ? +b.mScore.toFixed(3) : null,
       zScore: a.status === "calculated" ? +a.zScore.toFixed(3) : null,
+      beneishVariables,
+      altmanVariables,
     };
   });
 
