@@ -9,11 +9,12 @@
 html,
 body {
   background:
-    radial-gradient(at 0% 0%, rgba(99, 120, 255, 0.10) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
-    linear-gradient(180deg, #eaf1fb 0%, #f4f8ff 100%);
+    radial-gradient(at 10% 0%, rgba(124, 90, 226, 0.20) 0px, transparent 50%),
+    radial-gradient(at 90% 0%, rgba(67, 56, 202, 0.18) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(99, 102, 241, 0.16) 0px, transparent 60%),
+    linear-gradient(180deg, #dde4f7 0%, #e4ddf7 100%);
   background-attachment: fixed;
-  color: #0b2a6b;
+  color: #1a205a;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 

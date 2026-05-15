@@ -53,10 +53,10 @@ export function AltmanDashboard({
           sub={latest ? `FY ${latest.fiscalYear}` : ""}
           accent={
             latestZone === "safe"
-              ? "from-emerald-200 via-emerald-50 to-[#e7eefa]"
+              ? "from-emerald-200 via-emerald-50 to-[#d8def3]"
               : latestZone === "grey"
-                ? "from-amber-200 via-amber-50 to-[#e7eefa]"
-                : "from-rose-200 via-rose-50 to-[#e7eefa]"
+                ? "from-amber-200 via-amber-50 to-[#d8def3]"
+                : "from-rose-200 via-rose-50 to-[#d8def3]"
           }
         />
         <HeroStatus zone={latestZone} />
@@ -118,10 +118,10 @@ export function AltmanDashboard({
         <div className="mt-4 h-80">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={series} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
-              <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
-              <XAxis dataKey="fiscalYear" stroke="#94a3b8" fontSize={12} tickLine={false} />
-              <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} width={40} />
-              <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #e2e8f0", fontSize: 12 }} />
+              <CartesianGrid stroke="#bcc7e6" strokeDasharray="3 3" />
+              <XAxis dataKey="fiscalYear" stroke="#7e85c4" fontSize={12} tickLine={false} />
+              <YAxis stroke="#7e85c4" fontSize={12} tickLine={false} width={40} />
+              <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #bcc7e6", background: "#e6eafa", color: "#1a205a", fontSize: 12 }} />
               <ReferenceLine
                 y={ALTMAN_DISTRESS}
                 stroke="#dc2626"
@@ -208,7 +208,7 @@ function Header({
       <button
         type="button"
         onClick={onChangeSelection}
-        className="rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
+        className="rounded-lg border border-line bg-surface-soft px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
       >
         ← Change selection
       </button>
@@ -241,12 +241,12 @@ function HeroNumber({
 
 function HeroStatus({ zone }: { zone: "safe" | "grey" | "distress" | null }) {
   const cfg = zone === "safe"
-    ? { title: "Safe Zone", body: "Z above 3.0 — bankruptcy risk is low on this model.", accent: "from-emerald-200 via-emerald-50 to-[#e7eefa]", color: "text-emerald-700" }
+    ? { title: "Safe Zone", body: "Z above 3.0 — bankruptcy risk is low on this model.", accent: "from-emerald-200 via-emerald-50 to-[#d8def3]", color: "text-emerald-700" }
     : zone === "grey"
-      ? { title: "Grey Zone", body: "Z between 1.8 and 3.0 — model gives no clear verdict.", accent: "from-amber-200 via-amber-50 to-[#e7eefa]", color: "text-amber-700" }
+      ? { title: "Grey Zone", body: "Z between 1.8 and 3.0 — model gives no clear verdict.", accent: "from-amber-200 via-amber-50 to-[#d8def3]", color: "text-amber-700" }
       : zone === "distress"
-        ? { title: "Distress Zone", body: "Z below 1.8 — model flags elevated bankruptcy risk.", accent: "from-rose-200 via-rose-50 to-[#e7eefa]", color: "text-rose-700" }
-        : { title: "—", body: "No data", accent: "from-slate-200 via-slate-50 to-[#e7eefa]", color: "text-ink-muted" };
+        ? { title: "Distress Zone", body: "Z below 1.8 — model flags elevated bankruptcy risk.", accent: "from-rose-200 via-rose-50 to-[#d8def3]", color: "text-rose-700" }
+        : { title: "—", body: "No data", accent: "from-slate-200 via-slate-50 to-[#d8def3]", color: "text-ink-muted" };
   return (
     <div className="relative overflow-hidden rounded-3xl border border-line bg-surface p-6 shadow-card">
       <div className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${cfg.accent} opacity-70`} />

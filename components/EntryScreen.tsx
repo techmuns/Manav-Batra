@@ -131,12 +131,12 @@ export function EntryScreen({
                     }
                   }}
                   placeholder="Search company or ticker"
-                  className="w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] outline-none transition focus:border-ink focus:ring-4 focus:ring-ink/10"
+                  className="w-full rounded-xl border border-line bg-surface-soft px-4 py-3 text-[15px] outline-none transition focus:border-ink focus:ring-4 focus:ring-ink/10"
                 />
                 <select
                   value={sector}
                   onChange={(e) => setSector(e.target.value)}
-                  className="rounded-xl border border-line bg-white px-3 py-3 text-sm outline-none focus:border-ink"
+                  className="rounded-xl border border-line bg-surface-soft px-3 py-3 text-sm outline-none focus:border-ink"
                 >
                   {sectors.map((s) => (
                     <option key={s} value={s}>
@@ -157,8 +157,8 @@ export function EntryScreen({
                       setTicker(c.ticker);
                       setQuery(c.companyName);
                     }}
-                    className={`flex w-full items-center justify-between border-b border-line/60 px-4 py-3 text-left text-sm transition last:border-b-0 hover:bg-white ${
-                      ticker === c.ticker ? "bg-white ring-1 ring-ink/10" : ""
+                    className={`flex w-full items-center justify-between border-b border-line/60 px-4 py-3 text-left text-sm transition last:border-b-0 hover:bg-surface-soft ${
+                      ticker === c.ticker ? "bg-surface-soft ring-1 ring-ink/10" : ""
                     }`}
                   >
                     <span className="flex flex-col">
@@ -186,7 +186,7 @@ export function EntryScreen({
                   title="Altman Z-Score"
                   subtitle="Bankruptcy distress model"
                   description="Five-factor model. Safe > 3.0, Grey 1.8–3.0, Distress < 1.8."
-                  accent="from-sky-200 via-blue-50 to-[#e7eefa]"
+                  accent="from-sky-200 via-blue-50 to-[#d8def3]"
                 />
                 <ScoreTypeCard
                   active={scoreType === "beneish"}
@@ -194,7 +194,7 @@ export function EntryScreen({
                   title="Beneish M-Score"
                   subtitle="Earnings-manipulation model"
                   description="Eight-variable composite. Cutoff −1.78; higher = elevated risk."
-                  accent="from-indigo-200 via-indigo-50 to-[#e7eefa]"
+                  accent="from-indigo-200 via-indigo-50 to-[#d8def3]"
                 />
               </div>
               <div className="mt-6 rounded-xl border border-line bg-paper/40 px-4 py-3 text-xs text-ink-muted">

@@ -67,7 +67,7 @@ export function ErrorScreen({
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col px-6 py-16">
-      <div className="rounded-3xl border border-line bg-white p-8 shadow-card">
+      <div className="rounded-3xl border border-line bg-surface-soft p-8 shadow-card">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
           {error.errorCode}
         </p>
@@ -112,7 +112,7 @@ export function ErrorScreen({
           <button
             type="button"
             onClick={onBack}
-            className="rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink-muted hover:text-ink"
+            className="rounded-xl border border-line bg-surface-soft px-4 py-2.5 text-sm font-medium text-ink-muted hover:text-ink"
           >
             Back to selector
           </button>

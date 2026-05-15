@@ -31,7 +31,7 @@ export function LoadingScreen({
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col px-6 py-16">
-      <div className="rounded-3xl border border-line bg-white p-8 shadow-card">
+      <div className="rounded-3xl border border-line bg-surface-soft p-8 shadow-card">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
           Calculating
         </p>

@@ -135,7 +135,7 @@ export function BeneishDashboard({
               label="Latest Beneish M-Score"
               value={latest ? (latest.mScore as number).toFixed(2) : "—"}
               sub={latest ? `FY ${latest.fiscalYear}` : ""}
-              accent="from-blue-200 via-sky-50 to-[#e7eefa]"
+              accent="from-blue-200 via-sky-50 to-[#d8def3]"
             />
             <HeroCard
               label="Manipulation risk"
@@ -155,8 +155,8 @@ export function BeneishDashboard({
               }
               accent={
                 latest && (latest.mScore as number) > BENEISH_CUTOFF
-                  ? "from-rose-200 via-rose-50 to-[#e7eefa]"
-                  : "from-emerald-200 via-emerald-50 to-[#e7eefa]"
+                  ? "from-rose-200 via-rose-50 to-[#d8def3]"
+                  : "from-emerald-200 via-emerald-50 to-[#d8def3]"
               }
             />
             <HeroCard
@@ -165,7 +165,7 @@ export function BeneishDashboard({
                 latestComponentVal != null ? latestComponentVal.toFixed(3) : "—"
               }
               sub={meta.fullName}
-              accent="from-cyan-200 via-cyan-50 to-[#e7eefa]"
+              accent="from-cyan-200 via-cyan-50 to-[#d8def3]"
             />
             <HeroCard
               label={`${component} trend`}
@@ -179,10 +179,10 @@ export function BeneishDashboard({
               sub={`across ${componentValues.length} ${componentValues.length === 1 ? "year" : "years"}`}
               accent={
                 componentDir === "rising"
-                  ? "from-amber-200 via-amber-50 to-[#e7eefa]"
+                  ? "from-amber-200 via-amber-50 to-[#d8def3]"
                   : componentDir === "falling"
-                    ? "from-emerald-200 via-emerald-50 to-[#e7eefa]"
-                    : "from-blue-200 via-blue-50 to-[#e7eefa]"
+                    ? "from-emerald-200 via-emerald-50 to-[#d8def3]"
+                    : "from-blue-200 via-blue-50 to-[#d8def3]"
               }
             />
           </div>
@@ -241,10 +241,10 @@ export function BeneishDashboard({
                   data={series}
                   margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
                 >
-                  <CartesianGrid stroke="#e2e8f0" strokeDasharray="3 3" />
+                  <CartesianGrid stroke="#bcc7e6" strokeDasharray="3 3" />
                   <XAxis
                     dataKey="fiscalYear"
-                    stroke="#94a3b8"
+                    stroke="#7e85c4"
                     fontSize={12}
                     tickLine={false}
                   />
@@ -266,7 +266,9 @@ export function BeneishDashboard({
                   <Tooltip
                     contentStyle={{
                       borderRadius: 8,
-                      border: "1px solid #e2e8f0",
+                      border: "1px solid #bcc7e6",
+                      background: "#e6eafa",
+                      color: "#1a205a",
                       fontSize: 12,
                     }}
                   />
@@ -345,7 +347,7 @@ function Header({
       <button
         type="button"
         onClick={onChangeSelection}
-        className="rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
+        className="rounded-lg border border-line bg-surface-soft px-3.5 py-1.5 text-xs font-medium text-ink-muted transition hover:text-ink"
       >
         ← Change selection
       </button>

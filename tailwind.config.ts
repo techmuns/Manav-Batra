@@ -1,31 +1,27 @@
 import type { Config } from "tailwindcss";
 
-// Blue-themed palette.  All "ink" tokens map to deep navy/blue so the
-// existing className surface (`bg-ink`, `text-ink`, `text-ink-muted`,
-// `bg-paper`, `border-line`) automatically takes on the new look.
+// Blue-violet (periwinkle) palette.  Every surface lives somewhere on the
+// blue → indigo → violet axis.  No pure-white surfaces anywhere.
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0b2a6b",   // primary deep blue (headlines, primary buttons)
-          muted: "#3b5d9e",     // secondary text
-          subtle: "#7c92b8",    // labels, hints
+          DEFAULT: "#1a205a",   // deep indigo for headings + primary buttons
+          muted: "#4b54a3",     // secondary text
+          subtle: "#7e85c4",    // labels / placeholders
         },
-        paper: "#eaf1fb",       // soft blue page surface
-        surface: "#e7eefa",     // primary card surface — visibly blue, not white
-        "surface-soft": "#f4f8ff", // lighter inner section / hover state
-        line: "#cfdcef",        // borders
-        accent: "#1d4ed8",      // brand accent (bright blue)
-        safe: "#16a34a",        // semantic — kept green for clarity
-        watch: "#d97706",       // semantic amber
-        risk: "#dc2626",        // semantic red
+        paper: "#dde4f7",       // softer page background tile
+        surface: "#d8def3",     // primary card surface — clearly blue-violet
+        "surface-soft": "#e6eafa", // inner panels / inputs / hover (still tinted)
+        "surface-strong": "#c5cdec", // active state / pressed
+        line: "#bcc7e6",        // borders
+        accent: "#4338ca",      // bright indigo accent (chart lines)
+        safe: "#16a34a",
+        watch: "#d97706",
+        risk: "#dc2626",
         neutral: "#6b7280",
-      },
-      backgroundImage: {
-        "page-blue":
-          "radial-gradient(at 0% 0%, rgba(99,120,255,0.10) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(59,130,246,0.08) 0px, transparent 50%), linear-gradient(180deg, #eaf1fb 0%, #f4f8ff 100%)",
       },
       fontFamily: {
         sans: [
@@ -41,7 +37,7 @@ const config: Config = {
       },
       boxShadow: {
         card:
-          "0 1px 2px rgba(11, 42, 107, 0.06), 0 6px 18px -8px rgba(11, 42, 107, 0.10)",
+          "0 1px 2px rgba(26, 32, 90, 0.08), 0 8px 24px -10px rgba(26, 32, 90, 0.18)",
       },
     },
   },
