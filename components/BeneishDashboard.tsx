@@ -316,9 +316,36 @@ export function BeneishDashboard({
               lines={componentNarrative(component, data.trend)}
             />
           </div>
+
+          <BeneishDataQualityFooter data={data} />
         </section>
       </div>
     </main>
+  );
+}
+
+function BeneishDataQualityFooter({ data }: { data: ScoresResponse }) {
+  const dq = data.dataQuality;
+  if (!dq) return null;
+  const conf = dq.beneishConfidence;
+  const lastUpdated = dq.lastUpdated
+    ? new Date(dq.lastUpdated).toISOString().slice(0, 10)
+    : "—";
+  const confColor =
+    conf === "High"
+      ? "text-emerald-700"
+      : conf === "Medium"
+        ? "text-amber-700"
+        : conf === "Low"
+          ? "text-rose-700"
+          : "text-ink-muted";
+  return (
+    <p className="text-[11px] text-ink-subtle">
+      Source: <span className="font-medium text-ink-muted">{dq.snapshotSource}</span>
+      {" · "}Last updated: <span className="font-medium text-ink-muted">{lastUpdated}</span>
+      {" · "}Data confidence:{" "}
+      <span className={`font-medium ${confColor}`}>{conf}</span>
+    </p>
   );
 }
 

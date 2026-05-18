@@ -71,11 +71,21 @@ export type BeneishVariableKey =
   | "TATA"
   | "LVGI";
 
+export type ConfidenceLevel = "High" | "Medium" | "Low" | "Not Available";
+
 export interface BeneishVariable {
   key: BeneishVariableKey;
   value: number;
   weight: number;
   contribution: number;
+  /** Plain-language formula used. */
+  formula?: string;
+  /** Snapshot fields that fed this variable, in order. */
+  inputFields?: string[];
+  /** Fields that were missing — empty when the variable is calculated. */
+  missingFields?: string[];
+  /** Quality grade for this single variable. */
+  confidence?: ConfidenceLevel;
 }
 
 export interface BeneishResult {
@@ -97,6 +107,9 @@ export interface AltmanVariable {
   value: number;
   weight: number;
   contribution: number;
+  inputFields?: string[];
+  missingFields?: string[];
+  confidence?: ConfidenceLevel;
 }
 
 export interface AltmanResult {
@@ -156,6 +169,14 @@ export interface ScoresResponse {
    * sample-data banner when source === "dev_mock". */
   source: "screener" | "dev_mock";
   fetchedAt: string;
+  /** Data-quality + provenance block.  Always populated so the UI can
+   *  render a "Last updated · Source · Confidence" footer. */
+  dataQuality: {
+    snapshotSource: GeneratedFinancialSnapshot["source"];
+    lastUpdated: string | null;
+    beneishConfidence: ConfidenceLevel;
+    altmanConfidence: ConfidenceLevel;
+  };
 }
 
 export type ErrorCode =

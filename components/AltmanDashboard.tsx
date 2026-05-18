@@ -177,7 +177,40 @@ export function AltmanDashboard({
           />
         </div>
       </section>
+
+      <DataQualityFooter data={data} which="altman" />
     </main>
+  );
+}
+
+function DataQualityFooter({
+  data,
+  which,
+}: {
+  data: ScoresResponse;
+  which: "altman" | "beneish";
+}) {
+  const dq = data.dataQuality;
+  if (!dq) return null;
+  const conf = which === "altman" ? dq.altmanConfidence : dq.beneishConfidence;
+  const lastUpdated = dq.lastUpdated
+    ? new Date(dq.lastUpdated).toISOString().slice(0, 10)
+    : "—";
+  const confColor =
+    conf === "High"
+      ? "text-emerald-700"
+      : conf === "Medium"
+        ? "text-amber-700"
+        : conf === "Low"
+          ? "text-rose-700"
+          : "text-ink-muted";
+  return (
+    <p className="text-[11px] text-ink-subtle">
+      Source: <span className="font-medium text-ink-muted">{dq.snapshotSource}</span>
+      {" · "}Last updated: <span className="font-medium text-ink-muted">{lastUpdated}</span>
+      {" · "}Data confidence:{" "}
+      <span className={`font-medium ${confColor}`}>{conf}</span>
+    </p>
   );
 }
 

@@ -93,6 +93,14 @@ export function calculateAltman(
     X5: sales / ta,
   };
 
+  const ALTMAN_INPUT_FIELDS: Record<keyof typeof ALTMAN_WEIGHTS, string[]> = {
+    X1: ["currentAssets", "currentLiabilities", "totalAssets"],
+    X2: ["retainedEarnings", "totalAssets"],
+    X3: ["ebit", "totalAssets"],
+    X4: ["marketValueEquity", "totalLiabilities"],
+    X5: ["sales", "totalAssets"],
+  };
+
   const variables: AltmanVariable[] = (
     Object.keys(ALTMAN_WEIGHTS) as Array<keyof typeof ALTMAN_WEIGHTS>
   ).map((key) => ({
@@ -101,6 +109,9 @@ export function calculateAltman(
     value: values[key],
     weight: ALTMAN_WEIGHTS[key],
     contribution: values[key] * ALTMAN_WEIGHTS[key],
+    inputFields: ALTMAN_INPUT_FIELDS[key],
+    missingFields: [],
+    confidence: "Medium",
   }));
 
   const zScore = variables.reduce((sum, v) => sum + v.contribution, 0);

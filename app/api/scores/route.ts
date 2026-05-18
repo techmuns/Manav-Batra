@@ -5,6 +5,7 @@ import { calculateAltman, calculateBeneish } from "@/lib/calculations";
 import type {
   ErrorCode,
   FinancialYearData,
+  GeneratedFinancialSnapshot,
   ScoresError,
   ScoresResponse,
   TrendPoint,
@@ -253,7 +254,79 @@ async function handle(req: Request) {
     trend,
     source: "screener",
     fetchedAt: SNAPSHOT.generatedAt ?? new Date().toISOString(),
+    dataQuality: {
+      snapshotSource: SNAPSHOT.source,
+      lastUpdated: SNAPSHOT.generatedAt,
+      // Quality grade for the snapshot as a whole.  Real XBRL or annual-report
+      // ingestion grades High; the seeded illustrative snapshot grades Medium
+      // so the UI can render an honest provenance footer.
+      beneishConfidence:
+        beneish.status === "calculated"
+          ? gradeConfidence(SNAPSHOT.source, current?.fieldStatus, [
+              "sales","receivables","grossProfit","currentAssets","ppe","totalAssets",
+              "depreciation","sgaExpense","totalDebt","currentLiabilities","netIncome",
+              "operatingCashFlow",
+            ])
+          : "Not Available",
+      altmanConfidence:
+        altman.status === "calculated"
+          ? gradeConfidence(SNAPSHOT.source, current?.fieldStatus, [
+              "currentAssets","currentLiabilities","totalAssets","retainedEarnings",
+              "ebit","marketValueEquity","totalLiabilities","sales",
+            ])
+          : altman.status === "not_comparable"
+            ? "Not Available"
+            : "Not Available",
+    },
   };
 
+  // Per-variable confidence upgrade where field-level provenance exists.
+  if (beneish.status === "calculated") {
+    for (const v of beneish.variables) {
+      v.confidence = gradeConfidence(
+        SNAPSHOT.source,
+        current?.fieldStatus,
+        v.inputFields ?? []
+      );
+    }
+  }
+  if (altman.status === "calculated") {
+    for (const v of altman.variables) {
+      v.confidence = gradeConfidence(
+        SNAPSHOT.source,
+        current?.fieldStatus,
+        v.inputFields ?? []
+      );
+    }
+  }
+
   return NextResponse.json(payload, { status: 200, headers: SUCCESS_HEADERS });
+}
+
+/**
+ * Grade a calculation's confidence from snapshot-level + field-level
+ * provenance.  No fake math — graders just read the source tags that
+ * the ingestion layer already writes.
+ */
+function gradeConfidence(
+  snapshotSource: GeneratedFinancialSnapshot["source"],
+  fieldStatus: FinancialYearData["fieldStatus"] | undefined,
+  inputFields: string[]
+): "High" | "Medium" | "Low" | "Not Available" {
+  // No per-field provenance → grade by snapshot source alone.
+  if (!fieldStatus || Object.keys(fieldStatus).length === 0) {
+    if (snapshotSource === "official_filings_pipeline") return "Medium";
+    if (snapshotSource === "annual_report_verified") return "High";
+    return "Medium";
+  }
+  // Per-field provenance present — look at each input.
+  const grades = inputFields
+    .map((label) => label.replace(/\s*\([^)]*\)\s*$/, "")) // strip "(t)" suffix
+    .map((f) => fieldStatus[f]);
+  if (grades.some((g) => g == null || g === "missing" || g === "annual_report_required"))
+    return "Low";
+  if (grades.every((g) => g === "xbrl" || g === "annual_report_verified")) return "High";
+  if (grades.some((g) => g === "manual_verified" || g === "annual_report"))
+    return "Medium";
+  return "Medium";
 }

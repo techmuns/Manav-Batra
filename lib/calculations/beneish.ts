@@ -175,12 +175,69 @@ export function calculateBeneish(
     }
   }
 
+  // Per-variable formula + input-field metadata so the API can return
+  // each component with its own provenance and confidence grading.
+  const BENEISH_META: Record<keyof typeof BENEISH_WEIGHTS, { formula: string; inputFields: string[] }> = {
+    DSRI: {
+      formula: "(Receivables_t / Sales_t) ÷ (Receivables_t-1 / Sales_t-1)",
+      inputFields: ["receivables (t)", "sales (t)", "receivables (t-1)", "sales (t-1)"],
+    },
+    GMI: {
+      formula:
+        "(GrossProfit_t-1 / Sales_t-1) ÷ (GrossProfit_t / Sales_t)",
+      inputFields: ["grossProfit (t)", "sales (t)", "grossProfit (t-1)", "sales (t-1)"],
+    },
+    AQI: {
+      formula:
+        "[1 − (CurrentAssets_t + PPE_t)/TotalAssets_t] ÷ [1 − (CurrentAssets_t-1 + PPE_t-1)/TotalAssets_t-1]",
+      inputFields: [
+        "currentAssets (t)", "ppe (t)", "totalAssets (t)",
+        "currentAssets (t-1)", "ppe (t-1)", "totalAssets (t-1)",
+      ],
+    },
+    SGI: { formula: "Sales_t ÷ Sales_t-1", inputFields: ["sales (t)", "sales (t-1)"] },
+    DEPI: {
+      formula:
+        "[Dep_t-1 / (Dep_t-1 + PPE_t-1)] ÷ [Dep_t / (Dep_t + PPE_t)]",
+      inputFields: ["depreciation (t)", "ppe (t)", "depreciation (t-1)", "ppe (t-1)"],
+    },
+    SGAI: {
+      formula: "(SGA_t / Sales_t) ÷ (SGA_t-1 / Sales_t-1)",
+      inputFields: ["sgaExpense (t)", "sales (t)", "sgaExpense (t-1)", "sales (t-1)"],
+    },
+    TATA: {
+      formula: "(NetIncome_t − OperatingCashFlow_t) ÷ TotalAssets_t",
+      inputFields: ["netIncome (t)", "operatingCashFlow (t)", "totalAssets (t)"],
+    },
+    LVGI: {
+      formula:
+        "[(TotalDebt_t + CurrentLiabilities_t)/TotalAssets_t] ÷ [(TotalDebt_t-1 + CurrentLiabilities_t-1)/TotalAssets_t-1]",
+      inputFields: [
+        "totalDebt (t)", "currentLiabilities (t)", "totalAssets (t)",
+        "totalDebt (t-1)", "currentLiabilities (t-1)", "totalAssets (t-1)",
+      ],
+    },
+  };
+
+  // All inputs were verified non-null before this point — every per-variable
+  // entry below is therefore "calculated".  Confidence is graded by the
+  // route layer from snapshot/field-level provenance; default to "Medium"
+  // when no provenance is supplied.
   const variables: BeneishVariable[] = (
     Object.keys(BENEISH_WEIGHTS) as Array<keyof typeof BENEISH_WEIGHTS>
   ).map((key) => {
     const value = raw[key];
     const weight = BENEISH_WEIGHTS[key];
-    return { key, value, weight, contribution: value * weight };
+    return {
+      key,
+      value,
+      weight,
+      contribution: value * weight,
+      formula: BENEISH_META[key].formula,
+      inputFields: BENEISH_META[key].inputFields,
+      missingFields: [],
+      confidence: "Medium",
+    };
   });
 
   const mScore =
