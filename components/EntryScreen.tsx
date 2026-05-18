@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { CompanySearch } from "@/components/CompanySearch";
 import type { EligibleCompany, EligibleScoreUniverse } from "@/lib/types";
+import type { StockSearchHit } from "@/app/api/stock-search/route";
 
 export type ScoreType = "altman" | "beneish";
 
@@ -24,6 +26,7 @@ export function EntryScreen({
   const [sector, setSector] = useState("All");
   const [ticker, setTicker] = useState<string | null>(initialTicker ?? null);
   const [scoreType, setScoreType] = useState<ScoreType | null>(initialScoreType ?? null);
+  const [externalHit, setExternalHit] = useState<StockSearchHit | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -119,6 +122,31 @@ export function EntryScreen({
             <div className="rounded-3xl border border-line bg-surface p-6 shadow-card">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
                 Step 1 · Company
+              </p>
+              <div className="mt-3">
+                <CompanySearch
+                  onSelect={(hit) => {
+                    setExternalHit(hit);
+                    const local = companies.find((c) => c.ticker === hit.ticker);
+                    if (local) {
+                      setTicker(local.ticker);
+                      setQuery(local.companyName);
+                    } else {
+                      setTicker(null);
+                      setQuery(hit.name);
+                    }
+                  }}
+                />
+                {externalHit && !companies.find((c) => c.ticker === externalHit.ticker) && (
+                  <p className="mt-2 text-[11px] text-ink-subtle">
+                    {externalHit.name} ({externalHit.ticker}) isn&apos;t in the verified
+                    snapshot yet — pick a company from the list below to view a
+                    dashboard.
+                  </p>
+                )}
+              </div>
+              <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
+                Or browse the verified universe
               </p>
               <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_160px]">
                 <input
