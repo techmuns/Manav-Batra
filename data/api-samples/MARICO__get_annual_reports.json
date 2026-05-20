@@ -5,7 +5,7 @@
     "ticker": "MARICO"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:55:34.081Z",
+  "fetchedAt": "2026-05-20T09:26:03.142Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

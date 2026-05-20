@@ -5,7 +5,7 @@
     "ticker": "TATAPOWER"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:54:55.695Z",
+  "fetchedAt": "2026-05-20T09:21:40.025Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

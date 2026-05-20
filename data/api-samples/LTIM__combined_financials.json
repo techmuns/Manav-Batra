@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:31.391Z",
+  "fetchedAt": "2026-05-20T09:19:04.178Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:31.280Z",
+    "timestamp": "2026-05-20T09:19:04.054Z",
     "path": "/filings/combined_financials",
-    "requestId": "c6004561-c2dc-4490-99ce-a3740792227c",
-    "sessionId": "718872b2-2d8c-4529-b7ac-c630c47ba307",
+    "requestId": "d28e5db9-8419-4fe2-81bd-26f2c0ce622f",
+    "sessionId": "28bd3813-109f-4c28-8d17-36f8e3c00d14",
     "message": "Failed to fetch Indian financial tables: Stock not found: \"LTIM\". Please verify the ticker symbol or company name."
   }
 }

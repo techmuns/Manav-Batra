@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:44.945Z",
+  "fetchedAt": "2026-05-20T09:20:05.326Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:44.830Z",
+    "timestamp": "2026-05-20T09:20:05.201Z",
     "path": "/filings/combined_financials",
-    "requestId": "8997a207-98f3-4f7b-80f5-4b387c1f74b2",
-    "sessionId": "c3fb961e-e869-4894-8a95-b704e2b921b7",
+    "requestId": "aa1bcfa3-0485-40a8-b045-d83e18a081b4",
+    "sessionId": "2d821a8f-d76c-4253-8d6d-e888f40276e7",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/IOC/consolidated/"
   }
 }

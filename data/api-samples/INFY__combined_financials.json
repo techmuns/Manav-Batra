@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:30.481Z",
+  "fetchedAt": "2026-05-20T09:18:24.787Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:30.370Z",
+    "timestamp": "2026-05-20T09:18:24.658Z",
     "path": "/filings/combined_financials",
-    "requestId": "018d87ed-7f3b-464e-9d35-bf5ff1e19514",
-    "sessionId": "87032590-4d16-4ce6-9995-8643a663d8ad",
+    "requestId": "1725522a-5331-498d-8b04-7acc1c79acc2",
+    "sessionId": "ac568905-da87-4662-b417-a90d85e5bc75",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/INFY/consolidated/"
   }
 }

@@ -5,7 +5,7 @@
     "ticker": "EICHERMOT"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:55:04.172Z",
+  "fetchedAt": "2026-05-20T09:22:39.034Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

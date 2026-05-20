@@ -7,9 +7,14 @@
     "q": "consolidated",
     "period": "annual"
   },
-  "status": 201,
-  "fetchedAt": "2026-05-20T08:53:49.698Z",
+  "status": 500,
+  "fetchedAt": "2026-05-20T09:16:41.098Z",
   "data": {
-    "_rawText": "# Financial Summary for BAJFINANCE\n\n## Skipping Shareholding Pattern\nWaiting for selector `#shareholding` failed\n\n## Skipping Balance Sheet\nWaiting for selector `#balance-sheet` failed\n\n## Skipping Profit & Loss\nWaiting for selector `#profit-loss` failed\n\n## Skipping Quarterly Results\nWaiting for selector `#quarters` failed\n\n## Skipping Peer Comparison\nWaiting for selector `#peers` failed\n\n"
+    "statusCode": 500,
+    "timestamp": "2026-05-20T09:16:40.973Z",
+    "path": "/filings/combined_financials",
+    "requestId": "eaaf52ba-dd42-4d99-99a4-1a973d4d64cc",
+    "sessionId": "bd614513-8820-4bbb-9c23-c61496e58d62",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BAJFINANCE/consolidated/"
   }
 }

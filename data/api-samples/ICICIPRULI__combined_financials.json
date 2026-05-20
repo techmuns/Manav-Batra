@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:27.139Z",
+  "fetchedAt": "2026-05-20T09:17:44.749Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:27.027Z",
+    "timestamp": "2026-05-20T09:17:44.625Z",
     "path": "/filings/combined_financials",
-    "requestId": "d81c8d92-08de-446c-b45a-295cfb610cab",
-    "sessionId": "9aac0448-9c6f-4491-afab-64303ee4a5f3",
+    "requestId": "93fb1380-36b5-4f83-b5c5-e9102ef540bd",
+    "sessionId": "dd69ae57-b11f-423a-88b1-56850e503926",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ICICIPRULI/consolidated/"
   }
 }

@@ -5,7 +5,7 @@
     "ticker": "ICICIBANK"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:53:29.721Z",
+  "fetchedAt": "2026-05-20T09:15:20.448Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

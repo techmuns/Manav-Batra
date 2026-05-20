@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:14.276Z",
+  "fetchedAt": "2026-05-20T09:23:56.102Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:14.154Z",
+    "timestamp": "2026-05-20T09:23:55.986Z",
     "path": "/filings/combined_financials",
-    "requestId": "6cbdbae4-c843-45cf-84e9-2ecdd1fe1cb8",
-    "sessionId": "24b51a74-e006-4e05-ab8d-f66e10915da1",
+    "requestId": "564dfdb1-ae2a-499a-a349-194fa1955711",
+    "sessionId": "4134549d-7ced-4175-8b40-4b9faf391789",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/NMDC/consolidated/"
   }
 }

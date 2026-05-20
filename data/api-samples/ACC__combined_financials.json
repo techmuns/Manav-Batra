@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:46.818Z",
+  "fetchedAt": "2026-05-20T09:27:10.207Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:46.706Z",
+    "timestamp": "2026-05-20T09:27:10.084Z",
     "path": "/filings/combined_financials",
-    "requestId": "1addedab-9240-460e-a622-4a4d52040ec8",
-    "sessionId": "494501a1-7680-406a-b24d-114f5eff3beb",
+    "requestId": "b59b2eaa-b521-4681-831e-5a99a0187217",
+    "sessionId": "f1ef1c56-762c-4140-8514-5414f20c1bbc",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ACC/consolidated/"
   }
 }

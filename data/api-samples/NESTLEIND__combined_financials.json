@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:33.260Z",
+  "fetchedAt": "2026-05-20T09:25:39.684Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:33.149Z",
+    "timestamp": "2026-05-20T09:25:39.567Z",
     "path": "/filings/combined_financials",
-    "requestId": "4b674a56-879c-402a-8ed4-57eaad3462f8",
-    "sessionId": "ef77f75c-a9ac-4e9f-b249-baa83fb8bcc7",
+    "requestId": "0ba3b233-c1eb-4238-b2a4-7da77e63e152",
+    "sessionId": "807cfabd-4bfd-47f3-9d8d-d3df36f6c20d",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/NESTLEIND/consolidated/"
   }
 }

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:14.248Z",
+  "fetchedAt": "2026-05-20T09:23:35.467Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:14.136Z",
+    "timestamp": "2026-05-20T09:23:35.351Z",
     "path": "/filings/combined_financials",
-    "requestId": "a313a875-60c6-410e-95db-f9fd1831d02b",
-    "sessionId": "30c606f1-16ac-4b13-8d24-ae07b0e25ce6",
+    "requestId": "656bb608-34f3-418d-bc09-9b577965a1ef",
+    "sessionId": "1af3800b-0324-4e1c-9bc7-9cff33a719cd",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HINDALCO/consolidated/"
   }
 }

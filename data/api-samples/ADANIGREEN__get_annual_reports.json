@@ -5,7 +5,7 @@
     "ticker": "ADANIGREEN"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:54:55.112Z",
+  "fetchedAt": "2026-05-20T09:21:20.447Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

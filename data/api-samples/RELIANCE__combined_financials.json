@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:40.272Z",
+  "fetchedAt": "2026-05-20T09:19:44.139Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:40.150Z",
+    "timestamp": "2026-05-20T09:19:44.014Z",
     "path": "/filings/combined_financials",
-    "requestId": "ca6a521d-0446-41a6-9802-4f4301629663",
-    "sessionId": "45488db2-2cfa-4824-937e-280fe9e46066",
+    "requestId": "f16eb70c-6866-41c2-98f3-3fcc9a8f0f29",
+    "sessionId": "87ef73f7-b66e-4917-b98b-369878617a25",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/RELIANCE/consolidated/"
   }
 }

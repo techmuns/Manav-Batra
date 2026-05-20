@@ -5,7 +5,7 @@
     "ticker": "IOC"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:54:40.990Z",
+  "fetchedAt": "2026-05-20T09:19:57.567Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

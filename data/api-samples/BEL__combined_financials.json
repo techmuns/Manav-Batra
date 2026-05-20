@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:55.779Z",
+  "fetchedAt": "2026-05-20T09:28:29.859Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:55.667Z",
+    "timestamp": "2026-05-20T09:28:29.734Z",
     "path": "/filings/combined_financials",
-    "requestId": "7da5ea5b-a02a-41c4-8ed6-d96a3eeec09f",
-    "sessionId": "98e83ee3-8eb6-4d64-95e2-b2082d5a8545",
+    "requestId": "9e2c28d5-6242-46e3-844a-aee923fc5b12",
+    "sessionId": "ac993d7d-aace-4733-aba6-f32744310e95",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BEL/consolidated/"
   }
 }

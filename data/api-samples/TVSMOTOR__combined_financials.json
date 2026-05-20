@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:07.045Z",
+  "fetchedAt": "2026-05-20T09:22:55.409Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:06.921Z",
+    "timestamp": "2026-05-20T09:22:55.293Z",
     "path": "/filings/combined_financials",
-    "requestId": "7ee40563-8c2c-4a96-a9c9-f6ac9b84e6bb",
-    "sessionId": "da2bffc7-5570-4404-99b1-b244a68fa876",
+    "requestId": "598b2682-7621-407a-83ab-e77b577cc4b7",
+    "sessionId": "b227d43e-50a1-48ad-a544-ae071ba7b35d",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TVSMOTOR/consolidated/"
   }
 }

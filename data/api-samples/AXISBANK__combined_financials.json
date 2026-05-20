@@ -7,9 +7,14 @@
     "q": "consolidated",
     "period": "annual"
   },
-  "status": 201,
-  "fetchedAt": "2026-05-20T08:53:41.774Z",
+  "status": 500,
+  "fetchedAt": "2026-05-20T09:15:57.878Z",
   "data": {
-    "_rawText": "# Financial Summary for AXISBANK\n\n## Skipping Shareholding Pattern\nWaiting for selector `#shareholding` failed\n\n## Skipping Balance Sheet\nWaiting for selector `#balance-sheet` failed\n\n## Skipping Profit & Loss\nWaiting for selector `#profit-loss` failed\n\n## Skipping Quarterly Results\nWaiting for selector `#quarters` failed\n\n## Skipping Peer Comparison\nWaiting for selector `#peers` failed\n\n"
+    "statusCode": 500,
+    "timestamp": "2026-05-20T09:15:57.754Z",
+    "path": "/filings/combined_financials",
+    "requestId": "09e4a0f7-e12a-4bbf-aae5-5728eafc1938",
+    "sessionId": "f1e2d7cb-d303-4b8b-b426-7c0ad24b64c7",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/AXISBANK/consolidated/"
   }
 }

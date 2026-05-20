@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:37.954Z",
+  "fetchedAt": "2026-05-20T09:26:19.428Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:37.832Z",
+    "timestamp": "2026-05-20T09:26:19.312Z",
     "path": "/filings/combined_financials",
-    "requestId": "93cb2975-02ce-4179-815c-e4210309fae6",
-    "sessionId": "0eb2fc9d-eda8-4a94-bcc2-3213e549096e",
+    "requestId": "d194239b-320a-4b65-bb9e-68072ad8cdaa",
+    "sessionId": "3c969076-026a-4640-a205-55ee738a1ed3",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/GODREJCP/consolidated/"
   }
 }

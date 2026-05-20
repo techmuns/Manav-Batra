@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:18.825Z",
+  "fetchedAt": "2026-05-20T09:24:06.851Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:18.703Z",
+    "timestamp": "2026-05-20T09:24:06.733Z",
     "path": "/filings/combined_financials",
-    "requestId": "baef9d47-2e7b-440b-8715-4c7a6480ecf7",
-    "sessionId": "b520a1c9-f53a-409a-b65d-279c4e4fc0ad",
+    "requestId": "2fe63752-9c71-448a-a2b3-2d76bea55da3",
+    "sessionId": "b0cf3676-592e-4567-b8d5-405a6c541791",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/SUNPHARMA/consolidated/"
   }
 }

@@ -5,7 +5,7 @@
     "ticker": "POWERGRID"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:54:45.766Z",
+  "fetchedAt": "2026-05-20T09:20:27.985Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:18.799Z",
+  "fetchedAt": "2026-05-20T09:24:27.424Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:18.688Z",
+    "timestamp": "2026-05-20T09:24:27.307Z",
     "path": "/filings/combined_financials",
-    "requestId": "14eae0dd-f018-4dfe-879f-d6a5ef2fc115",
-    "sessionId": "c4767bee-bb6c-449c-a660-1ff845aeaa9f",
+    "requestId": "7c8eede4-849d-41c4-8dcd-6b55210a688e",
+    "sessionId": "7108217b-a0bd-43bc-a309-a202c05c9484",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/CIPLA/consolidated/"
   }
 }

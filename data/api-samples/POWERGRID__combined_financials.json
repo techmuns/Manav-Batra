@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:49.190Z",
+  "fetchedAt": "2026-05-20T09:20:35.723Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:49.067Z",
+    "timestamp": "2026-05-20T09:20:35.599Z",
     "path": "/filings/combined_financials",
-    "requestId": "10568fab-b65c-4b5d-9fd4-632aea8911b4",
-    "sessionId": "0931b725-064a-413a-97dc-56a546f98116",
+    "requestId": "3ddb342c-bae1-474b-8fff-43038f9241ce",
+    "sessionId": "62c19564-6dd2-4333-97fe-8143c8c3e223",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/POWERGRID/consolidated/"
   }
 }

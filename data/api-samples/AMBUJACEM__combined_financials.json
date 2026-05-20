@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:42.173Z",
+  "fetchedAt": "2026-05-20T09:27:00.489Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:42.051Z",
+    "timestamp": "2026-05-20T09:27:00.372Z",
     "path": "/filings/combined_financials",
-    "requestId": "6cd403c1-a9ff-46a7-8e04-2564a52d1f48",
-    "sessionId": "c39cd2e7-af21-442c-b32c-b451193fdd9e",
+    "requestId": "ea33c5f8-64d6-4d8f-a28c-c9f299298148",
+    "sessionId": "9af04dc1-f1fb-4a51-9026-a7823553f50d",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/AMBUJACEM/consolidated/"
   }
 }

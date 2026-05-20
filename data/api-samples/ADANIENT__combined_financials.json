@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:54:54.376Z",
+  "fetchedAt": "2026-05-20T09:21:06.618Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:54:54.254Z",
+    "timestamp": "2026-05-20T09:21:06.493Z",
     "path": "/filings/combined_financials",
-    "requestId": "bafb7241-c81d-4265-89be-95f6c237ee38",
-    "sessionId": "6f6f6996-0488-4912-bb97-45f5f8a94a24",
+    "requestId": "f9045043-ea2d-4751-8423-0f85d42d4cb8",
+    "sessionId": "1b407920-80ab-49ce-a02c-5e5ca353e93d",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ADANIENT/consolidated/"
   }
 }

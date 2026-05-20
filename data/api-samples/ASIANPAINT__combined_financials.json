@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:56:04.818Z",
+  "fetchedAt": "2026-05-20T09:30:10.030Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:56:04.707Z",
+    "timestamp": "2026-05-20T09:30:09.904Z",
     "path": "/filings/combined_financials",
-    "requestId": "8672007f-48fd-4fe9-8ed5-7dc833546b06",
-    "sessionId": "12481e3f-40cf-4879-80c3-c913eb7ccf8b",
+    "requestId": "8d6e34c7-e035-4755-a61a-2131575b80b5",
+    "sessionId": "c8cbff06-e399-4a6e-9391-15d658da5de8",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ASIANPAINT/consolidated/"
   }
 }

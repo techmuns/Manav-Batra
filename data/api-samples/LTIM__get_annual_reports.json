@@ -5,7 +5,7 @@
     "ticker": "LTIM"
   },
   "status": 400,
-  "fetchedAt": "2026-05-20T08:54:31.141Z",
+  "fetchedAt": "2026-05-20T09:18:58.884Z",
   "data": {
     "error": "Invalid JSON body"
   }

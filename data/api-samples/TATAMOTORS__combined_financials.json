@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T08:55:00.487Z",
+  "fetchedAt": "2026-05-20T09:22:05.712Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T08:55:00.365Z",
+    "timestamp": "2026-05-20T09:22:05.588Z",
     "path": "/filings/combined_financials",
-    "requestId": "5f9cb204-e358-4686-92d5-ccc78bdb2dc3",
-    "sessionId": "83b011ce-0b76-4a69-9cc2-174c83ef7f7d",
+    "requestId": "61373cc6-a4d3-4dbc-9027-1b06f67b7a3b",
+    "sessionId": "bbd0587c-7f0e-4199-8eca-421a8ddb32dd",
     "message": "Failed to fetch Indian financial tables: Stock not found: \"TATAMOTORS\". Please verify the ticker symbol or company name."
   }
 }
