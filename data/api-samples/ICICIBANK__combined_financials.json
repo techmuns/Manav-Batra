@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:15:27.602Z",
+  "fetchedAt": "2026-05-20T09:34:02.946Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:15:27.477Z",
+    "timestamp": "2026-05-20T09:34:02.827Z",
     "path": "/filings/combined_financials",
-    "requestId": "4f103653-9f38-4a65-bcb9-b5474a9ab194",
-    "sessionId": "bcf2ae38-b4ee-47b1-aef5-e288acb5496a",
+    "requestId": "bbcf97ad-fe75-42e5-b086-c3b9385984bc",
+    "sessionId": "2f91862e-82f3-48d9-8eeb-86b884c73d34",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ICICIBANK/consolidated/"
   }
 }

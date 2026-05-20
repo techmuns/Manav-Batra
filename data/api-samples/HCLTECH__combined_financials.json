@@ -7,14 +7,9 @@
     "q": "consolidated",
     "period": "annual"
   },
-  "status": 500,
-  "fetchedAt": "2026-05-20T09:18:35.581Z",
+  "status": 502,
+  "fetchedAt": "2026-05-20T09:36:50.980Z",
   "data": {
-    "statusCode": 500,
-    "timestamp": "2026-05-20T09:18:35.457Z",
-    "path": "/filings/combined_financials",
-    "requestId": "0111786a-b9a2-43f0-a4a6-7a7fc0a91430",
-    "sessionId": "c25edae4-1458-4496-a388-2575a63352ff",
-    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HCLTECH/consolidated/"
+    "_rawText": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
   }
 }

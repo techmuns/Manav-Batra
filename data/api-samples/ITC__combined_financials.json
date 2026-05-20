@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:25:29.992Z",
+  "fetchedAt": "2026-05-20T09:43:07.979Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:25:29.876Z",
+    "timestamp": "2026-05-20T09:43:07.870Z",
     "path": "/filings/combined_financials",
-    "requestId": "18ae86b9-1f64-4ebd-8f2b-f4ff30fd821f",
-    "sessionId": "dcdd5a77-7b4d-42bb-bb56-3519780d6933",
+    "requestId": "326787ff-34ab-4a29-a561-31ade417174d",
+    "sessionId": "0f8031e1-fe05-4cf6-93ff-32738ef47a0b",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ITC/consolidated/"
   }
 }

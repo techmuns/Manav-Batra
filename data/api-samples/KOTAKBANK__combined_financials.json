@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:15:48.148Z",
+  "fetchedAt": "2026-05-20T09:34:26.191Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:15:48.024Z",
+    "timestamp": "2026-05-20T09:34:26.075Z",
     "path": "/filings/combined_financials",
-    "requestId": "59c44869-5e91-4707-8e65-a7077aecb1cf",
-    "sessionId": "9b33ada6-b5e5-425a-973b-7b95ea055e65",
+    "requestId": "fe7ce624-2940-4b94-9d3f-bef33b154a2b",
+    "sessionId": "7958e84f-c276-4cf4-981f-0a99c72e38bb",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/KOTAKBANK/consolidated/"
   }
 }

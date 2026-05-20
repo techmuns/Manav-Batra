@@ -11,7 +11,7 @@
 //   - fields with fieldStatus: "annual_report_required"  remain null.
 import type { GeneratedFinancialSnapshot } from "@/lib/types";
 const snapshot: GeneratedFinancialSnapshot = {
-  "generatedAt": "2026-05-20T09:30:42.971Z",
+  "generatedAt": "2026-05-20T09:46:52.432Z",
   "source": "official_filings_pipeline",
   "companies": {
     "HDFCBANK": {

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:26:49.641Z",
+  "fetchedAt": "2026-05-20T09:44:18.328Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:26:49.523Z",
+    "timestamp": "2026-05-20T09:44:18.196Z",
     "path": "/filings/combined_financials",
-    "requestId": "9049b425-531f-4c9c-a497-db773b2c84fa",
-    "sessionId": "084bf2f3-afae-47a5-afae-9deefb812dee",
+    "requestId": "3cceab6a-50bc-474f-a4b2-41acbe20c742",
+    "sessionId": "d914a7af-baf2-452a-9085-62cdc228965d",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/SHREECEM/consolidated/"
   }
 }

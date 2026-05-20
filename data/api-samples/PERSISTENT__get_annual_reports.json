@@ -5,7 +5,7 @@
     "ticker": "PERSISTENT"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:19:25.763Z",
+  "fetchedAt": "2026-05-20T09:37:38.061Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

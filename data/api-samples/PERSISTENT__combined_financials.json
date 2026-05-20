@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:19:33.425Z",
+  "fetchedAt": "2026-05-20T09:37:43.757Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:19:33.301Z",
+    "timestamp": "2026-05-20T09:37:43.647Z",
     "path": "/filings/combined_financials",
-    "requestId": "097d0908-c34f-44f0-9f1a-e666c9aaedec",
-    "sessionId": "3f02b43d-8578-47bd-bb4e-ad0b6534a066",
+    "requestId": "86c48215-40f3-467a-8ec0-f0bd003209b2",
+    "sessionId": "98f2cbb1-32f0-4d97-a2a3-2ae722f868c5",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/PERSISTENT/consolidated/"
   }
 }

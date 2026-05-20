@@ -5,7 +5,7 @@
     "ticker": "JSWSTEEL"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:23:18.050Z",
+  "fetchedAt": "2026-05-20T09:41:01.041Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:28:59.753Z",
+  "fetchedAt": "2026-05-20T09:45:46.767Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:28:59.619Z",
+    "timestamp": "2026-05-20T09:45:46.657Z",
     "path": "/filings/combined_financials",
-    "requestId": "94d27532-1974-4293-ac75-6bbe58090196",
-    "sessionId": "0699c1f0-d899-4cff-be58-886bb964fbd2",
+    "requestId": "7fb2f618-e79c-478d-811e-10ddc7e4376c",
+    "sessionId": "2554dd5b-aece-4853-a499-630a68daba4e",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DLF/consolidated/"
   }
 }

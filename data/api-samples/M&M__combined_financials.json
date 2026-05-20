@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:22:14.397Z",
+  "fetchedAt": "2026-05-20T09:40:06.447Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:22:14.271Z",
+    "timestamp": "2026-05-20T09:40:06.349Z",
     "path": "/filings/combined_financials",
-    "requestId": "5caa2dad-6f91-498a-a3bb-a0ba0e0369f4",
-    "sessionId": "45b25563-3104-452e-a628-00496c952c71",
+    "requestId": "3cd45df5-3063-4340-8c1e-814c872df8ce",
+    "sessionId": "2fd0e141-e353-460a-ad35-c60484ecad70",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/M&M/consolidated/"
   }
 }

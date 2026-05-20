@@ -1,9 +1,9 @@
 {
-  "ranAt": "2026-05-20T09:30:42.442Z",
+  "ranAt": "2026-05-20T09:46:51.929Z",
   "total": 86,
   "annualReports": {
-    "ok": 72,
-    "failed": 14
+    "ok": 79,
+    "failed": 7
   },
   "combinedFinancials": {
     "ok": 0,
@@ -61,7 +61,7 @@
         "ok": true
       },
       "combinedFinancials": {
-        "status": 500,
+        "status": 502,
         "ok": false
       }
     },
@@ -211,8 +211,8 @@
     {
       "ticker": "INFY",
       "annualReports": {
-        "status": 200,
-        "ok": true
+        "status": 503,
+        "ok": false
       },
       "combinedFinancials": {
         "status": 500,
@@ -226,7 +226,7 @@
         "ok": true
       },
       "combinedFinancials": {
-        "status": 500,
+        "status": 502,
         "ok": false
       }
     },
@@ -299,8 +299,8 @@
     {
       "ticker": "RELIANCE",
       "annualReports": {
-        "status": 200,
-        "ok": true
+        "status": 503,
+        "ok": false
       },
       "combinedFinancials": {
         "status": 500,
@@ -563,8 +563,8 @@
     {
       "ticker": "VEDL",
       "annualReports": {
-        "status": 200,
-        "ok": true
+        "status": 503,
+        "ok": false
       },
       "combinedFinancials": {
         "status": 500,
@@ -585,8 +585,8 @@
     {
       "ticker": "SUNPHARMA",
       "annualReports": {
-        "status": 200,
-        "ok": true
+        "status": 503,
+        "ok": false
       },
       "combinedFinancials": {
         "status": 500,
@@ -629,8 +629,8 @@
     {
       "ticker": "DIVISLAB",
       "annualReports": {
-        "status": 200,
-        "ok": true
+        "status": 503,
+        "ok": false
       },
       "combinedFinancials": {
         "status": 500,
@@ -805,30 +805,30 @@
     {
       "ticker": "IDEA",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
-        "status": 500,
+        "status": 502,
         "ok": false
       }
     },
     {
       "ticker": "LT",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
-        "status": 500,
+        "status": 502,
         "ok": false
       }
     },
     {
       "ticker": "SIEMENS",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -849,8 +849,8 @@
     {
       "ticker": "BEL",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -860,8 +860,8 @@
     {
       "ticker": "HAL",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -871,8 +871,8 @@
     {
       "ticker": "DLF",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -893,8 +893,8 @@
     {
       "ticker": "DMART",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -904,8 +904,8 @@
     {
       "ticker": "TRENT",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -915,8 +915,8 @@
     {
       "ticker": "TITAN",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -926,8 +926,8 @@
     {
       "ticker": "ASIANPAINT",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -937,8 +937,8 @@
     {
       "ticker": "BERGEPAINT",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,
@@ -948,8 +948,8 @@
     {
       "ticker": "PIDILITIND",
       "annualReports": {
-        "status": 503,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 500,

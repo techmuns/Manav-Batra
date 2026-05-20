@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:24:58.693Z",
+  "fetchedAt": "2026-05-20T09:42:41.579Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:24:58.574Z",
+    "timestamp": "2026-05-20T09:42:41.470Z",
     "path": "/filings/combined_financials",
-    "requestId": "aeb8158a-d2b7-44c6-9a80-149764bb2bae",
-    "sessionId": "70b3e671-bd02-4bed-9948-768d899ae416",
+    "requestId": "c8751d24-d3df-4284-b5aa-5da7fabfb291",
+    "sessionId": "26b26b60-6749-4848-99e2-f7e9a6d1676e",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/AUROPHARMA/consolidated/"
   }
 }

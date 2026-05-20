@@ -5,7 +5,7 @@
     "ticker": "TATASTEEL"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:23:08.240Z",
+  "fetchedAt": "2026-05-20T09:40:52.325Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

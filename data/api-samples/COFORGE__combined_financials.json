@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:19:22.683Z",
+  "fetchedAt": "2026-05-20T09:37:35.049Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:19:22.559Z",
+    "timestamp": "2026-05-20T09:37:34.940Z",
     "path": "/filings/combined_financials",
-    "requestId": "8184471b-3f62-4a91-b47a-05a2778977cf",
-    "sessionId": "b8bc5362-a3bc-45d5-8b8f-27413b46f812",
+    "requestId": "9e1ed47c-6396-4005-83e3-cbc965e698a1",
+    "sessionId": "fb5384d7-bc16-43b0-b636-a9ae95194044",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/COFORGE/consolidated/"
   }
 }

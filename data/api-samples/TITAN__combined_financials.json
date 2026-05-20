@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:29:54.817Z",
+  "fetchedAt": "2026-05-20T09:46:23.041Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:29:54.692Z",
+    "timestamp": "2026-05-20T09:46:22.932Z",
     "path": "/filings/combined_financials",
-    "requestId": "cd9f1f5b-10f8-4412-b892-2a134a5b675b",
-    "sessionId": "01f4e476-92fd-4bd8-aa9e-fa3221cdd872",
+    "requestId": "b4560730-923d-4f91-af2b-b7d52d34e642",
+    "sessionId": "97b13987-5c9a-4d92-a500-eb3c0c52ff12",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TITAN/consolidated/"
   }
 }

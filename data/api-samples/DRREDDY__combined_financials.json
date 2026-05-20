@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:24:17.669Z",
+  "fetchedAt": "2026-05-20T09:42:01.544Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:24:17.552Z",
+    "timestamp": "2026-05-20T09:42:01.452Z",
     "path": "/filings/combined_financials",
-    "requestId": "62a72263-e723-4b68-b54a-ca883376ead8",
-    "sessionId": "b577ab8e-2c98-4565-a46e-5d56ec10c72d",
+    "requestId": "43bb88f7-ecf2-40bf-8888-06333edc0b23",
+    "sessionId": "0c725abd-5114-43d0-b781-4966f4eb5325",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DRREDDY/consolidated/"
   }
 }

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:26:09.767Z",
+  "fetchedAt": "2026-05-20T09:43:43.238Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:26:09.649Z",
+    "timestamp": "2026-05-20T09:43:43.129Z",
     "path": "/filings/combined_financials",
-    "requestId": "2c09dcca-1856-4843-88b8-a44692cc0e82",
-    "sessionId": "8bdc6fec-9556-4c9d-bf24-3edb7aa3f4b4",
+    "requestId": "ff475058-e271-4a02-bfce-09efec3473dc",
+    "sessionId": "f9d00de4-0eba-48ff-b358-fd194a1263bf",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/MARICO/consolidated/"
   }
 }

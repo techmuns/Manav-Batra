@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:23:05.150Z",
+  "fetchedAt": "2026-05-20T09:40:49.317Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:23:05.034Z",
+    "timestamp": "2026-05-20T09:40:49.226Z",
     "path": "/filings/combined_financials",
-    "requestId": "f2de0879-c856-4ce2-a6ae-5f85281771c1",
-    "sessionId": "1a73e98a-e0b7-451c-affb-4c8bdeab1fb4",
+    "requestId": "9670b1f5-4978-46bf-a7b8-712792ce2abd",
+    "sessionId": "97e95cb3-4ecc-4e88-9373-23a6cd5f5577",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ASHOKLEY/consolidated/"
   }
 }

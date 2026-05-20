@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:17:24.303Z",
+  "fetchedAt": "2026-05-20T09:35:44.716Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:17:24.178Z",
+    "timestamp": "2026-05-20T09:35:44.601Z",
     "path": "/filings/combined_financials",
-    "requestId": "d3d8951f-d9b8-4c2c-ac86-029e13eca95d",
-    "sessionId": "4cbe42e0-e8be-4116-b4c2-214fa7181eab",
+    "requestId": "440b32d9-1dc7-4e7b-be08-3b7726317548",
+    "sessionId": "f16a6b53-7f4e-401f-abef-ac36661becd6",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/SBILIFE/consolidated/"
   }
 }

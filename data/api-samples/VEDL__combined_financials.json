@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:23:45.324Z",
+  "fetchedAt": "2026-05-20T09:41:30.066Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:23:45.208Z",
+    "timestamp": "2026-05-20T09:41:29.955Z",
     "path": "/filings/combined_financials",
-    "requestId": "17da2caf-73e1-4933-84b6-81904b05ca8a",
-    "sessionId": "43d86d42-23c4-4f26-b2d6-ec0037f363c4",
+    "requestId": "ad58a4f2-f4f4-429c-a272-c50ea6975b2b",
+    "sessionId": "48969928-b7ec-44c3-b9b3-1734b048121a",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/VEDL/consolidated/"
   }
 }

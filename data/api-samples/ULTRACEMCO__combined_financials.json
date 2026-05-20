@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:26:40.004Z",
+  "fetchedAt": "2026-05-20T09:44:09.060Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:26:39.888Z",
+    "timestamp": "2026-05-20T09:44:08.951Z",
     "path": "/filings/combined_financials",
-    "requestId": "e986a66d-99fc-416a-9a77-15136a10d725",
-    "sessionId": "52b030ea-f8e3-4312-b486-c98de2ba03c4",
+    "requestId": "5b1fc631-fa1c-4c53-a3ea-c43c7c1f871d",
+    "sessionId": "28ca4e68-838a-40bf-9949-50a48bb76a76",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ULTRACEMCO/consolidated/"
   }
 }

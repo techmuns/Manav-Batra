@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:22:45.676Z",
+  "fetchedAt": "2026-05-20T09:40:32.261Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:22:45.559Z",
+    "timestamp": "2026-05-20T09:40:32.163Z",
     "path": "/filings/combined_financials",
-    "requestId": "0e0ad057-d3e8-430b-a600-815fd3520157",
-    "sessionId": "7eca012b-3f23-4d38-bb35-5f3c2102adc6",
+    "requestId": "1062d62c-026a-4962-8453-2aff9cf0709c",
+    "sessionId": "a600e774-3257-40ac-8841-6a750a0f9901",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/EICHERMOT/consolidated/"
   }
 }

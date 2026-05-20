@@ -7,14 +7,9 @@
     "q": "consolidated",
     "period": "annual"
   },
-  "status": 500,
-  "fetchedAt": "2026-05-20T09:15:57.878Z",
+  "status": 502,
+  "fetchedAt": "2026-05-20T09:34:34.403Z",
   "data": {
-    "statusCode": 500,
-    "timestamp": "2026-05-20T09:15:57.754Z",
-    "path": "/filings/combined_financials",
-    "requestId": "09e4a0f7-e12a-4bbf-aae5-5728eafc1938",
-    "sessionId": "f1e2d7cb-d303-4b8b-b426-7c0ad24b64c7",
-    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/AXISBANK/consolidated/"
+    "_rawText": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.24.0 (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
   }
 }

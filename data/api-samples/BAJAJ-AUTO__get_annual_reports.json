@@ -5,7 +5,7 @@
     "ticker": "BAJAJ-AUTO"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:22:17.522Z",
+  "fetchedAt": "2026-05-20T09:40:09.482Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

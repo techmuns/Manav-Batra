@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:18:15.023Z",
+  "fetchedAt": "2026-05-20T09:36:27.860Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:18:14.898Z",
+    "timestamp": "2026-05-20T09:36:27.745Z",
     "path": "/filings/combined_financials",
-    "requestId": "3cd7da61-4f62-4692-b145-5943b7d438f6",
-    "sessionId": "e62162d7-09dc-4d63-8b08-e3c1d72ebf77",
+    "requestId": "439b9d73-e97a-435c-b29b-bf29906ee162",
+    "sessionId": "a82a647b-95e9-4766-902a-398631bf56c5",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TCS/consolidated/"
   }
 }

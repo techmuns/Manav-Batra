@@ -5,7 +5,7 @@
     "ticker": "MPHASIS"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:19:07.249Z",
+  "fetchedAt": "2026-05-20T09:37:19.708Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

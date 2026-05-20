@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:16:50.968Z",
+  "fetchedAt": "2026-05-20T09:35:18.738Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:16:50.844Z",
+    "timestamp": "2026-05-20T09:35:18.620Z",
     "path": "/filings/combined_financials",
-    "requestId": "89adcd8e-02ab-4baa-9a7d-062abd0454f8",
-    "sessionId": "802f613c-41d5-42d1-8eb1-9bc55c08b8ac",
+    "requestId": "aa95040c-420f-411f-b7e7-3f60511e01d8",
+    "sessionId": "368c7c20-824a-4f78-bc36-353fea9361a5",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BAJAJFINSV/consolidated/"
   }
 }

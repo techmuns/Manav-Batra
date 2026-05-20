@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:25:49.351Z",
+  "fetchedAt": "2026-05-20T09:43:26.177Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:25:49.234Z",
+    "timestamp": "2026-05-20T09:43:26.068Z",
     "path": "/filings/combined_financials",
-    "requestId": "fc4cd8d8-dda7-4a63-8acb-981bb22eeabb",
-    "sessionId": "2ff5a1ad-847a-4d0d-8df0-d6fd1dcf5381",
+    "requestId": "1416c838-b785-4d79-a1e1-ee5710922553",
+    "sessionId": "4627ff29-9c97-45d7-afdc-e9cb32cbb60f",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BRITANNIA/consolidated/"
   }
 }

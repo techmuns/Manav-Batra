@@ -5,7 +5,7 @@
     "ticker": "ADANIPOWER"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:21:09.670Z",
+  "fetchedAt": "2026-05-20T09:39:09.890Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

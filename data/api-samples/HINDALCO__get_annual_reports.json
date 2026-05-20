@@ -5,7 +5,7 @@
     "ticker": "HINDALCO"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:23:28.855Z",
+  "fetchedAt": "2026-05-20T09:41:09.684Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

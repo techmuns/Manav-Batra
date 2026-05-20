@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:17:01.743Z",
+  "fetchedAt": "2026-05-20T09:35:27.346Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:17:01.619Z",
+    "timestamp": "2026-05-20T09:35:27.230Z",
     "path": "/filings/combined_financials",
-    "requestId": "9c87b7ee-8660-44dd-8b14-38031f4278f5",
-    "sessionId": "51778985-63b6-4e57-ad36-977b88198221",
+    "requestId": "6e0e3940-ddb2-429e-8f22-1081b71f56e2",
+    "sessionId": "acf9ab64-00f6-4203-9d11-2bcd2f3cee3b",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/CHOLAFIN/consolidated/"
   }
 }

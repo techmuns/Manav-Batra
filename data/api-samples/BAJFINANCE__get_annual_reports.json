@@ -5,7 +5,7 @@
     "ticker": "BAJFINANCE"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T09:16:34.442Z",
+  "fetchedAt": "2026-05-20T09:35:03.994Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:26:00.070Z",
+  "fetchedAt": "2026-05-20T09:43:34.731Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:25:59.953Z",
+    "timestamp": "2026-05-20T09:43:34.622Z",
     "path": "/filings/combined_financials",
-    "requestId": "8dfafa35-5830-44cb-aca6-769831a14bfb",
-    "sessionId": "579b8859-3710-4862-937e-a8f18e057196",
+    "requestId": "db4973cc-f314-4c99-9ce3-ba8217649661",
+    "sessionId": "1969b91c-057c-483e-aaf8-3bdf3bfa8fe4",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DABUR/consolidated/"
   }
 }

@@ -8,13 +8,13 @@
     "period": "annual"
   },
   "status": 500,
-  "fetchedAt": "2026-05-20T09:26:29.232Z",
+  "fetchedAt": "2026-05-20T09:44:00.513Z",
   "data": {
     "statusCode": 500,
-    "timestamp": "2026-05-20T09:26:29.115Z",
+    "timestamp": "2026-05-20T09:44:00.395Z",
     "path": "/filings/combined_financials",
-    "requestId": "7b54b3a3-aa76-417a-860c-978200b00d65",
-    "sessionId": "f146808a-ea25-4e8c-bb52-9c329d33411b",
+    "requestId": "37d514b0-1022-4194-9e3a-505df0cc3581",
+    "sessionId": "25ef4d98-fdcb-4dd7-b9e2-1e36cd709b42",
     "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/COLPAL/consolidated/"
   }
 }
