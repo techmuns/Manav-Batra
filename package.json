@@ -13,7 +13,8 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "ingest:screener": "tsx scripts/ingest-screener.ts",
     "ingest:official-filings": "tsx scripts/ingest/build-verified-financials.ts",
-    "probe:apis": "tsx scripts/ingest/probe-apis.ts"
+    "probe:apis": "tsx scripts/ingest/probe-apis.ts",
+    "ingest:tool-output": "tsx scripts/ingest/seed-snapshot-from-tool.ts"
   },
   "dependencies": {
     "next": "^16.2.6",
