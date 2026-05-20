@@ -14,7 +14,8 @@
     "ingest:screener": "tsx scripts/ingest-screener.ts",
     "ingest:official-filings": "tsx scripts/ingest/build-verified-financials.ts",
     "probe:apis": "tsx scripts/ingest/probe-apis.ts",
-    "ingest:tool-output": "tsx scripts/ingest/seed-snapshot-from-tool.ts"
+    "ingest:tool-output": "tsx scripts/ingest/seed-snapshot-from-tool.ts",
+    "purge:illustrative": "tsx scripts/ingest/purge-illustrative.ts"
   },
   "dependencies": {
     "next": "^16.2.6",
