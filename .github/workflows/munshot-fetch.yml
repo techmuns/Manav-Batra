@@ -41,6 +41,9 @@ jobs:
       - name: Call MUNS agent
         env:
           MUNS_ACCESS_TOKEN: ${{ secrets.MUNS_ACCESS_TOKEN }}
+          TICKER: ${{ inputs.ticker }}
+          COMPANY: ${{ inputs.company_name }}
+          COUNTRY: ${{ inputs.country }}
         run: |
           set -euo pipefail
           if [ -z "${MUNS_ACCESS_TOKEN}" ]; then
@@ -52,28 +55,36 @@ jobs:
           OUT="munshot-outputs/agent-${AGENT_UUID}.txt"
           TO_DATE="$(date -u +%Y-%m-%d)"
 
-          BODY=$(cat <<JSON
-          {
-            "agent_library_id": "${AGENT_UUID}",
-            "user_index": 124,
-            "metadata": {
-              "stock_ticker": "${{ inputs.ticker }}",
-              "stock_company_name": "${{ inputs.company_name }}",
-              "context_company_name": "${{ inputs.company_name }}",
-              "stock_country": "${{ inputs.country }}",
-              "to_date": "${TO_DATE}",
-              "timezone": "UTC"
-            }
-          }
-          JSON
-          )
+          # Build the JSON body with jq to eliminate any shell-quoting risk.
+          jq -n \
+            --arg uuid    "${AGENT_UUID}" \
+            --arg ticker  "${TICKER}" \
+            --arg company "${COMPANY}" \
+            --arg country "${COUNTRY}" \
+            --arg to_date "${TO_DATE}" \
+            '{
+              agent_library_id: $uuid,
+              user_index: 124,
+              metadata: {
+                stock_ticker:         $ticker,
+                stock_company_name:   $company,
+                context_company_name: $company,
+                stock_country:        $country,
+                to_date:              $to_date,
+                timezone:             "UTC"
+              }
+            }' > body.json
+
+          echo "--- request body ---"
+          cat body.json
+          echo "--- end body ---"
 
           HTTP_CODE=$(curl -sS -o "${OUT}" -w "%{http_code}" \
             -X POST "https://devde.muns.io/agents/run" \
             -H "Authorization: Bearer ${MUNS_ACCESS_TOKEN}" \
             -H "Content-Type: application/json" \
             --include \
-            --data "${BODY}")
+            --data-binary @body.json)
 
           echo "HTTP status: ${HTTP_CODE}"
           echo "--- first 60 lines of response ---"
