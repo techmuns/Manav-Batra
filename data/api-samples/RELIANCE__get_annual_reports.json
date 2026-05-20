@@ -1,0 +1,13 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "RELIANCE"
+  },
+  "status": 401,
+  "fetchedAt": "2026-05-20T08:21:30.914Z",
+  "data": {
+    "error": "Unauthorized",
+    "message": "Provide a valid Bearer token in Authorization header or x-api-key header"
+  }
+}

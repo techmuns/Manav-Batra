@@ -1,0 +1,25 @@
+{
+  "ranAt": "2026-05-20T08:21:34.503Z",
+  "total": 1,
+  "annualReports": {
+    "ok": 0,
+    "failed": 1
+  },
+  "combinedFinancials": {
+    "ok": 1,
+    "failed": 0
+  },
+  "summaries": [
+    {
+      "ticker": "RELIANCE",
+      "annualReports": {
+        "status": 401,
+        "ok": false
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    }
+  ]
+}
