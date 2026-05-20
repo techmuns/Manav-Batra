@@ -70,12 +70,15 @@ jobs:
           DELAY_MS="${{ github.event.inputs.delay_ms }}"
           SEED="${{ github.event.inputs.seed_snapshot }}"
           COMMIT="${{ github.event.inputs.commit_samples }}"
+          # Conservative defaults on push: upstream (devde.muns.io) hits
+          # Screener.in which rate-limits aggressively.  Concurrency 1 +
+          # 2.5s delay keeps us under the threshold (~24 req/min).
           echo "ticker=${TICKER:-ALL}"           >> $GITHUB_OUTPUT
-          echo "concurrency=${CONCURRENCY:-3}"   >> $GITHUB_OUTPUT
-          echo "delay_ms=${DELAY_MS:-150}"       >> $GITHUB_OUTPUT
+          echo "concurrency=${CONCURRENCY:-1}"   >> $GITHUB_OUTPUT
+          echo "delay_ms=${DELAY_MS:-2500}"      >> $GITHUB_OUTPUT
           echo "seed=${SEED:-true}"              >> $GITHUB_OUTPUT
           echo "commit=${COMMIT:-true}"          >> $GITHUB_OUTPUT
-          echo "[cfg] ticker=${TICKER:-ALL} concurrency=${CONCURRENCY:-3} delay_ms=${DELAY_MS:-150} seed=${SEED:-true} commit=${COMMIT:-true}"
+          echo "[cfg] ticker=${TICKER:-ALL} concurrency=${CONCURRENCY:-1} delay_ms=${DELAY_MS:-2500} seed=${SEED:-true} commit=${COMMIT:-true}"
 
       - name: Probe APIs (capture raw markdown into data/api-samples/)
         env:

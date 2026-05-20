@@ -59,7 +59,11 @@ function requireEnv(name: string): string {
   process.exit(1);
 }
 
-async function postJson(
+function sleepMs(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+async function postJsonOnce(
   url: string,
   body: unknown,
   authHeader: string
@@ -90,6 +94,28 @@ async function postJson(
       data: { _fetchError: e instanceof Error ? e.message : String(e) },
     };
   }
+}
+
+// 5xx and connection-refused-like responses are usually transient
+// (especially when devde.muns.io is being rate-limited by Screener.in
+// upstream).  Retry up to RETRY_MAX with exponential backoff.
+const RETRY_MAX = 3;
+async function postJson(
+  url: string,
+  body: unknown,
+  authHeader: string
+): Promise<{ status: number; data: unknown }> {
+  let last: { status: number; data: unknown } | null = null;
+  for (let attempt = 0; attempt < RETRY_MAX; attempt += 1) {
+    last = await postJsonOnce(url, body, authHeader);
+    const isTransient = last.status === 0 || last.status >= 500;
+    if (!isTransient) return last;
+    if (attempt < RETRY_MAX - 1) {
+      const backoffMs = 1500 * Math.pow(2, attempt); // 1.5s, 3s, 6s
+      await sleepMs(backoffMs);
+    }
+  }
+  return last!;
 }
 
 async function probeTicker(
