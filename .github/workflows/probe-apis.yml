@@ -4,9 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       ticker:
-        description: "Ticker to probe (e.g. RELIANCE, INFY, TCS)"
+        description: "Ticker, or ALL to iterate every entry in data/companies.ts"
         required: true
         default: "RELIANCE"
+      concurrency:
+        description: "Parallel in-flight requests (only matters for ALL)"
+        required: false
+        default: "3"
+      delay_ms:
+        description: "Per-request delay in milliseconds"
+        required: false
+        default: "150"
       commit_samples:
         description: "Commit the captured JSON to the branch (true/false)"
         required: false
@@ -22,7 +30,7 @@ concurrency:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,7 +48,11 @@ jobs:
         env:
           DASH_TOOLS_KEY: ${{ secrets.DASH_TOOLS_KEY }}
           MUNSHOT_ACCESS_TOKEN: ${{ secrets.MUNSHOT_ACCESS_TOKEN }}
-        run: npx tsx scripts/ingest/probe-apis.ts --ticker=${{ inputs.ticker }}
+        run: |
+          npx tsx scripts/ingest/probe-apis.ts \
+            --ticker=${{ inputs.ticker }} \
+            --concurrency=${{ inputs.concurrency }} \
+            --delay-ms=${{ inputs.delay_ms }}
 
       - name: Upload samples as artifact (always)
         uses: actions/upload-artifact@v4

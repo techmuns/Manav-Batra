@@ -1,8 +1,8 @@
 #!/usr/bin/env tsx
 /**
  * Probe the upstream financial-data APIs and persist raw JSON responses
- * to data/api-samples/.  Run this once per ticker so the field-mapper
- * can be written against the real response shape (no speculative schema).
+ * to data/api-samples/.  Supports single-ticker mode and "ALL" mode that
+ * iterates every entry in data/companies.ts (COMPANY_MASTER).
  *
  * Required env:
  *   DASH_TOOLS_KEY        — auth header value for get_annual_reports
@@ -10,10 +10,14 @@
  *
  * Usage:
  *   npx tsx scripts/ingest/probe-apis.ts --ticker=RELIANCE
+ *   npx tsx scripts/ingest/probe-apis.ts --ticker=ALL
+ *   npx tsx scripts/ingest/probe-apis.ts --ticker=ALL --concurrency=4 --delay-ms=200
  */
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+
+import { COMPANY_MASTER } from "../../data/companies";
 
 const GET_ANNUAL_REPORTS_URL =
   "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports";
@@ -32,49 +36,55 @@ interface ProbeResult {
   data: unknown;
 }
 
+interface TickerSummary {
+  ticker: string;
+  annualReports: { status: number; ok: boolean };
+  combinedFinancials: { status: number; ok: boolean };
+}
+
+function getArg(flag: string): string | null {
+  const arg = process.argv.find((a) => a.startsWith(`--${flag}=`));
+  return arg ? arg.split("=").slice(1).join("=") : null;
+}
+
 async function postJson(
   url: string,
   body: unknown,
   authHeader: string
 ): Promise<{ status: number; data: unknown }> {
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: authHeader,
-    },
-    body: JSON.stringify(body),
-  });
-  const text = await res.text();
-  let data: unknown;
   try {
-    data = JSON.parse(text);
-  } catch {
-    data = { _rawText: text.slice(0, 4000) };
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authHeader,
+      },
+      body: JSON.stringify(body),
+    });
+    const text = await res.text();
+    let data: unknown;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { _rawText: text.slice(0, 4000) };
+    }
+    return { status: res.status, data };
+  } catch (e) {
+    return {
+      status: 0,
+      data: { _fetchError: e instanceof Error ? e.message : String(e) },
+    };
   }
-  return { status: res.status, data };
 }
 
-function parseTicker(): string {
-  const arg = process.argv.find((a) => a.startsWith("--ticker="));
-  return (arg?.split("=")[1] ?? "RELIANCE").toUpperCase();
-}
-
-async function main() {
-  const ticker = parseTicker();
-  const dashKey = process.env.DASH_TOOLS_KEY;
-  const munshotKey = process.env.MUNSHOT_ACCESS_TOKEN;
-  if (!dashKey) throw new Error("DASH_TOOLS_KEY env var is not set");
-  if (!munshotKey) throw new Error("MUNSHOT_ACCESS_TOKEN env var is not set");
-
-  mkdirSync(OUT_DIR, { recursive: true });
-  console.log(`[probe] ticker=${ticker}`);
-
-  // 1. get_annual_reports — raw token in Authorization (no Bearer prefix per curl)
-  console.log(`[probe] -> get_annual_reports`);
+async function probeTicker(
+  ticker: string,
+  dashKey: string,
+  munshotKey: string
+): Promise<TickerSummary> {
+  // 1. get_annual_reports — raw token (no Bearer prefix per curl)
   const arBody = { ticker };
   const ar = await postJson(GET_ANNUAL_REPORTS_URL, arBody, dashKey);
-  console.log(`[probe]    status=${ar.status}`);
   const arResult: ProbeResult = {
     endpoint: "get_annual_reports",
     url: GET_ANNUAL_REPORTS_URL,
@@ -89,7 +99,6 @@ async function main() {
   );
 
   // 2. filings/combined_financials — Bearer-prefixed
-  console.log(`[probe] -> filings/combined_financials`);
   const cfBody = {
     ticker,
     country: "India",
@@ -101,7 +110,6 @@ async function main() {
     cfBody,
     `Bearer ${munshotKey}`
   );
-  console.log(`[probe]    status=${cf.status}`);
   const cfResult: ProbeResult = {
     endpoint: "filings/combined_financials",
     url: COMBINED_FINANCIALS_URL,
@@ -115,7 +123,84 @@ async function main() {
     JSON.stringify(cfResult, null, 2)
   );
 
-  console.log(`[probe] done. samples written to data/api-samples/`);
+  return {
+    ticker,
+    annualReports: { status: ar.status, ok: ar.status >= 200 && ar.status < 300 },
+    combinedFinancials: { status: cf.status, ok: cf.status >= 200 && cf.status < 300 },
+  };
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+async function runWithConcurrency<T>(
+  items: T[],
+  concurrency: number,
+  delayMs: number,
+  fn: (item: T) => Promise<TickerSummary>
+): Promise<TickerSummary[]> {
+  const results: TickerSummary[] = [];
+  let nextIdx = 0;
+  async function worker() {
+    while (true) {
+      const idx = nextIdx;
+      nextIdx += 1;
+      if (idx >= items.length) return;
+      const summary = await fn(items[idx]);
+      results.push(summary);
+      console.log(
+        `[probe] ${summary.ticker.padEnd(14)} ar=${summary.annualReports.status} cf=${summary.combinedFinancials.status} (${results.length}/${items.length})`
+      );
+      if (delayMs > 0) await sleep(delayMs);
+    }
+  }
+  const workers = Array.from({ length: Math.max(1, concurrency) }, worker);
+  await Promise.all(workers);
+  return results;
+}
+
+async function main() {
+  const tickerArg = (getArg("ticker") ?? "RELIANCE").toUpperCase();
+  const concurrency = Number(getArg("concurrency") ?? "3");
+  const delayMs = Number(getArg("delay-ms") ?? "150");
+
+  const dashKey = process.env.DASH_TOOLS_KEY;
+  const munshotKey = process.env.MUNSHOT_ACCESS_TOKEN;
+  if (!dashKey) throw new Error("DASH_TOOLS_KEY env var is not set");
+  if (!munshotKey) throw new Error("MUNSHOT_ACCESS_TOKEN env var is not set");
+
+  mkdirSync(OUT_DIR, { recursive: true });
+
+  const tickers =
+    tickerArg === "ALL" ? COMPANY_MASTER.map((c) => c.ticker) : [tickerArg];
+  console.log(
+    `[probe] tickers=${tickers.length} concurrency=${concurrency} delay=${delayMs}ms`
+  );
+
+  const summaries = await runWithConcurrency(tickers, concurrency, delayMs, (t) =>
+    probeTicker(t, dashKey, munshotKey)
+  );
+
+  const arFails = summaries.filter((s) => !s.annualReports.ok);
+  const cfFails = summaries.filter((s) => !s.combinedFinancials.ok);
+  const summaryFile = resolve(OUT_DIR, "_summary.json");
+  writeFileSync(
+    summaryFile,
+    JSON.stringify(
+      {
+        ranAt: new Date().toISOString(),
+        total: summaries.length,
+        annualReports: { ok: summaries.length - arFails.length, failed: arFails.length },
+        combinedFinancials: { ok: summaries.length - cfFails.length, failed: cfFails.length },
+        summaries,
+      },
+      null,
+      2
+    )
+  );
+  console.log(`[probe] done. ${summaries.length} tickers, ${arFails.length} ar failures, ${cfFails.length} cf failures.`);
+  console.log(`[probe] summary at data/api-samples/_summary.json`);
 }
 
 main().catch((e) => {
