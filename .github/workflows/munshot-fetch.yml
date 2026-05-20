@@ -1,0 +1,100 @@
+name: Munshot fetch (agent)
+
+# One-shot bootstrap workflow that captures a real MUNS agent response into the
+# repo so the parser can be built against live output.  The Cloudflare Worker
+# proxy serves real traffic at runtime; this workflow exists only to seed a
+# sample under munshot-outputs/ when the agent UUID changes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker (e.g. RELIANCE, JIOFIN, INFY)"
+        required: true
+        default: "RELIANCE"
+      company_name:
+        description: "Stock company name"
+        required: true
+        default: "Reliance Industries Ltd."
+      country:
+        description: "Stock country"
+        required: false
+        default: "INDIA"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: munshot-fetch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      AGENT_UUID: d24884bf-bb04-4d1c-be16-50e2cfc00001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Call MUNS agent
+        env:
+          MUNS_ACCESS_TOKEN: ${{ secrets.MUNS_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${MUNS_ACCESS_TOKEN}" ]; then
+            echo "::error::MUNS_ACCESS_TOKEN secret is not set on this repo."
+            exit 1
+          fi
+
+          mkdir -p munshot-outputs
+          OUT="munshot-outputs/agent-${AGENT_UUID}.txt"
+          TO_DATE="$(date -u +%Y-%m-%d)"
+
+          BODY=$(cat <<JSON
+          {
+            "agent_library_id": "${AGENT_UUID}",
+            "metadata": {
+              "stock_ticker": "${{ inputs.ticker }}",
+              "stock_company_name": "${{ inputs.company_name }}",
+              "context_company_name": "${{ inputs.company_name }}",
+              "stock_country": "${{ inputs.country }}",
+              "to_date": "${TO_DATE}",
+              "timezone": "UTC"
+            }
+          }
+          JSON
+          )
+
+          HTTP_CODE=$(curl -sS -o "${OUT}" -w "%{http_code}" \
+            -X POST "https://devde.muns.io/agents/run" \
+            -H "Authorization: Bearer ${MUNS_ACCESS_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --include \
+            --data "${BODY}")
+
+          echo "HTTP status: ${HTTP_CODE}"
+          echo "--- first 60 lines of response ---"
+          head -n 60 "${OUT}" || true
+          echo "--- end preview ---"
+
+          # Treat 2xx as success.  Anything else fails the run so the operator
+          # sees the upstream error.
+          if [[ "${HTTP_CODE}" != 2* ]]; then
+            echo "::error::Upstream returned HTTP ${HTTP_CODE}."
+            exit 1
+          fi
+
+      - name: Commit sample to branch
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- munshot-outputs; then
+            echo "No changes to munshot-outputs — skipping commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add munshot-outputs
+          git commit -m "munshot: capture agent sample for ${{ inputs.ticker }}"
+          git push
