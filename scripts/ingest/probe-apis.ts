@@ -47,6 +47,18 @@ function getArg(flag: string): string | null {
   return arg ? arg.split("=").slice(1).join("=") : null;
 }
 
+function requireEnv(name: string): string {
+  const v = process.env[name];
+  if (v) return v;
+  console.error(
+    `[probe] FATAL: ${name} is empty or unset.\n` +
+      `[probe] Add it under Settings -> Secrets and variables -> Actions (repository-level).\n` +
+      `[probe] If you added it under an Environment, either move it to repo-level or bind the job with 'environment:' in the workflow.\n` +
+      `[probe] Setup walkthrough: data/api-samples/README.md`
+  );
+  process.exit(1);
+}
+
 async function postJson(
   url: string,
   body: unknown,
@@ -165,10 +177,8 @@ async function main() {
   const concurrency = Number(getArg("concurrency") ?? "3");
   const delayMs = Number(getArg("delay-ms") ?? "150");
 
-  const dashKey = process.env.DASH_TOOLS_KEY;
-  const munshotKey = process.env.MUNSHOT_ACCESS_TOKEN;
-  if (!dashKey) throw new Error("DASH_TOOLS_KEY env var is not set");
-  if (!munshotKey) throw new Error("MUNSHOT_ACCESS_TOKEN env var is not set");
+  const dashKey = requireEnv("DASH_TOOLS_KEY");
+  const munshotKey = requireEnv("MUNSHOT_ACCESS_TOKEN");
 
   mkdirSync(OUT_DIR, { recursive: true });
 
