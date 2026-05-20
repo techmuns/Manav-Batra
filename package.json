@@ -12,7 +12,8 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "ingest:screener": "tsx scripts/ingest-screener.ts",
-    "ingest:official-filings": "tsx scripts/ingest/build-verified-financials.ts"
+    "ingest:official-filings": "tsx scripts/ingest/build-verified-financials.ts",
+    "probe:apis": "tsx scripts/ingest/probe-apis.ts"
   },
   "dependencies": {
     "next": "^16.2.6",
