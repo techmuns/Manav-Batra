@@ -1,11 +1,2159 @@
-// Bundled GuruFocus snapshot.  Overwritten by
-// scripts/ingest-gurufocus-scores.ts (run via GitHub Actions).
+// Auto-generated from data/generated/gurufocus-scores.json.
 import type { GuruFocusSnapshot } from "@/lib/types";
-
 const snapshot: GuruFocusSnapshot = {
-  generatedAt: null,
-  source: "gurufocus_github_actions",
-  companies: {},
+  "generatedAt": "2026-05-20T11:55:49.916Z",
+  "source": "gurufocus_github_actions",
+  "companies": {
+    "HDFCBANK": {
+      "companyName": "HDFC Bank",
+      "ticker": "HDFCBANK",
+      "nseTicker": "HDFCBANK",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HDFCBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HDFCBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ICICIBANK": {
+      "companyName": "ICICI Bank",
+      "ticker": "ICICIBANK",
+      "nseTicker": "ICICIBANK",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ICICIBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ICICIBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "SBIN": {
+      "companyName": "State Bank of India",
+      "ticker": "SBIN",
+      "nseTicker": "SBIN",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:SBIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:SBIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "KOTAKBANK": {
+      "companyName": "Kotak Mahindra Bank",
+      "ticker": "KOTAKBANK",
+      "nseTicker": "KOTAKBANK",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:KOTAKBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:KOTAKBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "AXISBANK": {
+      "companyName": "Axis Bank",
+      "ticker": "AXISBANK",
+      "nseTicker": "AXISBANK",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:AXISBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:AXISBANK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "INDUSINDBK": {
+      "companyName": "IndusInd Bank",
+      "ticker": "INDUSINDBK",
+      "nseTicker": "INDUSINDBK",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:INDUSINDBK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:INDUSINDBK",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BANKBARODA": {
+      "companyName": "Bank of Baroda",
+      "ticker": "BANKBARODA",
+      "nseTicker": "BANKBARODA",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BANKBARODA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BANKBARODA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "PNB": {
+      "companyName": "Punjab National Bank",
+      "ticker": "PNB",
+      "nseTicker": "PNB",
+      "sector": "Bank",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:PNB",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:PNB",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BAJFINANCE": {
+      "companyName": "Bajaj Finance",
+      "ticker": "BAJFINANCE",
+      "nseTicker": "BAJFINANCE",
+      "sector": "NBFC",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BAJFINANCE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BAJFINANCE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BAJAJFINSV": {
+      "companyName": "Bajaj Finserv",
+      "ticker": "BAJAJFINSV",
+      "nseTicker": "BAJAJFINSV",
+      "sector": "Financial Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BAJAJFINSV",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BAJAJFINSV",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "CHOLAFIN": {
+      "companyName": "Cholamandalam Investment",
+      "ticker": "CHOLAFIN",
+      "nseTicker": "CHOLAFIN",
+      "sector": "NBFC",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:CHOLAFIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:CHOLAFIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "SHRIRAMFIN": {
+      "companyName": "Shriram Finance",
+      "ticker": "SHRIRAMFIN",
+      "nseTicker": "SHRIRAMFIN",
+      "sector": "NBFC",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:SHRIRAMFIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:SHRIRAMFIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "SBILIFE": {
+      "companyName": "SBI Life Insurance",
+      "ticker": "SBILIFE",
+      "nseTicker": "SBILIFE",
+      "sector": "Insurance",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:SBILIFE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:SBILIFE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "HDFCLIFE": {
+      "companyName": "HDFC Life Insurance",
+      "ticker": "HDFCLIFE",
+      "nseTicker": "HDFCLIFE",
+      "sector": "Insurance",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HDFCLIFE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HDFCLIFE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ICICIPRULI": {
+      "companyName": "ICICI Prudential Life",
+      "ticker": "ICICIPRULI",
+      "nseTicker": "ICICIPRULI",
+      "sector": "Insurance",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ICICIPRULI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ICICIPRULI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ICICIGI": {
+      "companyName": "ICICI Lombard General",
+      "ticker": "ICICIGI",
+      "nseTicker": "ICICIGI",
+      "sector": "Insurance",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ICICIGI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ICICIGI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "LICI": {
+      "companyName": "Life Insurance Corp",
+      "ticker": "LICI",
+      "nseTicker": "LICI",
+      "sector": "Insurance",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:LICI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:LICI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TCS": {
+      "companyName": "Tata Consultancy Services",
+      "ticker": "TCS",
+      "nseTicker": "TCS",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TCS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TCS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "INFY": {
+      "companyName": "Infosys",
+      "ticker": "INFY",
+      "nseTicker": "INFY",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:INFY",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:INFY",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "HCLTECH": {
+      "companyName": "HCL Technologies",
+      "ticker": "HCLTECH",
+      "nseTicker": "HCLTECH",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HCLTECH",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HCLTECH",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "WIPRO": {
+      "companyName": "Wipro",
+      "ticker": "WIPRO",
+      "nseTicker": "WIPRO",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:WIPRO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:WIPRO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TECHM": {
+      "companyName": "Tech Mahindra",
+      "ticker": "TECHM",
+      "nseTicker": "TECHM",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TECHM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TECHM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "LTIM": {
+      "companyName": "LTIMindtree",
+      "ticker": "LTIM",
+      "nseTicker": "LTIM",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:LTIM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:LTIM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "MPHASIS": {
+      "companyName": "Mphasis",
+      "ticker": "MPHASIS",
+      "nseTicker": "MPHASIS",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:MPHASIS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:MPHASIS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "COFORGE": {
+      "companyName": "Coforge",
+      "ticker": "COFORGE",
+      "nseTicker": "COFORGE",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:COFORGE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:COFORGE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "PERSISTENT": {
+      "companyName": "Persistent Systems",
+      "ticker": "PERSISTENT",
+      "nseTicker": "PERSISTENT",
+      "sector": "IT Services",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:PERSISTENT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:PERSISTENT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "RELIANCE": {
+      "companyName": "Reliance Industries",
+      "ticker": "RELIANCE",
+      "nseTicker": "RELIANCE",
+      "sector": "Diversified",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:RELIANCE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:RELIANCE",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ONGC": {
+      "companyName": "ONGC",
+      "ticker": "ONGC",
+      "nseTicker": "ONGC",
+      "sector": "Oil & Gas",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ONGC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ONGC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "IOC": {
+      "companyName": "Indian Oil Corp",
+      "ticker": "IOC",
+      "nseTicker": "IOC",
+      "sector": "Oil & Gas",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:IOC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:IOC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BPCL": {
+      "companyName": "BPCL",
+      "ticker": "BPCL",
+      "nseTicker": "BPCL",
+      "sector": "Oil & Gas",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BPCL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BPCL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "GAIL": {
+      "companyName": "GAIL India",
+      "ticker": "GAIL",
+      "nseTicker": "GAIL",
+      "sector": "Gas",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:GAIL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:GAIL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "POWERGRID": {
+      "companyName": "Power Grid Corp",
+      "ticker": "POWERGRID",
+      "nseTicker": "POWERGRID",
+      "sector": "Power",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:POWERGRID",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:POWERGRID",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "NTPC": {
+      "companyName": "NTPC",
+      "ticker": "NTPC",
+      "nseTicker": "NTPC",
+      "sector": "Power",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:NTPC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:NTPC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "COALINDIA": {
+      "companyName": "Coal India",
+      "ticker": "COALINDIA",
+      "nseTicker": "COALINDIA",
+      "sector": "Mining",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:COALINDIA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:COALINDIA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ADANIENT": {
+      "companyName": "Adani Enterprises",
+      "ticker": "ADANIENT",
+      "nseTicker": "ADANIENT",
+      "sector": "Diversified",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ADANIENT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ADANIENT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ADANIPOWER": {
+      "companyName": "Adani Power",
+      "ticker": "ADANIPOWER",
+      "nseTicker": "ADANIPOWER",
+      "sector": "Power",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ADANIPOWER",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ADANIPOWER",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ADANIGREEN": {
+      "companyName": "Adani Green Energy",
+      "ticker": "ADANIGREEN",
+      "nseTicker": "ADANIGREEN",
+      "sector": "Power",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ADANIGREEN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ADANIGREEN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ADANIPORTS": {
+      "companyName": "Adani Ports",
+      "ticker": "ADANIPORTS",
+      "nseTicker": "ADANIPORTS",
+      "sector": "Infrastructure",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ADANIPORTS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ADANIPORTS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TATAPOWER": {
+      "companyName": "Tata Power",
+      "ticker": "TATAPOWER",
+      "nseTicker": "TATAPOWER",
+      "sector": "Power",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TATAPOWER",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TATAPOWER",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "MARUTI": {
+      "companyName": "Maruti Suzuki",
+      "ticker": "MARUTI",
+      "nseTicker": "MARUTI",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:MARUTI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:MARUTI",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TATAMOTORS": {
+      "companyName": "Tata Motors",
+      "ticker": "TATAMOTORS",
+      "nseTicker": "TATAMOTORS",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TATAMOTORS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TATAMOTORS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "M&M": {
+      "companyName": "Mahindra & Mahindra",
+      "ticker": "M&M",
+      "nseTicker": "M&M",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:M%26M",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:M%26M",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BAJAJ-AUTO": {
+      "companyName": "Bajaj Auto",
+      "ticker": "BAJAJ-AUTO",
+      "nseTicker": "BAJAJ-AUTO",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BAJAJ-AUTO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BAJAJ-AUTO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "HEROMOTOCO": {
+      "companyName": "Hero MotoCorp",
+      "ticker": "HEROMOTOCO",
+      "nseTicker": "HEROMOTOCO",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HEROMOTOCO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HEROMOTOCO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "EICHERMOT": {
+      "companyName": "Eicher Motors",
+      "ticker": "EICHERMOT",
+      "nseTicker": "EICHERMOT",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:EICHERMOT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:EICHERMOT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TVSMOTOR": {
+      "companyName": "TVS Motor",
+      "ticker": "TVSMOTOR",
+      "nseTicker": "TVSMOTOR",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TVSMOTOR",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TVSMOTOR",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ASHOKLEY": {
+      "companyName": "Ashok Leyland",
+      "ticker": "ASHOKLEY",
+      "nseTicker": "ASHOKLEY",
+      "sector": "Auto",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ASHOKLEY",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ASHOKLEY",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TATASTEEL": {
+      "companyName": "Tata Steel",
+      "ticker": "TATASTEEL",
+      "nseTicker": "TATASTEEL",
+      "sector": "Metals",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TATASTEEL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TATASTEEL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "JSWSTEEL": {
+      "companyName": "JSW Steel",
+      "ticker": "JSWSTEEL",
+      "nseTicker": "JSWSTEEL",
+      "sector": "Metals",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:JSWSTEEL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:JSWSTEEL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "HINDALCO": {
+      "companyName": "Hindalco",
+      "ticker": "HINDALCO",
+      "nseTicker": "HINDALCO",
+      "sector": "Metals",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HINDALCO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HINDALCO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "VEDL": {
+      "companyName": "Vedanta",
+      "ticker": "VEDL",
+      "nseTicker": "VEDL",
+      "sector": "Metals",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:VEDL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:VEDL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "NMDC": {
+      "companyName": "NMDC",
+      "ticker": "NMDC",
+      "nseTicker": "NMDC",
+      "sector": "Metals",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:NMDC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:NMDC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "SUNPHARMA": {
+      "companyName": "Sun Pharmaceutical",
+      "ticker": "SUNPHARMA",
+      "nseTicker": "SUNPHARMA",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:SUNPHARMA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:SUNPHARMA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "DRREDDY": {
+      "companyName": "Dr. Reddy's Labs",
+      "ticker": "DRREDDY",
+      "nseTicker": "DRREDDY",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:DRREDDY",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:DRREDDY",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "CIPLA": {
+      "companyName": "Cipla",
+      "ticker": "CIPLA",
+      "nseTicker": "CIPLA",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:CIPLA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:CIPLA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "LUPIN": {
+      "companyName": "Lupin",
+      "ticker": "LUPIN",
+      "nseTicker": "LUPIN",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:LUPIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:LUPIN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "DIVISLAB": {
+      "companyName": "Divi's Laboratories",
+      "ticker": "DIVISLAB",
+      "nseTicker": "DIVISLAB",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:DIVISLAB",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:DIVISLAB",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "AUROPHARMA": {
+      "companyName": "Aurobindo Pharma",
+      "ticker": "AUROPHARMA",
+      "nseTicker": "AUROPHARMA",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:AUROPHARMA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:AUROPHARMA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BIOCON": {
+      "companyName": "Biocon",
+      "ticker": "BIOCON",
+      "nseTicker": "BIOCON",
+      "sector": "Pharma",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BIOCON",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BIOCON",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "HINDUNILVR": {
+      "companyName": "Hindustan Unilever",
+      "ticker": "HINDUNILVR",
+      "nseTicker": "HINDUNILVR",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HINDUNILVR",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HINDUNILVR",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ITC": {
+      "companyName": "ITC",
+      "ticker": "ITC",
+      "nseTicker": "ITC",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ITC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ITC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "NESTLEIND": {
+      "companyName": "Nestle India",
+      "ticker": "NESTLEIND",
+      "nseTicker": "NESTLEIND",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:NESTLEIND",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:NESTLEIND",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BRITANNIA": {
+      "companyName": "Britannia Industries",
+      "ticker": "BRITANNIA",
+      "nseTicker": "BRITANNIA",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BRITANNIA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BRITANNIA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "DABUR": {
+      "companyName": "Dabur India",
+      "ticker": "DABUR",
+      "nseTicker": "DABUR",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:DABUR",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:DABUR",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "MARICO": {
+      "companyName": "Marico",
+      "ticker": "MARICO",
+      "nseTicker": "MARICO",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:MARICO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:MARICO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "GODREJCP": {
+      "companyName": "Godrej Consumer",
+      "ticker": "GODREJCP",
+      "nseTicker": "GODREJCP",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:GODREJCP",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:GODREJCP",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "COLPAL": {
+      "companyName": "Colgate-Palmolive",
+      "ticker": "COLPAL",
+      "nseTicker": "COLPAL",
+      "sector": "FMCG",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:COLPAL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:COLPAL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ULTRACEMCO": {
+      "companyName": "UltraTech Cement",
+      "ticker": "ULTRACEMCO",
+      "nseTicker": "ULTRACEMCO",
+      "sector": "Cement",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ULTRACEMCO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ULTRACEMCO",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "SHREECEM": {
+      "companyName": "Shree Cement",
+      "ticker": "SHREECEM",
+      "nseTicker": "SHREECEM",
+      "sector": "Cement",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:SHREECEM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:SHREECEM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "AMBUJACEM": {
+      "companyName": "Ambuja Cements",
+      "ticker": "AMBUJACEM",
+      "nseTicker": "AMBUJACEM",
+      "sector": "Cement",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:AMBUJACEM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:AMBUJACEM",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ACC": {
+      "companyName": "ACC",
+      "ticker": "ACC",
+      "nseTicker": "ACC",
+      "sector": "Cement",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ACC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ACC",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BHARTIARTL": {
+      "companyName": "Bharti Airtel",
+      "ticker": "BHARTIARTL",
+      "nseTicker": "BHARTIARTL",
+      "sector": "Telecom",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BHARTIARTL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BHARTIARTL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "IDEA": {
+      "companyName": "Vodafone Idea",
+      "ticker": "IDEA",
+      "nseTicker": "IDEA",
+      "sector": "Telecom",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:IDEA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:IDEA",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "LT": {
+      "companyName": "Larsen & Toubro",
+      "ticker": "LT",
+      "nseTicker": "LT",
+      "sector": "Capital Goods",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:LT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:LT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "SIEMENS": {
+      "companyName": "Siemens",
+      "ticker": "SIEMENS",
+      "nseTicker": "SIEMENS",
+      "sector": "Capital Goods",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:SIEMENS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:SIEMENS",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ABB": {
+      "companyName": "ABB India",
+      "ticker": "ABB",
+      "nseTicker": "ABB",
+      "sector": "Capital Goods",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ABB",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ABB",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BEL": {
+      "companyName": "Bharat Electronics",
+      "ticker": "BEL",
+      "nseTicker": "BEL",
+      "sector": "Defence",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BEL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BEL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "HAL": {
+      "companyName": "Hindustan Aeronautics",
+      "ticker": "HAL",
+      "nseTicker": "HAL",
+      "sector": "Defence",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:HAL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:HAL",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "DLF": {
+      "companyName": "DLF",
+      "ticker": "DLF",
+      "nseTicker": "DLF",
+      "sector": "Real Estate",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:DLF",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:DLF",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "GODREJPROP": {
+      "companyName": "Godrej Properties",
+      "ticker": "GODREJPROP",
+      "nseTicker": "GODREJPROP",
+      "sector": "Real Estate",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:GODREJPROP",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:GODREJPROP",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "DMART": {
+      "companyName": "Avenue Supermarts",
+      "ticker": "DMART",
+      "nseTicker": "DMART",
+      "sector": "Retail",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:DMART",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:DMART",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TRENT": {
+      "companyName": "Trent",
+      "ticker": "TRENT",
+      "nseTicker": "TRENT",
+      "sector": "Retail",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TRENT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TRENT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "TITAN": {
+      "companyName": "Titan Company",
+      "ticker": "TITAN",
+      "nseTicker": "TITAN",
+      "sector": "Consumer Durables",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:TITAN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:TITAN",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "ASIANPAINT": {
+      "companyName": "Asian Paints",
+      "ticker": "ASIANPAINT",
+      "nseTicker": "ASIANPAINT",
+      "sector": "Paints",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:ASIANPAINT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:ASIANPAINT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "BERGEPAINT": {
+      "companyName": "Berger Paints",
+      "ticker": "BERGEPAINT",
+      "nseTicker": "BERGEPAINT",
+      "sector": "Paints",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:BERGEPAINT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:BERGEPAINT",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    },
+    "PIDILITIND": {
+      "companyName": "Pidilite Industries",
+      "ticker": "PIDILITIND",
+      "nseTicker": "PIDILITIND",
+      "sector": "Chemicals",
+      "status": "no_data",
+      "mScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/mscore/NSE:PIDILITIND",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      },
+      "zScore": {
+        "status": "blocked",
+        "url": "https://www.gurufocus.com/term/zscore/NSE:PIDILITIND",
+        "currentValue": null,
+        "asOf": null,
+        "interpretation": null,
+        "annual": [],
+        "rawExtract": "HTTP 403"
+      }
+    }
+  }
 };
-
 export default snapshot;
