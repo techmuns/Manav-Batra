@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "SIEMENS",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:51.109Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:50.997Z",
+    "path": "/filings/combined_financials",
+    "requestId": "0a7319c4-9ef0-4f98-b2b9-a278d935fcd1",
+    "sessionId": "d9585d92-00b6-48de-9e6d-2b3eb2b1fa48",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/SIEMENS/consolidated/"
+  }
+}

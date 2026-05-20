@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "DIVISLAB",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:23.298Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:23.176Z",
+    "path": "/filings/combined_financials",
+    "requestId": "2c1fa5df-cc99-44fc-997b-1a0e932a152c",
+    "sessionId": "d8b10b3c-04b2-4f2f-bfe8-55320c86c362",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DIVISLAB/consolidated/"
+  }
+}

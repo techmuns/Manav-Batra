@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ICICIGI",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:28.402Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:28.280Z",
+    "path": "/filings/combined_financials",
+    "requestId": "91f7c990-1650-43fd-a7b1-0e9db0d5e0f1",
+    "sessionId": "97b2238b-89b6-4c93-8a4f-b00580f59c70",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ICICIGI/consolidated/"
+  }
+}

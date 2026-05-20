@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "GAIL"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:54:45.710Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/6e59a978-52ed-4d18-ab76-c42d748c90de.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/a3d9f45c-7451-469c-a953-87d895e6fcb2.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/18f9ed26-4838-4cf6-b1d5-bac8483dbd38.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/74034532155.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/69529532155.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/65117532155.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550317.pdf"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550316.pdf"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550315.pdf"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550314.pdf"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550313.pdf"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532155/5321550312.pdf"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from nse",
+        "link": "https://archives.nseindia.com/annual_reports/AR_GAIL_2011_2012_13082012102829.zip"
+      }
+    ]
+  }
+}

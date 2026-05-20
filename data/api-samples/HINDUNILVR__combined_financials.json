@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "HINDUNILVR",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:27.813Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:27.702Z",
+    "path": "/filings/combined_financials",
+    "requestId": "5549880e-48e1-49f8-9457-37f2d9532bf6",
+    "sessionId": "d046abe9-b17f-4121-8599-bd9bdd7468cf",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HINDUNILVR/consolidated/"
+  }
+}

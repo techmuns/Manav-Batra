@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "PIDILITIND",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:56:06.910Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:56:06.798Z",
+    "path": "/filings/combined_financials",
+    "requestId": "9276c7f2-7773-42ff-8763-3ab4d9ac3160",
+    "sessionId": "bf0f779b-b458-405f-a787-318b3ccb7eec",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/PIDILITIND/consolidated/"
+  }
+}

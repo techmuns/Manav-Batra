@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "TCS",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:30.469Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:30.357Z",
+    "path": "/filings/combined_financials",
+    "requestId": "1d6b6150-a115-4934-bd42-b4ba73158c8e",
+    "sessionId": "1490ff19-0d3a-4ed3-bde1-29c7f4e246f8",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TCS/consolidated/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ULTRACEMCO",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:42.175Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:42.064Z",
+    "path": "/filings/combined_financials",
+    "requestId": "056dc4cb-f091-4ab7-9252-459246b2be3c",
+    "sessionId": "f5be4226-4880-4312-8cd2-b8982d7f34b2",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ULTRACEMCO/consolidated/"
+  }
+}

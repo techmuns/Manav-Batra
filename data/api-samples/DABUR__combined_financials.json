@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "DABUR",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:33.293Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:33.182Z",
+    "path": "/filings/combined_financials",
+    "requestId": "63eeb533-4404-4b0e-839e-31925e344e96",
+    "sessionId": "9e678c97-5dd6-4dba-939e-9f7f96cc9caa",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DABUR/consolidated/"
+  }
+}

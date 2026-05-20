@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "DABUR"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:55:28.747Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/adf0f46e-1909-419e-8bae-c6925bc09ca3.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/b6f3ff71-f4ec-428e-a42f-7cb240b20049.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/a8dfb6ee-147c-45ab-8d51-4a7fc4ebfacb.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/73713500096.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/69003500096_28_07_21.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960320.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960317.pdf"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960316.pdf"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960315.pdf"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960314.pdf"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960313.pdf"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from nse",
+        "link": "https://archives.nseindia.com/annual_reports/AR_DABUR_2011_2012_22062012122524.zip"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500096/5000960312.pdf"
+      }
+    ]
+  }
+}

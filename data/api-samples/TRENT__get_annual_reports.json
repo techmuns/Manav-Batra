@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "TRENT"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:55:56.547Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/305e1656-360b-4f28-b00d-fd6b152723b5.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/c7330ad5-ba82-4673-baaa-b39af9c47c87.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/58357a1d-01e7-410e-a079-834f7aefce44.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/72987500251.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/68577500251.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510320.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510317.pdf"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510316.pdf"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510315.pdf"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510314.pdf"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510313.pdf"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500251/5002510312.pdf"
+      },
+      {
+        "year": "Financial Year 2011",
+        "source": "from nse",
+        "link": "https://archives.nseindia.com/annual_reports/AR_TRENT_2010_2011_22072011102526.zip"
+      }
+    ]
+  }
+}

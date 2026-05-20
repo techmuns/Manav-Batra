@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "CIPLA",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:18.799Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:18.688Z",
+    "path": "/filings/combined_financials",
+    "requestId": "14eae0dd-f018-4dfe-879f-d6a5ef2fc115",
+    "sessionId": "c4767bee-bb6c-449c-a660-1ff845aeaa9f",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/CIPLA/consolidated/"
+  }
+}

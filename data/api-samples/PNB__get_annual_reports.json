@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "PNB"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:53:42.477Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/1192d645-9fe8-49d5-b6ca-cfffc8781746.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/01b4a055-de00-4725-acb2-3925a86b10f0.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/73163532461.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/68736532461.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610320.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610317.pdf"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610316.pdf"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610315.pdf"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610314.pdf"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610313.pdf"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610312.pdf"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from nse",
+        "link": "https://archives.nseindia.com/annual_reports/AR_PNB_2011_2012_29062012100845.zip"
+      },
+      {
+        "year": "Financial Year 2011",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532461/5324610311.pdf"
+      }
+    ]
+  }
+}

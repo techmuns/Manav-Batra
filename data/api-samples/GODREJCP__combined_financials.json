@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "GODREJCP",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:37.954Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:37.832Z",
+    "path": "/filings/combined_financials",
+    "requestId": "93cb2975-02ce-4179-815c-e4210309fae6",
+    "sessionId": "0eb2fc9d-eda8-4a94-bcc2-3213e549096e",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/GODREJCP/consolidated/"
+  }
+}

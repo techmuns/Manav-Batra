@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "DRREDDY",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:18.835Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:18.723Z",
+    "path": "/filings/combined_financials",
+    "requestId": "593df3ab-7093-412d-9998-de0c74a6dee0",
+    "sessionId": "23c5352b-13fe-46f4-97f2-7f454ead37c2",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DRREDDY/consolidated/"
+  }
+}

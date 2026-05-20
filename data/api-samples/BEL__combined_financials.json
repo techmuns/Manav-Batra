@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "BEL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:55.779Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:55.667Z",
+    "path": "/filings/combined_financials",
+    "requestId": "7da5ea5b-a02a-41c4-8ed6-d96a3eeec09f",
+    "sessionId": "98e83ee3-8eb6-4d64-95e2-b2082d5a8545",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BEL/consolidated/"
+  }
+}

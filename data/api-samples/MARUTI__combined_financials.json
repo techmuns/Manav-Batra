@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "MARUTI",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:02.853Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:02.742Z",
+    "path": "/filings/combined_financials",
+    "requestId": "f50061aa-3256-4674-bbf7-293444ba5b8e",
+    "sessionId": "602bccc2-95e2-4d8e-b42f-e1cec5407100",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/MARUTI/consolidated/"
+  }
+}

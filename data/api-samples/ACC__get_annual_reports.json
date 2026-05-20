@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "ACC"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:55:42.933Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/87574430-abe1-407b-ba2e-db4633b15235.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/f027bdf7-10f1-4cd3-9745-bca536b91013.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/8b5f12f7-052d-4799-9f46-ba55878f25b5.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/72946500410.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/68361500410.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101219.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101218.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101217.pdf"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101216.pdf"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101215.pdf"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101214.pdf"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101213.pdf"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from nse",
+        "link": "https://archives.nseindia.com/annual_reports/AR_3202_ACC_2013_2013_14032014104210.zip"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101212.pdf"
+      },
+      {
+        "year": "Financial Year 2011",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/500410/5004101211.pdf"
+      }
+    ]
+  }
+}

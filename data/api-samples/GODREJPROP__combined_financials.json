@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "GODREJPROP",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:56:00.100Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:59.989Z",
+    "path": "/filings/combined_financials",
+    "requestId": "94ada103-5848-4c08-a6af-a279f721c377",
+    "sessionId": "7880d0a4-ec5b-46f0-978b-e0c094e67be0",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/GODREJPROP/consolidated/"
+  }
+}

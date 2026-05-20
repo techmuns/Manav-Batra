@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "LUPIN",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:23.279Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:23.167Z",
+    "path": "/filings/combined_financials",
+    "requestId": "6b9abcf7-8e6a-41d4-abf5-fdcd9357eb8e",
+    "sessionId": "c2325cf7-ce96-4d15-8962-f847572bd35e",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/LUPIN/consolidated/"
+  }
+}

@@ -1,24 +1,959 @@
 {
-  "ranAt": "2026-05-20T08:21:34.503Z",
-  "total": 1,
+  "ranAt": "2026-05-20T08:56:07.061Z",
+  "total": 86,
   "annualReports": {
-    "ok": 0,
-    "failed": 1
+    "ok": 84,
+    "failed": 2
   },
   "combinedFinancials": {
-    "ok": 1,
-    "failed": 0
+    "ok": 9,
+    "failed": 77
   },
   "summaries": [
     {
-      "ticker": "RELIANCE",
+      "ticker": "SBIN",
       "annualReports": {
-        "status": 401,
-        "ok": false
+        "status": 200,
+        "ok": true
       },
       "combinedFinancials": {
         "status": 201,
         "ok": true
+      }
+    },
+    {
+      "ticker": "HDFCBANK",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "ICICIBANK",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "KOTAKBANK",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "AXISBANK",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "INDUSINDBK",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "PNB",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "BANKBARODA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "BAJFINANCE",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 201,
+        "ok": true
+      }
+    },
+    {
+      "ticker": "BAJAJFINSV",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "CHOLAFIN",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "SHRIRAMFIN",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "SBILIFE",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ICICIPRULI",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "HDFCLIFE",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "LICI",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ICICIGI",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TCS",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "INFY",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "HCLTECH",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "LTIM",
+      "annualReports": {
+        "status": 400,
+        "ok": false
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TECHM",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "WIPRO",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "MPHASIS",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "RELIANCE",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "PERSISTENT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "COFORGE",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "IOC",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ONGC",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BPCL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "GAIL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "POWERGRID",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "NTPC",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "COALINDIA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ADANIENT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ADANIPOWER",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ADANIGREEN",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ADANIPORTS",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TATAPOWER",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TATAMOTORS",
+      "annualReports": {
+        "status": 400,
+        "ok": false
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "MARUTI",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "M&M",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BAJAJ-AUTO",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "HEROMOTOCO",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TVSMOTOR",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "EICHERMOT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ASHOKLEY",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "JSWSTEEL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TATASTEEL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "HINDALCO",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "NMDC",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "VEDL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "CIPLA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "SUNPHARMA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "DRREDDY",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "LUPIN",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "DIVISLAB",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "AUROPHARMA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "HINDUNILVR",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BIOCON",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ITC",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "NESTLEIND",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BRITANNIA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "DABUR",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "COLPAL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "MARICO",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "GODREJCP",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "AMBUJACEM",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ULTRACEMCO",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "SHREECEM",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BHARTIARTL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ACC",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "IDEA",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ABB",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "LT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "SIEMENS",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BEL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "HAL",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "DLF",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TRENT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "DMART",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "GODREJPROP",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "ASIANPAINT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "TITAN",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "BERGEPAINT",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
+      }
+    },
+    {
+      "ticker": "PIDILITIND",
+      "annualReports": {
+        "status": 200,
+        "ok": true
+      },
+      "combinedFinancials": {
+        "status": 500,
+        "ok": false
       }
     }
   ]

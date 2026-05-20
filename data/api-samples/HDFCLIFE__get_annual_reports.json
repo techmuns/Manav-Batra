@@ -1,0 +1,85 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "HDFCLIFE"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:54:16.727Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/a1f4064f-7b6d-4576-b056-76575c115c31.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/2f629b99-2387-483c-8557-8aa62eeb1b06.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/0ad36710-bdcb-426a-9e82-420ace156e09.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540777/73107540777.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540777/68635540777.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540777/5407770320.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540777/5407770319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540777/5407770318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2017/HDFC_LIFE_INSURANCE_CO_LTD-540777-MARCH-2017.PDF"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2016/HDFC_LIFE_INSURANCE_CO_LTD-540777-MARCH-2016.PDF"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2015/HDFC_LIFE_INSURANCE_CO_LTD-540777-MARCH-2015.PDF"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2014/HDFC_LIFE_INSURANCE_CO_LTD-540777-MARCH-2014.PDF"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2013/HDFC_LIFE_INSURANCE_CO_LTD-540777-MARCH-2013.PDF"
+      },
+      {
+        "year": "Financial Year 2007",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2007/HDFC_LIFE_INSURANCE_CO_LTD-540777-MARCH-2007.PDF"
+      }
+    ]
+  }
+}

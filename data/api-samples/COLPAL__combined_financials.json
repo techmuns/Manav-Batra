@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "COLPAL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:37.866Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:37.754Z",
+    "path": "/filings/combined_financials",
+    "requestId": "2dcf71af-4a12-4298-847f-ded56019abef",
+    "sessionId": "6037ebb2-9c61-418d-9b17-b36370062fdc",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/COLPAL/consolidated/"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "HAL"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:55:51.826Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/425a7379-6556-41a7-8edf-41b26574a53e.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/7e7c2a0a-f366-4aff-8d47-0818d45fae58.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/89b72e9c-4ab7-474f-bbbc-6238b2a832ce.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/541154/74651541154.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/541154/71409541154.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/541154/65527541154.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/541154/5411540319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/541154/5411540318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2017/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2017.PDF"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2016/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2016.PDF"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2015/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2015.PDF"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2014/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2014.PDF"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2013/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2013.PDF"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2012/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2012.PDF"
+      },
+      {
+        "year": "Financial Year 2011",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2011/HINDUSTAN_AERONAUTICS_LTD-541154-MARCH-2011.PDF"
+      }
+    ]
+  }
+}

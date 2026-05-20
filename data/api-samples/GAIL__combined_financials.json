@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "GAIL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:49.166Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:49.054Z",
+    "path": "/filings/combined_financials",
+    "requestId": "e6653642-77a2-4963-a00b-82097ac8c8f2",
+    "sessionId": "e013b904-f2f8-4347-8d63-18b69ce1b4c3",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/GAIL/consolidated/"
+  }
+}

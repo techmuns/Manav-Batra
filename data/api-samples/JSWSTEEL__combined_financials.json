@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "JSWSTEEL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:10.666Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:10.544Z",
+    "path": "/filings/combined_financials",
+    "requestId": "91072d6d-d772-4e50-90bf-7589f727b0b5",
+    "sessionId": "12624cf3-5fa8-401b-8e28-5f2ff150f9ad",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/JSWSTEEL/consolidated/"
+  }
+}

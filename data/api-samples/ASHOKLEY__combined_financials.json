@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ASHOKLEY",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:10.642Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:10.530Z",
+    "path": "/filings/combined_financials",
+    "requestId": "f79a232a-75de-4eaf-9945-122b54dcf32c",
+    "sessionId": "5275cf21-68c2-484d-b60b-374d3f37e13a",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ASHOKLEY/consolidated/"
+  }
+}

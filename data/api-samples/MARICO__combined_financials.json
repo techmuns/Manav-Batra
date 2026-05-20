@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "MARICO",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:37.913Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:37.801Z",
+    "path": "/filings/combined_financials",
+    "requestId": "0711e512-c4af-49b8-89d7-6136cb9bb635",
+    "sessionId": "c5d24ff7-a148-489d-95cc-d487751aa3cc",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/MARICO/consolidated/"
+  }
+}

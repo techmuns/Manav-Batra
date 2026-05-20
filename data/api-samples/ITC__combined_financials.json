@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ITC",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:27.838Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:27.726Z",
+    "path": "/filings/combined_financials",
+    "requestId": "4135361b-cc3c-4f0e-af30-c8f71256fcc8",
+    "sessionId": "3ca6c7cf-2ef7-4741-800e-15580874f4b1",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ITC/consolidated/"
+  }
+}

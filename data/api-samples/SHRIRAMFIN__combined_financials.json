@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "SHRIRAMFIN",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:20.788Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:20.676Z",
+    "path": "/filings/combined_financials",
+    "requestId": "322a7996-f548-4672-99d7-8e55fe0b42c6",
+    "sessionId": "0598f661-b232-4c38-a6d5-7ee6e48ed6af",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: TimeoutError: Navigation timeout of 30000 ms exceeded"
+  }
+}

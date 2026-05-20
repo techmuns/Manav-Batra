@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "IDEA",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:46.846Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:46.735Z",
+    "path": "/filings/combined_financials",
+    "requestId": "cfec069e-dda8-4252-9f6c-ec8550d10356",
+    "sessionId": "7be320a2-233b-4491-8c2c-8fb4427622df",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/IDEA/consolidated/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "BPCL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:44.987Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:44.875Z",
+    "path": "/filings/combined_financials",
+    "requestId": "88e2f4f6-ab4b-45a5-b489-273c182ef993",
+    "sessionId": "3c959225-13b3-43ec-8d19-7a1fa4244e5a",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BPCL/consolidated/"
+  }
+}

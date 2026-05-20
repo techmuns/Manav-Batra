@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "HINDALCO",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:14.248Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:14.136Z",
+    "path": "/filings/combined_financials",
+    "requestId": "a313a875-60c6-410e-95db-f9fd1831d02b",
+    "sessionId": "30c606f1-16ac-4b13-8d24-ae07b0e25ce6",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HINDALCO/consolidated/"
+  }
+}

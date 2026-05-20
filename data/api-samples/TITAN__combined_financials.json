@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "TITAN",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:56:04.840Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:56:04.718Z",
+    "path": "/filings/combined_financials",
+    "requestId": "6342fd94-a054-4f42-848c-4ac5f46e7565",
+    "sessionId": "667c5e1e-26f3-4c6b-8404-c22ff370d661",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TITAN/consolidated/"
+  }
+}

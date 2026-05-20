@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "TATAMOTORS",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:00.487Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:00.365Z",
+    "path": "/filings/combined_financials",
+    "requestId": "5f9cb204-e358-4686-92d5-ccc78bdb2dc3",
+    "sessionId": "83b011ce-0b76-4a69-9cc2-174c83ef7f7d",
+    "message": "Failed to fetch Indian financial tables: Stock not found: \"TATAMOTORS\". Please verify the ticker symbol or company name."
+  }
+}

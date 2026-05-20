@@ -2,10 +2,10 @@
   "endpoint": "get_annual_reports",
   "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
   "requestBody": {
-    "ticker": "RELIANCE"
+    "ticker": "MARUTI"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:54:36.767Z",
+  "fetchedAt": "2026-05-20T08:54:59.886Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",
@@ -13,77 +13,77 @@
       {
         "year": "Financial Year 2025",
         "source": "from bse",
-        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/468b09a3-a212-4066-bbaa-4b0ba524d2ce.pdf"
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/b6b3feef-628a-443c-9e63-665a5e057547.pdf"
       },
       {
         "year": "Financial Year 2024",
         "source": "from bse",
-        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/d473280d-1c2b-4037-8ff9-dfbb82aa2c7e.pdf"
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/4b14c577-1d8d-4eb0-a79e-f94640af8a67.pdf"
       },
       {
         "year": "Financial Year 2023",
         "source": "from bse",
-        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/b55b5dfc-a3bf-4f24-9d7f-ca09774a1dd9.pdf"
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/68f18376-59dd-4bc2-9aee-48e50ec97f27.pdf"
       },
       {
         "year": "Financial Year 2022",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/74185500325.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/74208532500.pdf"
       },
       {
         "year": "Financial Year 2021",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/68509500325.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/69235532500.pdf"
       },
       {
         "year": "Financial Year 2020",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250320.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000320.pdf"
       },
       {
         "year": "Financial Year 2019",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250319.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000319.pdf"
       },
       {
         "year": "Financial Year 2018",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250318.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000318.pdf"
       },
       {
         "year": "Financial Year 2017",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250317.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000317.pdf"
       },
       {
         "year": "Financial Year 2016",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250316.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000316.pdf"
       },
       {
         "year": "Financial Year 2015",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250315.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000315.pdf"
       },
       {
         "year": "Financial Year 2014",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250314.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000314.pdf"
       },
       {
         "year": "Financial Year 2013",
         "source": "from nse",
-        "link": "https://archives.nseindia.com/annual_reports/AR_19_RELIANCE_2012_2013_08052013171218.zip"
+        "link": "https://archives.nseindia.com/annual_reports/AR_898_MARUTI_2012_2013_07082013140623.zip"
       },
       {
         "year": "Financial Year 2013",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250313.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000313.pdf"
       },
       {
         "year": "Financial Year 2012",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250312.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/532500/5325000312.pdf"
       }
     ]
   }

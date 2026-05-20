@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "DLF",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:55.807Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:55.696Z",
+    "path": "/filings/combined_financials",
+    "requestId": "b741ff18-508c-4acd-8ee0-947f29efbb25",
+    "sessionId": "1772ffdc-950a-4418-add8-2f018bbb9ba9",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DLF/consolidated/"
+  }
+}

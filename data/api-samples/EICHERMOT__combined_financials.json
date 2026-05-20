@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "EICHERMOT",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:07.055Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:06.943Z",
+    "path": "/filings/combined_financials",
+    "requestId": "5d1b4bef-9ddf-4c4b-8443-11e553838be2",
+    "sessionId": "48876b56-ccee-4f93-94be-e6ceb9607bc5",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/EICHERMOT/consolidated/"
+  }
+}

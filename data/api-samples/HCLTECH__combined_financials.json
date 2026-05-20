@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "HCLTECH",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:30.524Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:30.402Z",
+    "path": "/filings/combined_financials",
+    "requestId": "7d74a11b-1feb-484e-9d1f-9b76662c97b5",
+    "sessionId": "1dab410e-8a53-437d-88b1-e632b1685e2d",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HCLTECH/consolidated/"
+  }
+}

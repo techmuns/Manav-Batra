@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "TRENT",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:56:00.065Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:59.953Z",
+    "path": "/filings/combined_financials",
+    "requestId": "3a710cda-9687-493b-8c8a-92706c8e352d",
+    "sessionId": "0b1a069f-4551-4385-b75a-0b8d1746f9cc",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TRENT/consolidated/"
+  }
+}

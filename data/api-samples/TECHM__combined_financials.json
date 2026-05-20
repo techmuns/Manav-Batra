@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "TECHM",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:35.990Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:35.867Z",
+    "path": "/filings/combined_financials",
+    "requestId": "706eaa17-2cc7-4d40-b456-8a09c3a6f4ed",
+    "sessionId": "7fd379d8-4ea5-4df2-9d1e-c5fb24c994e9",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TECHM/consolidated/"
+  }
+}

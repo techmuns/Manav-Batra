@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "TATASTEEL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:10.677Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:10.565Z",
+    "path": "/filings/combined_financials",
+    "requestId": "26fe5668-045e-4267-8709-a0d18657677c",
+    "sessionId": "43200800-cf0a-4f93-9b38-308dacb9f183",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/TATASTEEL/consolidated/"
+  }
+}

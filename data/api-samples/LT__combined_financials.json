@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "LT",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:51.086Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:50.964Z",
+    "path": "/filings/combined_financials",
+    "requestId": "8977fb39-3604-4bd8-a48c-3463a9491976",
+    "sessionId": "e44f94bf-0a79-431b-bb07-c1dc3c47be6f",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/LT/consolidated/"
+  }
+}

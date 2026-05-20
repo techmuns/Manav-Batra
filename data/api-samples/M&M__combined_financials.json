@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "M&M",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:02.877Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:02.765Z",
+    "path": "/filings/combined_financials",
+    "requestId": "8d98e246-da0f-4f28-8570-51e027124e9a",
+    "sessionId": "d1c66b54-f61d-46d9-92f1-5dd8e1f997b0",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/M&M/consolidated/"
+  }
+}

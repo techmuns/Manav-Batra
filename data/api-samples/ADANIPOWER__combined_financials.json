@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ADANIPOWER",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:54.380Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:54.269Z",
+    "path": "/filings/combined_financials",
+    "requestId": "65079b77-c037-485b-b288-508ecb691a66",
+    "sessionId": "c0c3e4cd-0466-4ef8-9062-a0c5102b792a",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ADANIPOWER/consolidated/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "LTIM",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:31.391Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:31.280Z",
+    "path": "/filings/combined_financials",
+    "requestId": "c6004561-c2dc-4490-99ce-a3740792227c",
+    "sessionId": "718872b2-2d8c-4529-b7ac-c630c47ba307",
+    "message": "Failed to fetch Indian financial tables: Stock not found: \"LTIM\". Please verify the ticker symbol or company name."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "ICICIPRULI"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:54:21.510Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/504fd0db-ca18-4a39-9f10-4128cdec2383.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/2ad36377-67d5-4a46-824f-869c47fdfb66.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/3165c506-72d8-48df-b9d5-5ae143cc7319.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540133/73087540133.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540133/68503540133.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540133/5401330320.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540133/5401330319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540133/5401330318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540133/5401330317.pdf"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2016/ICICI_PRUDENTIAL_LIFE_INSURANCE_CO_LTD-540133-MARCH-2016.PDF"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2015/ICICI_PRUDENTIAL_LIFE_INSURANCE_CO_LTD-540133-MARCH-2015.PDF"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2014/ICICI_PRUDENTIAL_LIFE_INSURANCE_CO_LTD-540133-MARCH-2014.PDF"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2013/ICICI_PRUDENTIAL_LIFE_INSURANCE_CO_LTD-540133-MARCH-2013.PDF"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2012/ICICI_PRUDENTIAL_LIFE_INSURANCE_CO_LTD-540133-MARCH-2012.PDF"
+      }
+    ]
+  }
+}

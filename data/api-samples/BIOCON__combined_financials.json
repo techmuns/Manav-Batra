@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "BIOCON",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:27.831Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:27.709Z",
+    "path": "/filings/combined_financials",
+    "requestId": "8083f616-045e-4ad7-9058-e0e0be726a3e",
+    "sessionId": "d1ca6634-b721-473f-9a76-e4da6434f9b6",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BIOCON/consolidated/"
+  }
+}

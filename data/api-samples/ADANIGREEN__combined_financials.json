@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ADANIGREEN",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:59.152Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:59.040Z",
+    "path": "/filings/combined_financials",
+    "requestId": "3fe3236d-653b-4a54-a576-52139b997f46",
+    "sessionId": "221dcf3e-7642-4535-8845-62bc016bea5d",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ADANIGREEN/consolidated/"
+  }
+}

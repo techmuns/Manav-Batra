@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "HDFCLIFE",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:27.163Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:27.041Z",
+    "path": "/filings/combined_financials",
+    "requestId": "8760a003-9c2e-49dd-99ef-bd489634c5ad",
+    "sessionId": "036690ec-f639-40f5-a003-1d6ed899a502",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HDFCLIFE/consolidated/"
+  }
+}

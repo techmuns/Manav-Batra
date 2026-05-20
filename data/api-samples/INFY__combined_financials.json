@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "INFY",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:30.481Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:30.370Z",
+    "path": "/filings/combined_financials",
+    "requestId": "018d87ed-7f3b-464e-9d35-bf5ff1e19514",
+    "sessionId": "87032590-4d16-4ce6-9995-8643a663d8ad",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/INFY/consolidated/"
+  }
+}

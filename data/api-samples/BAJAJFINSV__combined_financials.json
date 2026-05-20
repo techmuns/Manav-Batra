@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "BAJAJFINSV",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:15.942Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:15.830Z",
+    "path": "/filings/combined_financials",
+    "requestId": "d4a3cb88-f8b5-4794-b418-251db841fd13",
+    "sessionId": "a7f2af4c-3aa4-489b-bf6e-d7e8aa8c05fd",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: TimeoutError: Navigation timeout of 30000 ms exceeded"
+  }
+}

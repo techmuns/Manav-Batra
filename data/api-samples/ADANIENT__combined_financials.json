@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ADANIENT",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:54.376Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:54.254Z",
+    "path": "/filings/combined_financials",
+    "requestId": "bafb7241-c81d-4265-89be-95f6c237ee38",
+    "sessionId": "6f6f6996-0488-4912-bb97-45f5f8a94a24",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ADANIENT/consolidated/"
+  }
+}

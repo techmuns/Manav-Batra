@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ONGC",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:44.962Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:44.840Z",
+    "path": "/filings/combined_financials",
+    "requestId": "f924fd76-419e-4fb8-95b1-06bb7beecd62",
+    "sessionId": "46a7343d-d8c2-4563-99c3-484f3b2812da",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ONGC/consolidated/"
+  }
+}

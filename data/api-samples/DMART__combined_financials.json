@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "DMART",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:56:00.085Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:59.963Z",
+    "path": "/filings/combined_financials",
+    "requestId": "1aab565d-4773-4a8b-9b4f-5a652c87333b",
+    "sessionId": "d3aa3e6e-a8aa-4615-96ae-536e709b70b3",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/DMART/consolidated/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "PERSISTENT",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:40.290Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:40.179Z",
+    "path": "/filings/combined_financials",
+    "requestId": "5aa6b869-2b9f-4152-9ca9-d6d62d82ed9c",
+    "sessionId": "065d51d5-8bd6-42c2-9fce-a73de75cb6df",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/PERSISTENT/consolidated/"
+  }
+}

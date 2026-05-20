@@ -2,10 +2,10 @@
   "endpoint": "get_annual_reports",
   "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
   "requestBody": {
-    "ticker": "RELIANCE"
+    "ticker": "SHRIRAMFIN"
   },
   "status": 200,
-  "fetchedAt": "2026-05-20T08:54:36.767Z",
+  "fetchedAt": "2026-05-20T08:53:50.471Z",
   "data": {
     "ok": true,
     "api": "get_annual_reports",
@@ -13,77 +13,77 @@
       {
         "year": "Financial Year 2025",
         "source": "from bse",
-        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/468b09a3-a212-4066-bbaa-4b0ba524d2ce.pdf"
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/06e96608-f937-4d55-bce6-6a4aa7fc90d3.pdf"
       },
       {
         "year": "Financial Year 2024",
         "source": "from bse",
-        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/d473280d-1c2b-4037-8ff9-dfbb82aa2c7e.pdf"
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/9e44b9fd-94ff-462a-9c40-9a31e848929d.pdf"
       },
       {
         "year": "Financial Year 2023",
         "source": "from bse",
-        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/b55b5dfc-a3bf-4f24-9d7f-ca09774a1dd9.pdf"
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/2fc73210-4892-46a7-8262-3e5b993a7c9b.pdf"
       },
       {
         "year": "Financial Year 2022",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/74185500325.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/73039511218_01_06_22.pdf"
       },
       {
         "year": "Financial Year 2021",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/68509500325.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/68493511218_28_06_21.pdf"
       },
       {
         "year": "Financial Year 2020",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250320.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180320.pdf"
       },
       {
         "year": "Financial Year 2019",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250319.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180319.pdf"
       },
       {
         "year": "Financial Year 2018",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250318.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180318.pdf"
       },
       {
         "year": "Financial Year 2017",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250317.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180317.pdf"
       },
       {
         "year": "Financial Year 2016",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250316.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180316.pdf"
       },
       {
         "year": "Financial Year 2015",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250315.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180315.pdf"
       },
       {
         "year": "Financial Year 2014",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250314.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180314.pdf"
       },
       {
         "year": "Financial Year 2013",
         "source": "from nse",
-        "link": "https://archives.nseindia.com/annual_reports/AR_19_RELIANCE_2012_2013_08052013171218.zip"
+        "link": "https://archives.nseindia.com/annual_reports/AR_73_SRTRANSFIN_2012_2013_10062013190002.zip"
       },
       {
         "year": "Financial Year 2013",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250313.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180313.pdf"
       },
       {
         "year": "Financial Year 2012",
         "source": "from bse",
-        "link": "https://www.bseindia.com/bseplus/AnnualReport/500325/5003250312.pdf"
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/511218/5112180312.pdf"
       }
     ]
   }

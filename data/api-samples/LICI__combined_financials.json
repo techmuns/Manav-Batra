@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "LICI",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:28.310Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:28.198Z",
+    "path": "/filings/combined_financials",
+    "requestId": "afd6568a-8201-460a-b48f-42e563137c45",
+    "sessionId": "aa24cab1-b0f4-46d2-b724-773ca85d2b08",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/LICI/consolidated/"
+  }
+}

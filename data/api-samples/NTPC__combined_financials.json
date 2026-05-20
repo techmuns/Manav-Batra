@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "NTPC",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:49.198Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:49.086Z",
+    "path": "/filings/combined_financials",
+    "requestId": "1e436250-a2b8-44fa-803f-41d2428b96e6",
+    "sessionId": "cf684767-f15b-413b-af66-d7c4b5b44c0b",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/NTPC/consolidated/"
+  }
+}

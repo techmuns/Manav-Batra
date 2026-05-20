@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "HEROMOTOCO",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:07.014Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:06.902Z",
+    "path": "/filings/combined_financials",
+    "requestId": "2ab723e0-f0c1-41d3-a9b4-0ead11aa34e7",
+    "sessionId": "1bc0d2d9-dc05-44ad-a145-139e77bcfb12",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/HEROMOTOCO/consolidated/"
+  }
+}

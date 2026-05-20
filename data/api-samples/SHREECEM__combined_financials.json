@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "SHREECEM",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:42.216Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:42.104Z",
+    "path": "/filings/combined_financials",
+    "requestId": "28fc6dce-0af0-4a10-9f8b-7320e1d46cf8",
+    "sessionId": "3978b170-cdee-47ce-8d17-c70ae8ce7a3f",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/SHREECEM/consolidated/"
+  }
+}

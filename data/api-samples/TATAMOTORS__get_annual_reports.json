@@ -1,0 +1,12 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "TATAMOTORS"
+  },
+  "status": 400,
+  "fetchedAt": "2026-05-20T08:55:00.171Z",
+  "data": {
+    "error": "Invalid JSON body"
+  }
+}

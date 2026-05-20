@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "POWERGRID",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:49.190Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:49.067Z",
+    "path": "/filings/combined_financials",
+    "requestId": "10568fab-b65c-4b5d-9fd4-632aea8911b4",
+    "sessionId": "0931b725-064a-413a-97dc-56a546f98116",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/POWERGRID/consolidated/"
+  }
+}

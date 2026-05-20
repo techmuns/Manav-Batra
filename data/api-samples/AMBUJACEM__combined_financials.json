@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "AMBUJACEM",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:42.173Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:42.051Z",
+    "path": "/filings/combined_financials",
+    "requestId": "6cd403c1-a9ff-46a7-8e04-2564a52d1f48",
+    "sessionId": "c39cd2e7-af21-442c-b32c-b451193fdd9e",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/AMBUJACEM/consolidated/"
+  }
+}

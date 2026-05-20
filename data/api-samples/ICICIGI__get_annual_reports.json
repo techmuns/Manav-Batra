@@ -1,0 +1,90 @@
+{
+  "endpoint": "get_annual_reports",
+  "url": "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports",
+  "requestBody": {
+    "ticker": "ICICIGI"
+  },
+  "status": 200,
+  "fetchedAt": "2026-05-20T08:54:27.899Z",
+  "data": {
+    "ok": true,
+    "api": "get_annual_reports",
+    "result": [
+      {
+        "year": "Financial Year 2025",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/17f54e7e-7fa6-4e1d-8bbd-0d3ae43b65f2.pdf"
+      },
+      {
+        "year": "Financial Year 2024",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/2c3d5eaa-115e-46d1-b109-045a312a7900.pdf"
+      },
+      {
+        "year": "Financial Year 2023",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/3953c0a8-277c-4bcf-ada3-57269f3bcc3b.pdf"
+      },
+      {
+        "year": "Financial Year 2022",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540716/73667540716.pdf"
+      },
+      {
+        "year": "Financial Year 2021",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540716/69010540716.pdf"
+      },
+      {
+        "year": "Financial Year 2020",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540716/5407160320.pdf"
+      },
+      {
+        "year": "Financial Year 2019",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540716/5407160319.pdf"
+      },
+      {
+        "year": "Financial Year 2018",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/bseplus/AnnualReport/540716/5407160318.pdf"
+      },
+      {
+        "year": "Financial Year 2017",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2017/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2017.PDF"
+      },
+      {
+        "year": "Financial Year 2016",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2016/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2016.PDF"
+      },
+      {
+        "year": "Financial Year 2015",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2015/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2015.PDF"
+      },
+      {
+        "year": "Financial Year 2014",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2014/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2014.PDF"
+      },
+      {
+        "year": "Financial Year 2013",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2013/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2013.PDF"
+      },
+      {
+        "year": "Financial Year 2012",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2012/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2012.PDF"
+      },
+      {
+        "year": "Financial Year 2011",
+        "source": "from bse",
+        "link": "https://www.bseindia.com/HIS_ANN_RPT/HISTANNR/2011/ICICI_LOMBARD_GENERAL_INSURANCE_CO_LTD-540716-MARCH-2011.PDF"
+      }
+    ]
+  }
+}

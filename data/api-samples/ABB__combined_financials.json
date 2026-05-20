@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "ABB",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:51.064Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:50.951Z",
+    "path": "/filings/combined_financials",
+    "requestId": "9a9ce9ab-bac0-4e89-b454-75012453b3f8",
+    "sessionId": "4de4bb52-3b04-4e82-9362-d8a8bea7b486",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/ABB/consolidated/"
+  }
+}

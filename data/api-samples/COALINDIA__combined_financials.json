@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "COALINDIA",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:54.364Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:54.253Z",
+    "path": "/filings/combined_financials",
+    "requestId": "07afb87a-c5fe-40ac-95bb-b6c745d66126",
+    "sessionId": "644217b7-795a-4336-834c-66db9f154f54",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/COALINDIA/consolidated/"
+  }
+}

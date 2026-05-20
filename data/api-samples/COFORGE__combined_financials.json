@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "COFORGE",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:40.310Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:40.199Z",
+    "path": "/filings/combined_financials",
+    "requestId": "ba6f5632-4a54-4aa3-a388-7dd6dc031a0e",
+    "sessionId": "a3636d09-6182-46cc-9509-a282428bf9ab",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/COFORGE/consolidated/"
+  }
+}

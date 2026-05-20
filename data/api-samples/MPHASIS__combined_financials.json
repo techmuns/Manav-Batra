@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "MPHASIS",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:54:36.007Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:54:35.896Z",
+    "path": "/filings/combined_financials",
+    "requestId": "e4aa4232-2a03-42ca-ae38-821c6db3f638",
+    "sessionId": "1fe91e5b-24c8-4308-8ee7-7adbc1514247",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/MPHASIS/consolidated/"
+  }
+}

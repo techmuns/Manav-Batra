@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "NESTLEIND",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:33.260Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:33.149Z",
+    "path": "/filings/combined_financials",
+    "requestId": "4b674a56-879c-402a-8ed4-57eaad3462f8",
+    "sessionId": "ef77f75c-a9ac-4e9f-b249-baa83fb8bcc7",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/NESTLEIND/consolidated/"
+  }
+}

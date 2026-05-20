@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "BHARTIARTL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:46.786Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:46.661Z",
+    "path": "/filings/combined_financials",
+    "requestId": "837800a9-6f75-467e-b380-9649e98f1fac",
+    "sessionId": "961dfd81-0fe2-4884-b1a2-b8cecb8b69ab",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/BHARTIARTL/consolidated/"
+  }
+}

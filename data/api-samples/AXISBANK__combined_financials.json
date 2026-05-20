@@ -1,0 +1,15 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "AXISBANK",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 201,
+  "fetchedAt": "2026-05-20T08:53:41.774Z",
+  "data": {
+    "_rawText": "# Financial Summary for AXISBANK\n\n## Skipping Shareholding Pattern\nWaiting for selector `#shareholding` failed\n\n## Skipping Balance Sheet\nWaiting for selector `#balance-sheet` failed\n\n## Skipping Profit & Loss\nWaiting for selector `#profit-loss` failed\n\n## Skipping Quarterly Results\nWaiting for selector `#quarters` failed\n\n## Skipping Peer Comparison\nWaiting for selector `#peers` failed\n\n"
+  }
+}

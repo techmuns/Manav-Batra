@@ -1,0 +1,20 @@
+{
+  "endpoint": "filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
+  "requestBody": {
+    "ticker": "VEDL",
+    "country": "India",
+    "q": "consolidated",
+    "period": "annual"
+  },
+  "status": 500,
+  "fetchedAt": "2026-05-20T08:55:14.287Z",
+  "data": {
+    "statusCode": 500,
+    "timestamp": "2026-05-20T08:55:14.176Z",
+    "path": "/filings/combined_financials",
+    "requestId": "05cac712-89b2-426f-9ccd-e8b2690ba99e",
+    "sessionId": "f21a487b-af6a-46c9-9c2a-55c3e6b46b4c",
+    "message": "Failed to fetch Indian financial tables: There was an error fetching markdown tables: Error: net::ERR_CONNECTION_REFUSED at https://www.screener.in/company/VEDL/consolidated/"
+  }
+}
