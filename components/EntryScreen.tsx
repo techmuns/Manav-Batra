@@ -30,7 +30,13 @@ export function EntryScreen({
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/eligible-universe")
+    // Filter the eligible universe by the chosen score type so a company
+    // only appears if its GuruFocus data for that score actually parsed.
+    // Default to "both" until the user has picked a score type, so the
+    // initial list shows companies present under either model.
+    const filter = scoreType ?? "both";
+    setState({ kind: "loading" });
+    fetch(`/api/eligible-universe?scoreType=${filter}`)
       .then((r) => r.json())
       .then((body) => {
         if (cancelled) return;
@@ -47,7 +53,7 @@ export function EntryScreen({
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [scoreType]);
 
   const companies = state.kind === "ready" ? state.universe.companies : [];
 

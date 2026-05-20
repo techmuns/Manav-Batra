@@ -48,6 +48,8 @@ export interface CompanyMaster {
   companyName: string;
   ticker: string;
   screenerSlug: string;
+  /** NSE symbol — used to build GuruFocus URLs (https://www.gurufocus.com/term/{m,z}score/NSE:{nseTicker}). */
+  nseTicker?: string;
   sector: string;
   isFinancialCompany: boolean;
 }
@@ -285,4 +287,45 @@ export interface ScoresError {
     bodySnippet?: string;
     columnsExtracted?: string[];
   };
+}
+
+// ----- GuruFocus snapshot (new primary data source) ---------------------
+
+export type GuruFocusFetchStatus =
+  | "ok"
+  | "not_available"
+  | "blocked"
+  | "premium_only"
+  | "parse_failed"
+  | "fetch_failed";
+
+export interface GuruFocusAnnualPoint {
+  fiscalYear: string;
+  value: number;
+}
+
+export interface GuruFocusScoreEntry {
+  status: GuruFocusFetchStatus;
+  url: string;
+  currentValue: number | null;
+  asOf: string | null;
+  interpretation: string | null;
+  annual: GuruFocusAnnualPoint[];
+  rawExtract: string | null;
+}
+
+export interface GuruFocusCompanyEntry {
+  companyName: string;
+  ticker: string;
+  nseTicker: string;
+  sector: string;
+  status: "ok" | "no_data";
+  mScore: GuruFocusScoreEntry;
+  zScore: GuruFocusScoreEntry;
+}
+
+export interface GuruFocusSnapshot {
+  generatedAt: string | null;
+  source: "gurufocus_github_actions";
+  companies: Record<string, GuruFocusCompanyEntry>;
 }

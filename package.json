@@ -13,6 +13,7 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "ingest:screener": "tsx scripts/ingest-screener.ts",
     "ingest:official-filings": "tsx scripts/ingest/build-verified-financials.ts",
+    "ingest:gurufocus": "tsx scripts/ingest-gurufocus-scores.ts",
     "probe:apis": "tsx scripts/ingest/probe-apis.ts"
   },
   "dependencies": {

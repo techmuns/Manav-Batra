@@ -1,37 +1,32 @@
-import { COMPANY_MASTER } from "@/data/companies";
-import { calculateAltman, calculateBeneish } from "@/lib/calculations";
 import type {
   EligibleCompany,
   EligibleScoreUniverse,
-  GeneratedFinancialSnapshot,
+  GuruFocusSnapshot,
 } from "@/lib/types";
 
-const VERIFIED_SOURCES = new Set<string>([
-  "official_filings_pipeline",
-  "annual_report_verified",
-  "screener_github_actions",
-]);
+const VERIFIED_SOURCES = new Set<string>(["gurufocus_github_actions"]);
+
+export type ScoreTypeFilter = "altman" | "beneish" | "both";
 
 /**
- * Derive the set of (company, fiscalYear) pairs the dashboard is willing to
- * surface in its selector.  A pair is eligible only if:
+ * Build the set of company-year pairs the dashboard is willing to surface,
+ * based on the bundled GuruFocus snapshot.
  *
- *   - snapshot.source is on the verified list
- *   - the company entry has status === "ok"
- *   - the company is non-financial (Altman is not applicable to banks/NBFCs/insurers)
- *   - BOTH calculateBeneish and calculateAltman return status === "calculated"
- *     for that year against this snapshot's data
+ * Eligibility rules:
+ *   - snapshot.source must be on the verified list
+ *   - company.status === "ok"
+ *   - for "altman": zScore.status === "ok" and currentValue != null
+ *   - for "beneish": mScore.status === "ok" and currentValue != null
+ *   - for "both": both conditions above
  *
- * No assumption, no estimation: we run the real calculators.  If either
- * one would render "Not Calculable", the year is dropped.  Companies with
- * zero eligible years are dropped entirely.
+ * No financial-company exclusion here — GuruFocus reports M-Score / Z-Score
+ * for financial companies too, and the user explicitly asked to reflect
+ * what's on the GuruFocus page rather than apply our own sector overrides.
  */
 export function buildEligibleUniverse(
-  snapshot: GeneratedFinancialSnapshot
+  snapshot: GuruFocusSnapshot,
+  scoreType: ScoreTypeFilter = "both"
 ): EligibleScoreUniverse {
-  const companies: EligibleCompany[] = [];
-
-  // Hard guard: anything other than a verified source produces an empty universe.
   if (!VERIFIED_SOURCES.has(snapshot.source)) {
     return {
       generatedAt: snapshot.generatedAt ?? new Date(0).toISOString(),
@@ -40,37 +35,34 @@ export function buildEligibleUniverse(
     };
   }
 
-  for (const master of COMPANY_MASTER) {
-    if (master.isFinancialCompany) continue;
+  const companies: EligibleCompany[] = [];
+  for (const [ticker, entry] of Object.entries(snapshot.companies)) {
+    if (entry.status !== "ok") continue;
 
-    const entry = snapshot.companies[master.ticker];
-    if (!entry || entry.status !== "ok") continue;
+    const mOk =
+      entry.mScore.status === "ok" && entry.mScore.currentValue != null;
+    const zOk =
+      entry.zScore.status === "ok" && entry.zScore.currentValue != null;
 
-    const years = Object.keys(entry.years).sort((a, b) => a.localeCompare(b));
-    const okYears: string[] = [];
-    for (let i = 0; i < years.length; i += 1) {
-      const fy = years[i];
-      const cur = entry.years[fy];
-      const pri = i > 0 ? entry.years[years[i - 1]] : undefined;
-      const b = calculateBeneish(cur, pri);
-      const a = calculateAltman(master, cur);
-      if (b.status === "calculated" && a.status === "calculated") {
-        okYears.push(fy);
-      }
-    }
-    if (okYears.length === 0) continue;
+    if (scoreType === "altman" && !zOk) continue;
+    if (scoreType === "beneish" && !mOk) continue;
+    if (scoreType === "both" && !(mOk && zOk)) continue;
+
+    // Available years are whatever GuruFocus exposed; if only the current
+    // score is visible, expose "current" so the selector has something to
+    // show.  The runtime gracefully handles "current".
+    const annual = scoreType === "altman" ? entry.zScore.annual : entry.mScore.annual;
+    const years = annual.length > 0 ? annual.map((a) => a.fiscalYear) : ["current"];
 
     companies.push({
-      companyName: master.companyName,
-      ticker: master.ticker,
-      screenerSlug: master.screenerSlug,
-      sector: master.sector,
-      // Newest first for selector convenience.
-      availableFiscalYears: okYears.slice().reverse(),
+      companyName: entry.companyName,
+      ticker,
+      screenerSlug: ticker,
+      sector: entry.sector,
+      availableFiscalYears: years.slice().reverse(),
     });
   }
 
-  // Sort by company name for a stable selector order.
   companies.sort((a, b) => a.companyName.localeCompare(b.companyName));
 
   return {
