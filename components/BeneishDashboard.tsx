@@ -42,6 +42,15 @@ export function BeneishDashboard({
 }) {
   const [component, setComponent] = useState<BeneishVariableKey>("DEPI");
 
+  // GuruFocus exposes only the headline M-Score, no DSRI/GMI/etc.
+  // When the API response carries an empty variables array OR no
+  // beneishVariables on any trend point, we render a simplified view
+  // without the component selector or right-axis chart line.
+  const componentsAvailable =
+    data.beneish.status === "calculated" &&
+    data.beneish.variables.length > 0 &&
+    data.trend.some((p) => p.beneishVariables && Object.keys(p.beneishVariables).length > 0);
+
   const trend = data.trend.filter((p) => p.mScore != null);
   const latest = trend[trend.length - 1];
 
@@ -93,44 +102,60 @@ export function BeneishDashboard({
             </p>
           </div>
 
-          <div className="rounded-3xl border border-line bg-surface p-5 shadow-card">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
-              Beneish components
-            </p>
-            <ul className="mt-3 space-y-1.5">
-              {COMPONENT_ORDER.map((c) => {
-                const active = c === component;
-                return (
-                  <li key={c}>
-                    <button
-                      type="button"
-                      onClick={() => setComponent(c)}
-                      className={`flex w-full items-baseline justify-between rounded-xl px-3 py-2 text-left text-sm transition ${
-                        active
-                          ? "bg-ink text-white"
-                          : "text-ink-muted hover:bg-paper hover:text-ink"
-                      }`}
-                    >
-                      <span className="font-medium">{c}</span>
-                      <span
-                        className={`text-[10px] ${
-                          active ? "text-white/70" : "text-ink-subtle"
+          {componentsAvailable ? (
+            <div className="rounded-3xl border border-line bg-surface p-5 shadow-card">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
+                Beneish components
+              </p>
+              <ul className="mt-3 space-y-1.5">
+                {COMPONENT_ORDER.map((c) => {
+                  const active = c === component;
+                  return (
+                    <li key={c}>
+                      <button
+                        type="button"
+                        onClick={() => setComponent(c)}
+                        className={`flex w-full items-baseline justify-between rounded-xl px-3 py-2 text-left text-sm transition ${
+                          active
+                            ? "bg-ink text-white"
+                            : "text-ink-muted hover:bg-paper hover:text-ink"
                         }`}
                       >
-                        {BENEISH_COMPONENTS[c].fullName.split(" ").slice(-2).join(" ")}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                        <span className="font-medium">{c}</span>
+                        <span
+                          className={`text-[10px] ${
+                            active ? "text-white/70" : "text-ink-subtle"
+                          }`}
+                        >
+                          {BENEISH_COMPONENTS[c].fullName.split(" ").slice(-2).join(" ")}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ) : (
+            <div className="rounded-3xl border border-line bg-surface p-5 shadow-card">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-subtle">
+                Beneish components
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+                Component breakdown (DSRI, GMI, AQI…) is not available from the
+                source. Only the headline M-Score is shown.
+              </p>
+            </div>
+          )}
         </aside>
 
         {/* Main */}
         <section className="space-y-6">
-          {/* Hero strip — 4 cards */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Hero strip — 2 cards when components are absent, 4 when present */}
+          <div
+            className={`grid gap-4 ${
+              componentsAvailable ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-2"
+            }`}
+          >
             <HeroCard
               label="Latest Beneish M-Score"
               value={latest ? (latest.mScore as number).toFixed(2) : "—"}
@@ -159,32 +184,36 @@ export function BeneishDashboard({
                   : "from-emerald-200 via-emerald-50 to-[#d8def3]"
               }
             />
-            <HeroCard
-              label={`Selected · ${component}`}
-              value={
-                latestComponentVal != null ? latestComponentVal.toFixed(3) : "—"
-              }
-              sub={meta.fullName}
-              accent="from-cyan-200 via-cyan-50 to-[#d8def3]"
-            />
-            <HeroCard
-              label={`${component} trend`}
-              value={
-                componentDir === "rising"
-                  ? "↑ Rising"
-                  : componentDir === "falling"
-                    ? "↓ Falling"
-                    : "→ Stable"
-              }
-              sub={`across ${componentValues.length} ${componentValues.length === 1 ? "year" : "years"}`}
-              accent={
-                componentDir === "rising"
-                  ? "from-amber-200 via-amber-50 to-[#d8def3]"
-                  : componentDir === "falling"
-                    ? "from-emerald-200 via-emerald-50 to-[#d8def3]"
-                    : "from-blue-200 via-blue-50 to-[#d8def3]"
-              }
-            />
+            {componentsAvailable && (
+              <>
+                <HeroCard
+                  label={`Selected · ${component}`}
+                  value={
+                    latestComponentVal != null ? latestComponentVal.toFixed(3) : "—"
+                  }
+                  sub={meta.fullName}
+                  accent="from-cyan-200 via-cyan-50 to-[#d8def3]"
+                />
+                <HeroCard
+                  label={`${component} trend`}
+                  value={
+                    componentDir === "rising"
+                      ? "↑ Rising"
+                      : componentDir === "falling"
+                        ? "↓ Falling"
+                        : "→ Stable"
+                  }
+                  sub={`across ${componentValues.length} ${componentValues.length === 1 ? "year" : "years"}`}
+                  accent={
+                    componentDir === "rising"
+                      ? "from-amber-200 via-amber-50 to-[#d8def3]"
+                      : componentDir === "falling"
+                        ? "from-emerald-200 via-emerald-50 to-[#d8def3]"
+                        : "from-blue-200 via-blue-50 to-[#d8def3]"
+                  }
+                />
+              </>
+            )}
           </div>
 
           {/* Year strip */}
@@ -198,7 +227,9 @@ export function BeneishDashboard({
                   <tr>
                     <th className="px-3 py-2 text-left font-semibold">Fiscal year</th>
                     <th className="px-3 py-2 text-right font-semibold">M-Score</th>
-                    <th className="px-3 py-2 text-right font-semibold">{component}</th>
+                    {componentsAvailable && (
+                      <th className="px-3 py-2 text-right font-semibold">{component}</th>
+                    )}
                     <th className="px-3 py-2 text-left font-semibold">Risk</th>
                   </tr>
                 </thead>
@@ -209,9 +240,11 @@ export function BeneishDashboard({
                       <tr key={p.fiscalYear} className="border-t border-line">
                         <td className="px-3 py-2.5">FY {p.fiscalYear}</td>
                         <td className="px-3 py-2.5 text-right">{p.mScore.toFixed(2)}</td>
-                        <td className="px-3 py-2.5 text-right">
-                          {p.component != null ? p.component.toFixed(3) : "—"}
-                        </td>
+                        {componentsAvailable && (
+                          <td className="px-3 py-2.5 text-right">
+                            {p.component != null ? p.component.toFixed(3) : "—"}
+                          </td>
+                        )}
                         <td
                           className={`px-3 py-2.5 text-xs font-medium ${high ? "text-rose-700" : "text-emerald-700"}`}
                         >
@@ -255,14 +288,16 @@ export function BeneishDashboard({
                     tickLine={false}
                     width={40}
                   />
-                  <YAxis
-                    yAxisId="right"
-                    orientation="right"
-                    stroke="#6366f1"
-                    fontSize={12}
-                    tickLine={false}
-                    width={40}
-                  />
+                  {componentsAvailable && (
+                    <YAxis
+                      yAxisId="right"
+                      orientation="right"
+                      stroke="#6366f1"
+                      fontSize={12}
+                      tickLine={false}
+                      width={40}
+                    />
+                  )}
                   <Tooltip
                     contentStyle={{
                       borderRadius: 8,
@@ -294,27 +329,35 @@ export function BeneishDashboard({
                     strokeWidth={2.5}
                     dot={{ r: 4 }}
                   />
-                  <Line
-                    yAxisId="right"
-                    type="monotone"
-                    dataKey="component"
-                    name={`${component} (right)`}
-                    stroke="#6366f1"
-                    strokeWidth={2.5}
-                    dot={{ r: 4 }}
-                  />
+                  {componentsAvailable && (
+                    <Line
+                      yAxisId="right"
+                      type="monotone"
+                      dataKey="component"
+                      name={`${component} (right)`}
+                      stroke="#6366f1"
+                      strokeWidth={2.5}
+                      dot={{ r: 4 }}
+                    />
+                  )}
                 </LineChart>
               </ResponsiveContainer>
             </div>
           </div>
 
           {/* Interpretation */}
-          <div className="grid gap-4 md:grid-cols-2">
+          <div
+            className={`grid gap-4 ${
+              componentsAvailable ? "md:grid-cols-2" : "md:grid-cols-1"
+            }`}
+          >
             <InsightCard title="Beneish M-Score" lines={beneishNarrative(data.trend)} />
-            <InsightCard
-              title={`${component} · ${meta.label}`}
-              lines={componentNarrative(component, data.trend)}
-            />
+            {componentsAvailable && (
+              <InsightCard
+                title={`${component} · ${meta.label}`}
+                lines={componentNarrative(component, data.trend)}
+              />
+            )}
           </div>
 
           <BeneishDataQualityFooter data={data} />
