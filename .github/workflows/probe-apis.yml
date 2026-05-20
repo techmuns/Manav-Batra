@@ -1,0 +1,63 @@
+name: Probe upstream APIs
+
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker to probe (e.g. RELIANCE, INFY, TCS)"
+        required: true
+        default: "RELIANCE"
+      commit_samples:
+        description: "Commit the captured JSON to the branch (true/false)"
+        required: false
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: probe-apis-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Probe APIs
+        env:
+          DASH_TOOLS_KEY: ${{ secrets.DASH_TOOLS_KEY }}
+          MUNSHOT_ACCESS_TOKEN: ${{ secrets.MUNSHOT_ACCESS_TOKEN }}
+        run: npx tsx scripts/ingest/probe-apis.ts --ticker=${{ inputs.ticker }}
+
+      - name: Upload samples as artifact (always)
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-samples-${{ inputs.ticker }}
+          path: data/api-samples/*.json
+          retention-days: 14
+
+      - name: Commit samples to branch
+        if: ${{ inputs.commit_samples == 'true' }}
+        run: |
+          if git diff --quiet -- data/api-samples; then
+            echo "No new sample files — skipping commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/api-samples
+          git commit -m "data: probe API samples for ${{ inputs.ticker }}"
+          git push
