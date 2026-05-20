@@ -56,6 +56,7 @@ jobs:
           {
             "agent_library_id": "${AGENT_UUID}",
             "metadata": {
+              "user_index" : 124,
               "stock_ticker": "${{ inputs.ticker }}",
               "stock_company_name": "${{ inputs.company_name }}",
               "context_company_name": "${{ inputs.company_name }}",
