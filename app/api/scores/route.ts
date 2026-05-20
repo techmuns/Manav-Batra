@@ -1,21 +1,32 @@
 import { NextResponse } from "next/server";
-import GURU from "./gurufocus-snapshot";
+import SNAPSHOT from "./snapshot";
 import { findCompany } from "@/data/companies";
+import { calculateAltman, calculateBeneish } from "@/lib/calculations";
 import type {
-  AltmanOutcome,
-  BeneishOutcome,
-  ConfidenceLevel,
   ErrorCode,
-  GuruFocusScoreEntry,
+  FinancialYearData,
+  GeneratedFinancialSnapshot,
   ScoresError,
   ScoresResponse,
   TrendPoint,
 } from "@/lib/types";
 
+// Note: leaving runtime as Next.js default (nodejs).  OpenNext for
+// Cloudflare's edge-runtime API route bundling can silently drop the
+// handler from the Worker output; the default runtime is reliably
+// included.  Cloudflare runs both via the same Worker thanks to
+// nodejs_compat in wrangler.jsonc.
+
+// The snapshot is bundled with the Worker at build time.  It's authored
+// in TypeScript (not JSON) so Turbopack reliably inlines it into the
+// edge bundle — raw JSON imports can fail to bundle silently.
+
 const SUCCESS_HEADERS: HeadersInit = {
   "Cache-Control": "public, s-maxage=600, stale-while-revalidate=86400",
   "Content-Type": "application/json",
 };
+// Errors must NEVER be cached — a previously-cached 500 would otherwise
+// poison the dashboard for the full s-maxage window.
 const ERROR_HEADERS: HeadersInit = {
   "Cache-Control": "no-store, must-revalidate",
   "Content-Type": "application/json",
@@ -29,12 +40,15 @@ export async function GET(req: Request) {
   try {
     return await handle(req);
   } catch (e) {
+    // Last-resort guard: never let Cloudflare serve an HTML error page.
     const message = e instanceof Error ? e.message : String(e);
     console.error("[scores] uncaught", message, e);
-    return NextResponse.json(
-      { ok: false, errorCode: "ROUTE_FAILED", message: `Edge route threw: ${message}` },
-      { status: 500, headers: ERROR_HEADERS }
-    );
+    const payload: ScoresError = {
+      ok: false,
+      errorCode: "ROUTE_FAILED",
+      message: `Edge route threw: ${message}`,
+    };
+    return NextResponse.json(payload, { status: 500, headers: ERROR_HEADERS });
   }
 }
 
@@ -47,43 +61,61 @@ async function handle(req: Request) {
   console.log("[scores] request", { slug, yearParam, debug });
 
   if (!slug) {
-    return err({ ok: false, errorCode: "MISSING_SLUG", message: "Missing company slug." }, 400);
+    return err(
+      { ok: false, errorCode: "MISSING_SLUG", message: "Missing company slug." },
+      400
+    );
   }
   const master = findCompany(slug.toUpperCase());
   if (!master) {
     return err(
-      { ok: false, errorCode: "UNKNOWN_TICKER", message: "Company not found in master." },
+      {
+        ok: false,
+        errorCode: "UNKNOWN_TICKER",
+        message: "Company not found in master.",
+        ...(debug ? { debug: { slug } } : {}),
+      },
       404
     );
   }
 
-  // Snapshot must be from the verified GuruFocus source.
-  if (GURU.source !== "gurufocus_github_actions") {
+  // 0a. Production may only render scores from a verified source.
+  // Anything else — dev_mock, fixture, hand_typed, estimated — is blocked
+  // hard, even if data is present.
+  const VERIFIED_SOURCES = new Set<string>([
+    "official_filings_pipeline",
+    "annual_report_verified",
+    "screener_github_actions",
+  ]);
+  if (!VERIFIED_SOURCES.has(SNAPSHOT.source as string)) {
     return err(
       {
         ok: false,
         errorCode: "UNVERIFIED_SOURCE",
-        message: `Snapshot source "${GURU.source}" is not allowed.`,
+        message: `Snapshot source "${SNAPSHOT.source}" is not allowed in production.`,
         master,
       },
       503
     );
   }
-  if (!GURU.generatedAt) {
+
+  // 0b. Has ingestion ever run?
+  if (!SNAPSHOT.generatedAt) {
     return err(
       {
         ok: false,
         errorCode: "NO_SNAPSHOT",
         message:
-          "Verified data not available. Run the GitHub Actions GuruFocus ingestion workflow.",
+          "Verified financial data is not available yet. Run the GitHub Actions ingestion workflow before calculating scores.",
         master,
       },
       503
     );
   }
 
-  const entry = GURU.companies[master.ticker];
-  if (!entry || entry.status !== "ok") {
+  // 1. Pull this company's snapshot.
+  const companyEntry = SNAPSHOT.companies[master.ticker];
+  if (!companyEntry) {
     return err(
       {
         ok: false,
@@ -94,45 +126,116 @@ async function handle(req: Request) {
       404
     );
   }
+  if (companyEntry.status === "fetch_failed") {
+    const code: ErrorCode = "SCREENER_FETCH_FAILED";
+    return err(
+      {
+        ok: false,
+        errorCode: code,
+        message:
+          companyEntry.errors?.[0] ??
+          "The last ingestion run failed for this company.",
+        master,
+        ...(debug ? { debug: { slug: master.screenerSlug } } : {}),
+      },
+      502
+    );
+  }
+  if (companyEntry.status === "parser_failed") {
+    return err(
+      {
+        ok: false,
+        errorCode: "PARSER_FAILED",
+        message:
+          companyEntry.errors?.[0] ??
+          "Could not parse this company's last ingested page.",
+        master,
+      },
+      502
+    );
+  }
 
-  // Combine the two GuruFocus score entries to drive the unified
-  // ScoresResponse the dashboards already consume.  No component-level
-  // data is available from GuruFocus, so beneish.variables / altman.variables
-  // stay empty and the dashboards switch off their per-component panels.
-  const allFiscalYears = collectFiscalYears(entry.mScore, entry.zScore);
+  // 2. Resolve fiscal year against the company's available years.
+  const yearMap = companyEntry.years ?? {};
+  const availableAsc = Object.keys(yearMap).sort((a, b) => a.localeCompare(b));
+  if (availableAsc.length === 0) {
+    return err(
+      {
+        ok: false,
+        errorCode: "SNAPSHOT_NOT_INGESTED",
+        message: `${master.companyName} has no fiscal-year data in the snapshot.`,
+        master,
+      },
+      404
+    );
+  }
 
-  // Resolve the requested year against what GuruFocus actually exposes.
-  const availableAsc = [...allFiscalYears].sort((a, b) => a.localeCompare(b));
   let fiscalYear: string;
   if (yearParam) {
-    if (!availableAsc.includes(yearParam) && yearParam !== "current") {
+    if (!availableAsc.includes(yearParam)) {
       return err(
         {
           ok: false,
           errorCode: "YEAR_NOT_FOUND",
-          message: `FY${yearParam} is not available for this company on GuruFocus.`,
+          message: `Fiscal year FY${yearParam} is not available for this company.`,
           master,
-          ...(debug ? { debug: { slug: master.ticker, year: yearParam } } : {}),
+          ...(debug ? { debug: { slug: master.screenerSlug, year: yearParam } } : {}),
         },
         404
       );
     }
-    fiscalYear = yearParam === "current" ? "current" : yearParam;
+    fiscalYear = yearParam;
   } else {
-    fiscalYear = availableAsc[availableAsc.length - 1] ?? "current";
+    fiscalYear = availableAsc[availableAsc.length - 1];
   }
 
-  const beneish = buildBeneish(entry.mScore, fiscalYear);
-  const altman = buildAltman(entry.zScore, fiscalYear);
+  const idx = availableAsc.indexOf(fiscalYear);
+  const current = yearMap[availableAsc[idx]];
+  const prior = idx > 0 ? yearMap[availableAsc[idx - 1]] : undefined;
 
-  const trend = buildTrend(entry.mScore, entry.zScore, availableAsc);
+  // Strip internal-only fieldStatus before passing into the engine — it
+  // should never leak into the response.
+  const stripStatus = (y: FinancialYearData | undefined): FinancialYearData | undefined => {
+    if (!y) return undefined;
+    const { fieldStatus: _drop, ...rest } = y;
+    void _drop;
+    return rest as FinancialYearData;
+  };
 
-  // Quality grade.  GuruFocus is third-party published data → "Medium"
-  // by default; "Not Available" when the score itself was blocked.
-  const mConf: ConfidenceLevel =
-    entry.mScore.status === "ok" ? "Medium" : "Not Available";
-  const zConf: ConfidenceLevel =
-    entry.zScore.status === "ok" ? "Medium" : "Not Available";
+  const beneish = calculateBeneish(stripStatus(current), stripStatus(prior));
+  const altman = calculateAltman(master, stripStatus(current));
+
+  console.log("[scores] calc done", {
+    ticker: master.ticker,
+    fiscalYear,
+    beneishStatus: beneish.status,
+    altmanStatus: altman.status,
+  });
+
+  // 3. Per-year trend across the company's whole snapshot, including
+  //    each per-year Beneish and Altman variable value so the redesigned
+  //    Beneish dashboard can render any component's trend on demand.
+  const trend: TrendPoint[] = availableAsc.map((fy, i) => {
+    const cur = stripStatus(yearMap[fy]);
+    const pri = i > 0 ? stripStatus(yearMap[availableAsc[i - 1]]) : undefined;
+    const b = calculateBeneish(cur, pri);
+    const a = calculateAltman(master, cur);
+    const beneishVariables =
+      b.status === "calculated"
+        ? Object.fromEntries(b.variables.map((v) => [v.key, +v.value.toFixed(3)]))
+        : null;
+    const altmanVariables =
+      a.status === "calculated"
+        ? Object.fromEntries(a.variables.map((v) => [v.key, +v.value.toFixed(3)]))
+        : null;
+    return {
+      fiscalYear: fy,
+      mScore: b.status === "calculated" ? +b.mScore.toFixed(3) : null,
+      zScore: a.status === "calculated" ? +a.zScore.toFixed(3) : null,
+      beneishVariables,
+      altmanVariables,
+    };
+  });
 
   const payload: ScoresResponse = {
     ok: true,
@@ -149,121 +252,81 @@ async function handle(req: Request) {
     beneish,
     altman,
     trend,
-    source: "screener", // legacy field; UI no longer reads it
-    fetchedAt: GURU.generatedAt ?? new Date().toISOString(),
+    source: "screener",
+    fetchedAt: SNAPSHOT.generatedAt ?? new Date().toISOString(),
     dataQuality: {
-      // Reuse the existing UI field; tag honestly with the new source.
-      snapshotSource: GURU.source as unknown as ScoresResponse["dataQuality"]["snapshotSource"],
-      lastUpdated: GURU.generatedAt,
-      beneishConfidence: mConf,
-      altmanConfidence: zConf,
+      snapshotSource: SNAPSHOT.source,
+      lastUpdated: SNAPSHOT.generatedAt,
+      // Quality grade for the snapshot as a whole.  Real XBRL or annual-report
+      // ingestion grades High; the seeded illustrative snapshot grades Medium
+      // so the UI can render an honest provenance footer.
+      beneishConfidence:
+        beneish.status === "calculated"
+          ? gradeConfidence(SNAPSHOT.source, current?.fieldStatus, [
+              "sales","receivables","grossProfit","currentAssets","ppe","totalAssets",
+              "depreciation","sgaExpense","totalDebt","currentLiabilities","netIncome",
+              "operatingCashFlow",
+            ])
+          : "Not Available",
+      altmanConfidence:
+        altman.status === "calculated"
+          ? gradeConfidence(SNAPSHOT.source, current?.fieldStatus, [
+              "currentAssets","currentLiabilities","totalAssets","retainedEarnings",
+              "ebit","marketValueEquity","totalLiabilities","sales",
+            ])
+          : altman.status === "not_comparable"
+            ? "Not Available"
+            : "Not Available",
     },
   };
 
-  console.log("[scores] returning", {
-    ticker: master.ticker,
-    fiscalYear,
-    mScore: entry.mScore.currentValue,
-    zScore: entry.zScore.currentValue,
-    mStatus: entry.mScore.status,
-    zStatus: entry.zScore.status,
-  });
-
-  // Unused but accepted (kept for future debug payloads).
-  void debug;
+  // Per-variable confidence upgrade where field-level provenance exists.
+  if (beneish.status === "calculated") {
+    for (const v of beneish.variables) {
+      v.confidence = gradeConfidence(
+        SNAPSHOT.source,
+        current?.fieldStatus,
+        v.inputFields ?? []
+      );
+    }
+  }
+  if (altman.status === "calculated") {
+    for (const v of altman.variables) {
+      v.confidence = gradeConfidence(
+        SNAPSHOT.source,
+        current?.fieldStatus,
+        v.inputFields ?? []
+      );
+    }
+  }
 
   return NextResponse.json(payload, { status: 200, headers: SUCCESS_HEADERS });
 }
 
-// ---------- helpers --------------------------------------------------------
-
-function collectFiscalYears(
-  m: GuruFocusScoreEntry,
-  z: GuruFocusScoreEntry
-): string[] {
-  const set = new Set<string>();
-  for (const a of m.annual) set.add(a.fiscalYear);
-  for (const a of z.annual) set.add(a.fiscalYear);
-  return [...set];
-}
-
-function buildBeneish(
-  m: GuruFocusScoreEntry,
-  fiscalYear: string
-): BeneishOutcome {
-  if (m.status !== "ok" || m.currentValue == null) {
-    return {
-      status: "not_calculable",
-      fiscalYear,
-      missingVariables:
-        m.status === "premium_only"
-          ? ["M-Score is premium-only on this GuruFocus page"]
-          : m.status === "blocked"
-            ? ["GuruFocus blocked the request"]
-            : ["GuruFocus did not return a current M-Score"],
-    };
+/**
+ * Grade a calculation's confidence from snapshot-level + field-level
+ * provenance.  No fake math — graders just read the source tags that
+ * the ingestion layer already writes.
+ */
+function gradeConfidence(
+  snapshotSource: GeneratedFinancialSnapshot["source"],
+  fieldStatus: FinancialYearData["fieldStatus"] | undefined,
+  inputFields: string[]
+): "High" | "Medium" | "Low" | "Not Available" {
+  // No per-field provenance → grade by snapshot source alone.
+  if (!fieldStatus || Object.keys(fieldStatus).length === 0) {
+    if (snapshotSource === "official_filings_pipeline") return "Medium";
+    if (snapshotSource === "annual_report_verified") return "High";
+    return "Medium";
   }
-  // GuruFocus exposes the headline score, not the 8 component values.
-  return {
-    status: "calculated",
-    fiscalYear,
-    constant: -4.84,
-    variables: [], // empty → dashboards hide the component panels
-    mScore: m.currentValue,
-    interpretation: m.currentValue > -1.78 ? "high" : "low",
-  };
+  // Per-field provenance present — look at each input.
+  const grades = inputFields
+    .map((label) => label.replace(/\s*\([^)]*\)\s*$/, "")) // strip "(t)" suffix
+    .map((f) => fieldStatus[f]);
+  if (grades.some((g) => g == null || g === "missing" || g === "annual_report_required"))
+    return "Low";
+  if (grades.every((g) => g === "xbrl" || g === "annual_report_verified")) return "High";
+  if (grades.some((g) => g === "manual_verified" || g === "annual_report"))
+    return "Medium";
+  return "Medium";
 }
-
-function buildAltman(
-  z: GuruFocusScoreEntry,
-  fiscalYear: string
-): AltmanOutcome {
-  if (z.status !== "ok" || z.currentValue == null) {
-    return {
-      status: "not_calculable",
-      fiscalYear,
-      missingVariables:
-        z.status === "premium_only"
-          ? ["Z-Score is premium-only on this GuruFocus page"]
-          : z.status === "blocked"
-            ? ["GuruFocus blocked the request"]
-            : ["GuruFocus did not return a current Z-Score"],
-    };
-  }
-  const zone = z.currentValue < 1.8 ? "distress" : z.currentValue > 3.0 ? "safe" : "grey";
-  return {
-    status: "calculated",
-    fiscalYear,
-    variables: [], // empty → AltmanDashboard hides per-variable detail
-    zScore: z.currentValue,
-    interpretation: zone,
-  };
-}
-
-function buildTrend(
-  m: GuruFocusScoreEntry,
-  z: GuruFocusScoreEntry,
-  yearsAsc: string[]
-): TrendPoint[] {
-  // If GuruFocus exposed historical annual values, plot them.  If only
-  // the current score is available, plot a single "current" point.
-  if (yearsAsc.length === 0) {
-    return [
-      {
-        fiscalYear: "current",
-        mScore: m.status === "ok" ? m.currentValue : null,
-        zScore: z.status === "ok" ? z.currentValue : null,
-      },
-    ];
-  }
-  const mByYear = new Map(m.annual.map((p) => [p.fiscalYear, p.value]));
-  const zByYear = new Map(z.annual.map((p) => [p.fiscalYear, p.value]));
-  return yearsAsc.map((fy) => ({
-    fiscalYear: fy,
-    mScore: mByYear.get(fy) ?? null,
-    zScore: zByYear.get(fy) ?? null,
-  }));
-}
-
-// Re-export the legacy ErrorCode union to avoid breakage in error consumers.
-export type { ErrorCode };

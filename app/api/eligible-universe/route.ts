@@ -1,22 +1,21 @@
 import { NextResponse } from "next/server";
-import GURU from "../scores/gurufocus-snapshot";
-import { buildEligibleUniverse, type ScoreTypeFilter } from "@/lib/eligibility";
+import SNAPSHOT from "../scores/snapshot";
+import { buildEligibleUniverse } from "@/lib/eligibility";
+
+// Reads the bundled, verified-source snapshot and returns only the
+// (company, fiscalYear) combinations the dashboard is willing to render.
+// No fetching, no estimation, no fallback.
 
 const RESPONSE_HEADERS: HeadersInit = {
   "Cache-Control": "public, s-maxage=60, stale-while-revalidate=86400",
   "Content-Type": "application/json",
 };
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
-    const url = new URL(req.url);
-    const raw = (url.searchParams.get("scoreType") ?? "both").toLowerCase();
-    const scoreType: ScoreTypeFilter =
-      raw === "altman" || raw === "beneish" ? raw : "both";
-
-    const universe = buildEligibleUniverse(GURU, scoreType);
+    const universe = buildEligibleUniverse(SNAPSHOT);
     return NextResponse.json(
-      { ok: true, scoreType, ...universe },
+      { ok: true, ...universe },
       { status: 200, headers: RESPONSE_HEADERS }
     );
   } catch (e) {
