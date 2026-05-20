@@ -20,6 +20,10 @@ on:
         description: "Stock country"
         required: false
         default: "INDIA"
+      user_index:
+        description: "MUNS user_index (service-token user id)"
+        required: true
+        default: "124"
 
 permissions:
   contents: write
@@ -44,6 +48,7 @@ jobs:
           TICKER: ${{ inputs.ticker }}
           COMPANY: ${{ inputs.company_name }}
           COUNTRY: ${{ inputs.country }}
+          USER_INDEX: ${{ inputs.user_index }}
         run: |
           set -euo pipefail
           if [ -z "${MUNS_ACCESS_TOKEN}" ]; then
@@ -57,14 +62,15 @@ jobs:
 
           # Build the JSON body with jq to eliminate any shell-quoting risk.
           jq -n \
-            --arg uuid    "${AGENT_UUID}" \
-            --arg ticker  "${TICKER}" \
-            --arg company "${COMPANY}" \
-            --arg country "${COUNTRY}" \
-            --arg to_date "${TO_DATE}" \
+            --arg uuid       "${AGENT_UUID}" \
+            --arg ticker     "${TICKER}" \
+            --arg company    "${COMPANY}" \
+            --arg country    "${COUNTRY}" \
+            --arg to_date    "${TO_DATE}" \
+            --argjson user_index "${USER_INDEX}" \
             '{
               agent_library_id: $uuid,
-              user_index: 124,
+              user_index: $user_index,
               metadata: {
                 stock_ticker:         $ticker,
                 stock_company_name:   $company,
