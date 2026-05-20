@@ -32,6 +32,13 @@ on:
     paths:
       - "scripts/ingest/**"
       - ".github/workflows/probe-apis.yml"
+  # Scheduled retry every 2 hours.  The upstream tool (devde.muns.io)
+  # gets rate-limited by Screener.in at the IP level; this gives the
+  # block a chance to lift and lets us backfill the missing tickers
+  # without a human in the loop.  The seeder only updates entries it
+  # successfully parses, so already-populated tickers are not touched.
+  schedule:
+    - cron: "17 */2 * * *"
 
 permissions:
   contents: write
