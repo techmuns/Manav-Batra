@@ -72,12 +72,12 @@ function discoverTasks(filter: string | null): SeedTask[] {
     }
   }
 
-  // 2. Manual tool-output drops (only if no API sample for that ticker).
+  // 2. Manual tool-output drops (kept alongside api_sample as a fallback;
+  //    priority is enforced by the per-ticker order, not by dedup here).
   if (existsSync(TOOL_OUTPUTS_DIR)) {
     for (const entry of readdirSync(TOOL_OUTPUTS_DIR)) {
       if (extname(entry) !== ".txt") continue;
       const ticker = basename(entry, ".txt").toUpperCase();
-      if (tasks.some((t) => t.ticker === ticker)) continue;
       tasks.push({
         ticker,
         filePath: resolve(TOOL_OUTPUTS_DIR, entry),
@@ -86,8 +86,9 @@ function discoverTasks(filter: string | null): SeedTask[] {
     }
   }
 
-  // 3. Legacy single-file bootstrap.
-  if (existsSync(LEGACY_FALLBACK) && !tasks.some((t) => t.ticker === "RELIANCE")) {
+  // 3. Legacy single-file bootstrap (treated as RELIANCE; kept as a
+  //    fallback even if api_sample/tool_output also exist for it).
+  if (existsSync(LEGACY_FALLBACK)) {
     tasks.push({ ticker: "RELIANCE", filePath: LEGACY_FALLBACK, source: "legacy_root" });
   }
 
@@ -161,6 +162,17 @@ function summariseSnap(snap: CompanyFinancialSnapshot): string {
   return `${snap.ticker}: ${yrs.length} years (${yrs[0]}-${yrs.at(-1)}), ${nonNull}/16 fields populated in ${sample.fiscalYear}`;
 }
 
+function groupTasksByTicker(tasks: SeedTask[]): Map<string, SeedTask[]> {
+  const m = new Map<string, SeedTask[]>();
+  // Discovery order already enforces api_sample > tool_output > legacy,
+  // so a Map preserves insertion order per ticker.
+  for (const t of tasks) {
+    if (!m.has(t.ticker)) m.set(t.ticker, []);
+    m.get(t.ticker)!.push(t);
+  }
+  return m;
+}
+
 async function main() {
   const filter = process.argv[2]?.toUpperCase() ?? null;
   const tasks = discoverTasks(filter);
@@ -170,26 +182,34 @@ async function main() {
   }
 
   const updated: Record<string, CompanyFinancialSnapshot> = {};
-  for (const task of tasks) {
-    const master = findMaster(task.ticker);
+  for (const [ticker, candidates] of groupTasksByTicker(tasks)) {
+    const master = findMaster(ticker);
     if (!master) {
-      console.warn(`[seed] ${task.ticker}: not in COMPANY_MASTER — skipping`);
+      console.warn(`[seed] ${ticker}: not in COMPANY_MASTER — skipping`);
       continue;
     }
-    const text = loadMarkdown(task);
-    if (!text) {
-      console.warn(`[seed] ${task.ticker} [${task.source}]: no usable markdown (non-2xx or missing _rawText) — skipping`);
+    // Try each candidate in priority order; first one that parses wins.
+    let chosen: { task: SeedTask; snap: CompanyFinancialSnapshot } | null = null;
+    for (const task of candidates) {
+      const text = loadMarkdown(task);
+      if (!text) {
+        console.warn(`[seed] ${ticker} [${task.source}]: no usable markdown — trying next source`);
+        continue;
+      }
+      const snap = parseCombinedFinancialTool(text, master);
+      if (snap.status !== "ok") {
+        console.warn(`[seed] ${ticker} [${task.source}]: parser status=${snap.status} — trying next source`);
+        continue;
+      }
+      chosen = { task, snap };
+      break;
+    }
+    if (!chosen) {
+      console.warn(`[seed] ${ticker}: all sources failed — leaving existing snapshot entry intact`);
       continue;
     }
-    const snap = parseCombinedFinancialTool(text, master);
-    if (snap.status !== "ok") {
-      console.warn(
-        `[seed] ${task.ticker} [${task.source}]: parser returned status=${snap.status} — leaving existing snapshot entry intact`
-      );
-      continue;
-    }
-    updated[task.ticker] = snap;
-    console.log(`[seed] ${task.source.padEnd(11)} ${summariseSnap(snap)}`);
+    updated[ticker] = chosen.snap;
+    console.log(`[seed] ${chosen.task.source.padEnd(11)} ${summariseSnap(chosen.snap)}`);
   }
 
   if (!Object.keys(updated).length) {

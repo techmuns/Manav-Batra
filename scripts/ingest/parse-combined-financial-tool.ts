@@ -21,9 +21,12 @@ import type {
   FinancialYearData,
 } from "@/lib/types";
 
+import { ratiosForSector } from "./sector-ratio-defaults";
+
 const AVAILABLE: NonNullable<FinancialYearData["fieldStatus"]>[string] = "available";
 const AR_REQUIRED: NonNullable<FinancialYearData["fieldStatus"]>[string] =
   "annual_report_required";
+const ESTIMATED: NonNullable<FinancialYearData["fieldStatus"]>[string] = "estimated";
 
 interface TableRow {
   label: string;
@@ -196,6 +199,18 @@ export function parseCombinedFinancialTool(
   const yearList = bs.columns;
   const latestYear = findLatestYear(yearList);
   const marketCap = getMarketCapCrore(markdown);
+  const ratios = ratiosForSector(master.sector);
+
+  // Current price-to-book multiple, used to project historical
+  // marketValueEquity from book value (equity + reserves) per year.
+  let currentPB: number | null = null;
+  if (marketCap !== null && latestYear !== null) {
+    const latestEq = equity?.values[latestYear] ?? null;
+    const latestRes = reserves?.values[latestYear] ?? null;
+    if (latestEq !== null && latestRes !== null && latestEq + latestRes > 0) {
+      currentPB = marketCap / (latestEq + latestRes);
+    }
+  }
 
   for (const yr of yearList) {
     if (!/^\d{4}$/.test(yr)) continue;
@@ -235,18 +250,57 @@ export function parseCombinedFinancialTool(
       set("totalLiabilities", total - eq - res);
     }
 
-    // marketValueEquity: only attach to the latest year (current market
-    // cap is a point-in-time value, not a per-year series).
+    // marketValueEquity: real (current market cap) for latest year; for
+    // historical years project from book value using current P/B.
     if (yr === latestYear && marketCap !== null) {
       set("marketValueEquity", marketCap);
+    } else if (currentPB !== null) {
+      const eqY = equity?.values[yr] ?? null;
+      const resY = reserves?.values[yr] ?? null;
+      if (eqY !== null && resY !== null) {
+        const mv = (eqY + resY) * currentPB;
+        (row as unknown as Record<string, number>)["marketValueEquity"] = Math.round(mv);
+        row.fieldStatus!["marketValueEquity"] = ESTIMATED;
+      }
     }
 
-    // Mark the six fields the format cannot supply.
-    for (const f of AR_REQUIRED_FIELDS) {
-      row.fieldStatus![f as string] = AR_REQUIRED;
+    // Estimate the six fields the markdown does not provide, using
+    // sector-default ratios applied to real values for THIS year.
+    // Each estimate is gated on its driving real input being present.
+    const salesV = sales?.values[yr] ?? null;
+    const taV = totalAssetsRow?.values[yr] ?? null;
+    const niV = netProfit?.values[yr] ?? null;
+
+    const setEstimate = (k: keyof FinancialYearData, v: number | null) => {
+      if (v === null || !Number.isFinite(v)) return;
+      // Real values from the markdown are integer INR crore; round estimates
+      // to match so the UI renders consistently.
+      (row as unknown as Record<string, number>)[k as string] = Math.round(v);
+      row.fieldStatus![k as string] = ESTIMATED;
+    };
+
+    if (salesV !== null) {
+      setEstimate("receivables", salesV * ratios.receivables_to_sales);
+      setEstimate("grossProfit", salesV * ratios.gross_margin);
+      setEstimate("sgaExpense", salesV * ratios.sga_to_sales);
     }
-    // marketValueEquity is missing for non-latest years.
-    if (row.fieldStatus!["marketValueEquity"] !== AVAILABLE) {
+    if (taV !== null) {
+      setEstimate("currentAssets", taV * ratios.ca_to_assets);
+      setEstimate("currentLiabilities", taV * ratios.cl_to_assets);
+    }
+    if (niV !== null) {
+      setEstimate("operatingCashFlow", niV * ratios.ocf_to_ni);
+    }
+
+    // For any of the six still null (because the driving real input was
+    // also null), record provenance so the dashboard can show "not
+    // calculable" rather than silently zeroing.
+    for (const f of AR_REQUIRED_FIELDS) {
+      if (row.fieldStatus![f as string] === undefined) {
+        row.fieldStatus![f as string] = AR_REQUIRED;
+      }
+    }
+    if (row.fieldStatus!["marketValueEquity"] === undefined) {
       row.fieldStatus!["marketValueEquity"] = AR_REQUIRED;
     }
 

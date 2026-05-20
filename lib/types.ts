@@ -32,6 +32,9 @@ export interface FinancialYearData {
   //   - "annual_report_verified"   — annual-report extraction marked verified
   //   - "available" / "missing"    — legacy Screener path
   //   - "annual_report_required"   — known-missing, needs AR ingestion
+  //   - "estimated"                — filled from sector-default ratios applied
+  //                                  to real values; placeholder until AR
+  //                                  ingestion lands
   fieldStatus?: Record<
     string,
     | "xbrl"
@@ -41,6 +44,7 @@ export interface FinancialYearData {
     | "available"
     | "missing"
     | "annual_report_required"
+    | "estimated"
   >;
 }
 
