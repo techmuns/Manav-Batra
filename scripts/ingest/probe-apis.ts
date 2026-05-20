@@ -18,11 +18,8 @@ import { resolve } from "node:path";
 const GET_ANNUAL_REPORTS_URL =
   "https://screeer-tools.amazon-review-radar-489675.workers.dev/get_annual_reports";
 
-// NOTE: source curl showed two hosts (devde.muns.io as visible text,
-// birdnest.muns.io as the markdown link target).  Using the link target.
-// Flip this constant if the host is wrong.
 const COMBINED_FINANCIALS_URL =
-  "https://birdnest.muns.io/filings/combined_financials";
+  "https://devde.muns.io/filings/combined_financials";
 
 const OUT_DIR = resolve(__dirname, "..", "..", "data", "api-samples");
 

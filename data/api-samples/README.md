@@ -46,7 +46,7 @@ RELIANCE__combined_financials.json
 ```jsonc
 {
   "endpoint": "filings/combined_financials",
-  "url": "https://birdnest.muns.io/filings/combined_financials",
+  "url": "https://devde.muns.io/filings/combined_financials",
   "requestBody": { "ticker": "RELIANCE", "country": "India", "q": "consolidated", "period": "annual" },
   "status": 200,
   "fetchedAt": "2026-05-20T03:45:00.000Z",
