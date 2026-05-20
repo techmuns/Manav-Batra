@@ -55,6 +55,7 @@ jobs:
           BODY=$(cat <<JSON
           {
             "agent_library_id": "${AGENT_UUID}",
+            "user_index": 124,
             "metadata": {
               "stock_ticker": "${{ inputs.ticker }}",
               "stock_company_name": "${{ inputs.company_name }}",
