@@ -1,16 +1,18 @@
 #!/usr/bin/env tsx
 /**
- * Seed app/api/scores/snapshot.ts from one or more combined_financial_tool.txt
- * files.  Replaces (only) the named ticker's entry inside snapshot.ts; other
+ * Seed app/api/scores/snapshot.ts from combined_financial_tool.txt content,
+ * sourced from either:
+ *   1. data/api-samples/<TICKER>__combined_financials.json  (preferred — from
+ *                                                            probe-apis.ts)
+ *   2. data/tool-outputs/<TICKER>.txt                       (manual drop)
+ *   3. <repo>/combined_financial_tool.txt                   (single-file
+ *                                                            bootstrap; RELIANCE)
+ *
+ * Replaces (only) the named ticker's entry inside snapshot.ts; other
  * companies' entries are preserved verbatim.
  *
- * Convention:
- *   data/tool-outputs/<TICKER>.txt   — preferred location
- *   <repo>/combined_financial_tool.txt  — fallback for the single-file
- *                                         bootstrap case (treated as RELIANCE)
- *
  * Usage:
- *   npm run ingest:tool-output             # seeds every TICKER.txt found
+ *   npm run ingest:tool-output             # seeds every ticker with a source
  *   npm run ingest:tool-output -- RELIANCE # seeds just one ticker
  */
 
@@ -23,32 +25,84 @@ import type { CompanyFinancialSnapshot, CompanyMaster } from "../../lib/types";
 
 const REPO_ROOT = resolve(__dirname, "..", "..");
 const SNAPSHOT_FILE = resolve(REPO_ROOT, "app", "api", "scores", "snapshot.ts");
+const API_SAMPLES_DIR = resolve(REPO_ROOT, "data", "api-samples");
 const TOOL_OUTPUTS_DIR = resolve(REPO_ROOT, "data", "tool-outputs");
 const LEGACY_FALLBACK = resolve(REPO_ROOT, "combined_financial_tool.txt");
 
 interface SeedTask {
   ticker: string;
   filePath: string;
+  source: "api_sample" | "tool_output" | "legacy_root";
+}
+
+function readApiSampleMarkdown(filePath: string): string | null {
+  try {
+    const raw = readFileSync(filePath, "utf-8");
+    const parsed = JSON.parse(raw) as {
+      status?: number;
+      data?: unknown;
+    };
+    // 2xx only.  401/403/etc payloads are error envelopes, not markdown.
+    if (typeof parsed.status === "number" && (parsed.status < 200 || parsed.status >= 300)) {
+      return null;
+    }
+    const d = parsed.data as { _rawText?: unknown } | null;
+    if (d && typeof d === "object" && typeof d._rawText === "string") {
+      return d._rawText;
+    }
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 function discoverTasks(filter: string | null): SeedTask[] {
   const tasks: SeedTask[] = [];
+
+  // 1. API samples (preferred).
+  if (existsSync(API_SAMPLES_DIR)) {
+    for (const entry of readdirSync(API_SAMPLES_DIR)) {
+      if (!entry.endsWith("__combined_financials.json")) continue;
+      const ticker = entry.replace(/__combined_financials\.json$/, "").toUpperCase();
+      tasks.push({
+        ticker,
+        filePath: resolve(API_SAMPLES_DIR, entry),
+        source: "api_sample",
+      });
+    }
+  }
+
+  // 2. Manual tool-output drops (only if no API sample for that ticker).
   if (existsSync(TOOL_OUTPUTS_DIR)) {
     for (const entry of readdirSync(TOOL_OUTPUTS_DIR)) {
       if (extname(entry) !== ".txt") continue;
       const ticker = basename(entry, ".txt").toUpperCase();
-      tasks.push({ ticker, filePath: resolve(TOOL_OUTPUTS_DIR, entry) });
+      if (tasks.some((t) => t.ticker === ticker)) continue;
+      tasks.push({
+        ticker,
+        filePath: resolve(TOOL_OUTPUTS_DIR, entry),
+        source: "tool_output",
+      });
     }
   }
-  // Legacy single-file bootstrap.  Only used when no per-ticker file exists.
+
+  // 3. Legacy single-file bootstrap.
   if (existsSync(LEGACY_FALLBACK) && !tasks.some((t) => t.ticker === "RELIANCE")) {
-    tasks.push({ ticker: "RELIANCE", filePath: LEGACY_FALLBACK });
+    tasks.push({ ticker: "RELIANCE", filePath: LEGACY_FALLBACK, source: "legacy_root" });
   }
+
   if (filter) {
     const f = filter.toUpperCase();
     return tasks.filter((t) => t.ticker === f);
   }
   return tasks;
+}
+
+function loadMarkdown(task: SeedTask): string | null {
+  if (task.source === "api_sample") {
+    return readApiSampleMarkdown(task.filePath);
+  }
+  return readFileSync(task.filePath, "utf-8");
 }
 
 function findMaster(ticker: string): CompanyMaster | null {
@@ -122,10 +176,20 @@ async function main() {
       console.warn(`[seed] ${task.ticker}: not in COMPANY_MASTER — skipping`);
       continue;
     }
-    const text = readFileSync(task.filePath, "utf-8");
+    const text = loadMarkdown(task);
+    if (!text) {
+      console.warn(`[seed] ${task.ticker} [${task.source}]: no usable markdown (non-2xx or missing _rawText) — skipping`);
+      continue;
+    }
     const snap = parseCombinedFinancialTool(text, master);
+    if (snap.status !== "ok") {
+      console.warn(
+        `[seed] ${task.ticker} [${task.source}]: parser returned status=${snap.status} — leaving existing snapshot entry intact`
+      );
+      continue;
+    }
     updated[task.ticker] = snap;
-    console.log(`[seed] ${summariseSnap(snap)}`);
+    console.log(`[seed] ${task.source.padEnd(11)} ${summariseSnap(snap)}`);
   }
 
   if (!Object.keys(updated).length) {

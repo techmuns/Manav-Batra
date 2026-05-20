@@ -78,7 +78,10 @@ async function postJson(
     try {
       data = JSON.parse(text);
     } catch {
-      data = { _rawText: text.slice(0, 4000) };
+      // Upstream returned text (e.g. markdown) — keep the full body, never
+      // truncate.  The combined_financials endpoint returns markdown that
+      // the existing parse-combined-financial-tool.ts consumes directly.
+      data = { _rawText: text };
     }
     return { status: res.status, data };
   } catch (e) {
@@ -94,9 +97,15 @@ async function probeTicker(
   dashKey: string,
   munshotKey: string
 ): Promise<TickerSummary> {
-  // 1. get_annual_reports — raw token (no Bearer prefix per curl)
+  // 1. get_annual_reports — Bearer-prefixed (upstream 401 response confirmed
+  // it expects "Authorization: Bearer <token>" or x-api-key).  The original
+  // curl was ambiguous about the prefix; raw-token attempts came back 401.
   const arBody = { ticker };
-  const ar = await postJson(GET_ANNUAL_REPORTS_URL, arBody, dashKey);
+  const ar = await postJson(
+    GET_ANNUAL_REPORTS_URL,
+    arBody,
+    `Bearer ${dashKey}`
+  );
   const arResult: ProbeResult = {
     endpoint: "get_annual_reports",
     url: GET_ANNUAL_REPORTS_URL,
