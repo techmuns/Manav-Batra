@@ -23,6 +23,15 @@ on:
         description: "Commit the captured samples + snapshot to the branch"
         required: false
         default: "true"
+  # Auto-run when the ingest code itself changes on the working branch.
+  # Path filter intentionally excludes app/api/scores/snapshot.ts and
+  # data/api-samples/ so the workflow's own commit does not re-trigger it.
+  push:
+    branches:
+      - claude/review-financial-api-format-PuUgR
+    paths:
+      - "scripts/ingest/**"
+      - ".github/workflows/probe-apis.yml"
 
 permissions:
   contents: write
@@ -35,6 +44,9 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    # Skip runs triggered by the bot's own commits (defence in depth even
+    # though the paths filter above should already prevent it).
+    if: github.actor != 'github-actions[bot]'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,34 +60,51 @@ jobs:
       - name: Install deps
         run: npm ci --no-audit --no-fund
 
+      - name: Resolve effective inputs
+        id: cfg
+        run: |
+          # workflow_dispatch supplies github.event.inputs.*.  push event
+          # passes none, so fall back to "do everything" defaults.
+          TICKER="${{ github.event.inputs.ticker }}"
+          CONCURRENCY="${{ github.event.inputs.concurrency }}"
+          DELAY_MS="${{ github.event.inputs.delay_ms }}"
+          SEED="${{ github.event.inputs.seed_snapshot }}"
+          COMMIT="${{ github.event.inputs.commit_samples }}"
+          echo "ticker=${TICKER:-ALL}"           >> $GITHUB_OUTPUT
+          echo "concurrency=${CONCURRENCY:-3}"   >> $GITHUB_OUTPUT
+          echo "delay_ms=${DELAY_MS:-150}"       >> $GITHUB_OUTPUT
+          echo "seed=${SEED:-true}"              >> $GITHUB_OUTPUT
+          echo "commit=${COMMIT:-true}"          >> $GITHUB_OUTPUT
+          echo "[cfg] ticker=${TICKER:-ALL} concurrency=${CONCURRENCY:-3} delay_ms=${DELAY_MS:-150} seed=${SEED:-true} commit=${COMMIT:-true}"
+
       - name: Probe APIs (capture raw markdown into data/api-samples/)
         env:
           DASH_TOOLS_KEY: ${{ secrets.DASH_TOOLS_KEY }}
           MUNSHOT_ACCESS_TOKEN: ${{ secrets.MUNSHOT_ACCESS_TOKEN }}
         run: |
           npx tsx scripts/ingest/probe-apis.ts \
-            --ticker=${{ inputs.ticker }} \
-            --concurrency=${{ inputs.concurrency }} \
-            --delay-ms=${{ inputs.delay_ms }}
+            --ticker=${{ steps.cfg.outputs.ticker }} \
+            --concurrency=${{ steps.cfg.outputs.concurrency }} \
+            --delay-ms=${{ steps.cfg.outputs.delay_ms }}
 
       - name: Seed snapshot from captured samples
-        if: ${{ inputs.seed_snapshot == 'true' }}
+        if: ${{ steps.cfg.outputs.seed == 'true' }}
         run: |
-          if [ "${{ inputs.ticker }}" = "ALL" ]; then
+          if [ "${{ steps.cfg.outputs.ticker }}" = "ALL" ]; then
             npm run ingest:tool-output
           else
-            npm run ingest:tool-output -- ${{ inputs.ticker }}
+            npm run ingest:tool-output -- ${{ steps.cfg.outputs.ticker }}
           fi
 
       - name: Upload samples as artifact (always)
         uses: actions/upload-artifact@v4
         with:
-          name: api-samples-${{ inputs.ticker }}
+          name: api-samples-${{ steps.cfg.outputs.ticker }}
           path: data/api-samples/*.json
           retention-days: 14
 
       - name: Commit samples + snapshot to branch
-        if: ${{ inputs.commit_samples == 'true' }}
+        if: ${{ steps.cfg.outputs.commit == 'true' }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -87,5 +116,5 @@ jobs:
             echo "Nothing to commit — skipping."
             exit 0
           fi
-          git commit -m "data: ingest financials for ${{ inputs.ticker }}"
+          git commit -m "data: ingest financials for ${{ steps.cfg.outputs.ticker }}"
           git push origin HEAD:${GITHUB_REF_NAME}
