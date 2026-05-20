@@ -64,12 +64,15 @@ jobs:
       - name: Commit samples to branch
         if: ${{ inputs.commit_samples == 'true' }}
         run: |
-          if git diff --quiet -- data/api-samples; then
-            echo "No new sample files — skipping commit."
-            exit 0
-          fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/api-samples
+          # `git diff --cached --quiet` catches both modifications AND newly
+          # staged files (the prior `git diff -- <path>` only saw tracked
+          # changes, so the probe's untracked output was silently skipped).
+          if git diff --cached --quiet; then
+            echo "No new sample files — skipping commit."
+            exit 0
+          fi
           git commit -m "data: probe API samples for ${{ inputs.ticker }}"
-          git push
+          git push origin HEAD:${GITHUB_REF_NAME}
