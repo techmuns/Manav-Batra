@@ -1,4 +1,4 @@
-name: Probe upstream APIs
+name: Ingest financials (probe + seed snapshot)
 
 on:
   workflow_dispatch:
@@ -15,8 +15,12 @@ on:
         description: "Per-request delay in milliseconds"
         required: false
         default: "150"
+      seed_snapshot:
+        description: "After probing, also map markdown -> snapshot.ts (true/false)"
+        required: false
+        default: "true"
       commit_samples:
-        description: "Commit the captured JSON to the branch (true/false)"
+        description: "Commit the captured samples + snapshot to the branch"
         required: false
         default: "true"
 
@@ -44,7 +48,7 @@ jobs:
       - name: Install deps
         run: npm ci --no-audit --no-fund
 
-      - name: Probe APIs
+      - name: Probe APIs (capture raw markdown into data/api-samples/)
         env:
           DASH_TOOLS_KEY: ${{ secrets.DASH_TOOLS_KEY }}
           MUNSHOT_ACCESS_TOKEN: ${{ secrets.MUNSHOT_ACCESS_TOKEN }}
@@ -54,6 +58,15 @@ jobs:
             --concurrency=${{ inputs.concurrency }} \
             --delay-ms=${{ inputs.delay_ms }}
 
+      - name: Seed snapshot from captured samples
+        if: ${{ inputs.seed_snapshot == 'true' }}
+        run: |
+          if [ "${{ inputs.ticker }}" = "ALL" ]; then
+            npm run ingest:tool-output
+          else
+            npm run ingest:tool-output -- ${{ inputs.ticker }}
+          fi
+
       - name: Upload samples as artifact (always)
         uses: actions/upload-artifact@v4
         with:
@@ -61,18 +74,18 @@ jobs:
           path: data/api-samples/*.json
           retention-days: 14
 
-      - name: Commit samples to branch
+      - name: Commit samples + snapshot to branch
         if: ${{ inputs.commit_samples == 'true' }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/api-samples
-          # `git diff --cached --quiet` catches both modifications AND newly
-          # staged files (the prior `git diff -- <path>` only saw tracked
-          # changes, so the probe's untracked output was silently skipped).
+          git add data/api-samples app/api/scores/snapshot.ts
+          # `git diff --cached --quiet` catches modifications AND newly staged
+          # files (a path-scoped `git diff -- <path>` only sees tracked
+          # changes, so probe's untracked output was previously skipped).
           if git diff --cached --quiet; then
-            echo "No new sample files — skipping commit."
+            echo "Nothing to commit — skipping."
             exit 0
           fi
-          git commit -m "data: probe API samples for ${{ inputs.ticker }}"
+          git commit -m "data: ingest financials for ${{ inputs.ticker }}"
           git push origin HEAD:${GITHUB_REF_NAME}
