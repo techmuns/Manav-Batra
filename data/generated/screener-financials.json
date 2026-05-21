@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T12:12:31.843Z",
+  "generatedAt": "2026-05-21T14:19:48.003Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -25223,43 +25223,6 @@
       "isFinancialCompany": false,
       "status": "ok",
       "years": {
-        "2014": {
-          "fiscalYear": "2014",
-          "sales": 35306,
-          "receivables": null,
-          "grossProfit": null,
-          "currentAssets": null,
-          "ppe": 16038,
-          "totalAssets": 40848,
-          "depreciation": 965,
-          "sgaExpense": null,
-          "totalDebt": 242,
-          "currentLiabilities": null,
-          "retainedEarnings": null,
-          "ebit": 13081,
-          "marketValueEquity": null,
-          "totalLiabilities": 13611,
-          "operatingCashFlow": 7344,
-          "netIncome": 9001,
-          "fieldStatus": {
-            "sales": "available",
-            "receivables": "missing",
-            "grossProfit": "annual_report_required",
-            "currentAssets": "annual_report_required",
-            "ppe": "available",
-            "totalAssets": "available",
-            "depreciation": "available",
-            "sgaExpense": "annual_report_required",
-            "totalDebt": "available",
-            "currentLiabilities": "annual_report_required",
-            "retainedEarnings": "annual_report_required",
-            "ebit": "available",
-            "marketValueEquity": "annual_report_required",
-            "totalLiabilities": "available",
-            "operatingCashFlow": "available",
-            "netIncome": "available"
-          }
-        },
         "2015": {
           "fiscalYear": "2015",
           "sales": 38817,
@@ -25664,6 +25627,43 @@
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
             "operatingCashFlow": "available",
+            "netIncome": "available"
+          }
+        },
+        "2026": {
+          "fiscalYear": "2026",
+          "sales": 78868,
+          "receivables": null,
+          "grossProfit": null,
+          "currentAssets": null,
+          "ppe": 24044,
+          "totalAssets": 93792,
+          "depreciation": 1711,
+          "sgaExpense": null,
+          "totalDebt": 2399,
+          "currentLiabilities": null,
+          "retainedEarnings": null,
+          "ebit": 28118,
+          "marketValueEquity": null,
+          "totalLiabilities": 21285,
+          "operatingCashFlow": null,
+          "netIncome": 21018,
+          "fieldStatus": {
+            "sales": "available",
+            "receivables": "missing",
+            "grossProfit": "annual_report_required",
+            "currentAssets": "annual_report_required",
+            "ppe": "available",
+            "totalAssets": "available",
+            "depreciation": "available",
+            "sgaExpense": "annual_report_required",
+            "totalDebt": "available",
+            "currentLiabilities": "annual_report_required",
+            "retainedEarnings": "annual_report_required",
+            "ebit": "available",
+            "marketValueEquity": "annual_report_required",
+            "totalLiabilities": "available",
+            "operatingCashFlow": "missing",
             "netIncome": "available"
           }
         }
