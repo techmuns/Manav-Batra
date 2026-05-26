@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T06:53:45.693Z",
+  "generatedAt": "2026-05-26T06:32:31.820Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -4482,7 +4482,7 @@
           "ebit": 55115,
           "marketValueEquity": null,
           "totalLiabilities": 680583,
-          "operatingCashFlow": null,
+          "operatingCashFlow": -55301,
           "netIncome": 19669,
           "fieldStatus": {
             "sales": "available",
@@ -4499,7 +4499,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
@@ -13450,7 +13450,7 @@
           "ebit": 38470,
           "marketValueEquity": null,
           "totalLiabilities": 355468,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 50902,
           "netIncome": 27546,
           "fieldStatus": {
             "sales": "available",
@@ -13467,7 +13467,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
@@ -23867,7 +23867,7 @@
           "ebit": 3411,
           "marketValueEquity": null,
           "totalLiabilities": 3272,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 2738,
           "netIncome": 2568,
           "fieldStatus": {
             "sales": "available",
@@ -23884,7 +23884,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
