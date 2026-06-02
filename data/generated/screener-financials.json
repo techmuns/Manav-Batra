@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T07:30:39.455Z",
+  "generatedAt": "2026-06-02T07:09:38.729Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -3534,7 +3534,7 @@
           "totalDebt": null,
           "currentLiabilities": null,
           "retainedEarnings": null,
-          "ebit": 99257,
+          "ebit": 107870,
           "marketValueEquity": null,
           "totalLiabilities": null,
           "operatingCashFlow": 22075,
@@ -3571,7 +3571,7 @@
           "totalDebt": null,
           "currentLiabilities": null,
           "retainedEarnings": null,
-          "ebit": 106536,
+          "ebit": 116522,
           "marketValueEquity": null,
           "totalLiabilities": null,
           "operatingCashFlow": 25635,
@@ -10712,20 +10712,20 @@
         },
         "2026": {
           "fiscalYear": "2026",
-          "sales": 1057219,
+          "sales": 1055780,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
           "ppe": 1362481,
-          "totalAssets": 2178140,
+          "totalAssets": 2177546,
           "depreciation": 57688,
           "sgaExpense": null,
-          "totalDebt": 398000,
+          "totalDebt": 402962,
           "currentLiabilities": null,
           "retainedEarnings": null,
           "ebit": 150223,
           "marketValueEquity": null,
-          "totalLiabilities": 1274110,
+          "totalLiabilities": 1273516,
           "operatingCashFlow": 192113,
           "netIncome": 95754,
           "fieldStatus": {
@@ -21597,7 +21597,7 @@
           "ebit": 10270,
           "marketValueEquity": null,
           "totalLiabilities": 14258,
-          "operatingCashFlow": null,
+          "operatingCashFlow": 4996,
           "netIncome": 7450,
           "fieldStatus": {
             "sales": "available",
@@ -21614,7 +21614,7 @@
             "ebit": "available",
             "marketValueEquity": "annual_report_required",
             "totalLiabilities": "available",
-            "operatingCashFlow": "missing",
+            "operatingCashFlow": "available",
             "netIncome": "available"
           }
         }
