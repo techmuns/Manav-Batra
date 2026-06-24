@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T06:33:25.102Z",
+  "generatedAt": "2026-06-24T06:30:12.128Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -3880,7 +3880,7 @@
           "ebit": 19359,
           "marketValueEquity": null,
           "totalLiabilities": null,
-          "operatingCashFlow": -37090,
+          "operatingCashFlow": -37029,
           "netIncome": 7028,
           "fieldStatus": {
             "sales": "available",
