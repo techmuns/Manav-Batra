@@ -1,7 +1,7 @@
 // Auto-generated from data/generated/gurufocus-scores.json.
 import type { GuruFocusSnapshot } from "@/lib/types";
 const snapshot: GuruFocusSnapshot = {
-  "generatedAt": "2026-07-11T05:33:17.396Z",
+  "generatedAt": "2026-07-18T05:17:03.486Z",
   "source": "gurufocus_github_actions",
   "companies": {
     "HDFCBANK": {
