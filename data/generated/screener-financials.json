@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T05:54:43.786Z",
+  "generatedAt": "2026-07-21T05:36:49.909Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -16026,7 +16026,7 @@
           "ebit": 9829,
           "marketValueEquity": null,
           "totalLiabilities": 99309,
-          "operatingCashFlow": 7159,
+          "operatingCashFlow": 7166,
           "netIncome": 3810,
           "fieldStatus": {
             "sales": "available",
@@ -26258,7 +26258,7 @@
           "ebit": 3066,
           "marketValueEquity": null,
           "totalLiabilities": 4482,
-          "operatingCashFlow": 2481,
+          "operatingCashFlow": 2491,
           "netIncome": 2178,
           "fieldStatus": {
             "sales": "available",
@@ -26286,7 +26286,7 @@
           "grossProfit": null,
           "currentAssets": null,
           "ppe": 2889,
-          "totalAssets": 9732,
+          "totalAssets": 9730,
           "depreciation": 337,
           "sgaExpense": null,
           "totalDebt": 1380,
@@ -26294,7 +26294,7 @@
           "retainedEarnings": null,
           "ebit": 3402,
           "marketValueEquity": null,
-          "totalLiabilities": 4625,
+          "totalLiabilities": 4623,
           "operatingCashFlow": 2612,
           "netIncome": 2537,
           "fieldStatus": {
