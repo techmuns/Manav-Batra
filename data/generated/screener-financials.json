@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T05:33:27.806Z",
+  "generatedAt": "2026-08-07T04:37:38.076Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -24311,8 +24311,8 @@
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
-          "ppe": 22620,
-          "totalAssets": 58502,
+          "ppe": 22621,
+          "totalAssets": 58196,
           "depreciation": 1778,
           "sgaExpense": null,
           "totalDebt": 8073,
@@ -24320,7 +24320,7 @@
           "retainedEarnings": null,
           "ebit": 5496,
           "marketValueEquity": null,
-          "totalLiabilities": 20611,
+          "totalLiabilities": 20305,
           "operatingCashFlow": 5526,
           "netIncome": 3503,
           "fieldStatus": {
@@ -30525,11 +30525,11 @@
         },
         "2025": {
           "fiscalYear": "2025",
-          "sales": 43571,
+          "sales": 43572,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
-          "ppe": 159532,
+          "ppe": 159533,
           "totalAssets": 197855,
           "depreciation": 21973,
           "sgaExpense": null,
@@ -30539,8 +30539,8 @@
           "ebit": -2825,
           "marketValueEquity": null,
           "totalLiabilities": 268175,
-          "operatingCashFlow": 9291,
-          "netIncome": -27383,
+          "operatingCashFlow": 9290,
+          "netIncome": -27384,
           "fieldStatus": {
             "sales": "available",
             "receivables": "missing",
@@ -30567,7 +30567,7 @@
           "grossProfit": null,
           "currentAssets": null,
           "ppe": 158360,
-          "totalAssets": 191638,
+          "totalAssets": 191630,
           "depreciation": 22108,
           "sgaExpense": null,
           "totalDebt": 192528,
@@ -30575,7 +30575,7 @@
           "retainedEarnings": null,
           "ebit": 56043,
           "marketValueEquity": null,
-          "totalLiabilities": 227396,
+          "totalLiabilities": 227388,
           "operatingCashFlow": 19411,
           "netIncome": 34552,
           "fieldStatus": {
