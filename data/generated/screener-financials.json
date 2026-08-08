@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T04:37:38.076Z",
+  "generatedAt": "2026-08-08T03:51:12.868Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -12491,7 +12491,7 @@
         },
         "2025": {
           "fiscalYear": "2025",
-          "sales": 141903,
+          "sales": 141902,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
@@ -12502,10 +12502,10 @@
           "totalDebt": 21595,
           "currentLiabilities": null,
           "retainedEarnings": null,
-          "ebit": 16844,
+          "ebit": 16836,
           "marketValueEquity": null,
           "totalLiabilities": 48178,
-          "operatingCashFlow": 15735,
+          "operatingCashFlow": 15727,
           "netIncome": 12463,
           "fieldStatus": {
             "sales": "available",
@@ -12533,7 +12533,7 @@
           "grossProfit": null,
           "currentAssets": null,
           "ppe": 92739,
-          "totalAssets": 140537,
+          "totalAssets": 140569,
           "depreciation": 3835,
           "sgaExpense": null,
           "totalDebt": 24831,
@@ -12541,7 +12541,7 @@
           "retainedEarnings": null,
           "ebit": 10689,
           "marketValueEquity": null,
-          "totalLiabilities": 51487,
+          "totalLiabilities": 51519,
           "operatingCashFlow": 11249,
           "netIncome": 7582,
           "fieldStatus": {
@@ -32059,7 +32059,7 @@
           "ebit": 7112,
           "marketValueEquity": null,
           "totalLiabilities": 20849,
-          "operatingCashFlow": 587,
+          "operatingCashFlow": 564,
           "netIncome": 5323,
           "fieldStatus": {
             "sales": "available",
@@ -32087,15 +32087,15 @@
           "grossProfit": null,
           "currentAssets": null,
           "ppe": 4852,
-          "totalAssets": 44538,
+          "totalAssets": 44527,
           "depreciation": 556,
           "sgaExpense": null,
           "totalDebt": 65,
           "currentLiabilities": null,
           "retainedEarnings": null,
-          "ebit": 8060,
+          "ebit": 8063,
           "marketValueEquity": null,
-          "totalLiabilities": 20549,
+          "totalLiabilities": 20538,
           "operatingCashFlow": 1541,
           "netIncome": 6062,
           "fieldStatus": {
