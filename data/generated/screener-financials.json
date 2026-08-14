@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T04:26:06.204Z",
+  "generatedAt": "2026-08-14T04:23:20.153Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -11129,12 +11129,12 @@
         },
         "2025": {
           "fiscalYear": "2025",
-          "sales": 612065,
+          "sales": 612064,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
-          "ppe": 452534,
-          "totalAssets": 752656,
+          "ppe": 452789,
+          "totalAssets": 752658,
           "depreciation": 35206,
           "sgaExpense": null,
           "totalDebt": 187817,
@@ -11142,8 +11142,8 @@
           "retainedEarnings": null,
           "ebit": 66933,
           "marketValueEquity": null,
-          "totalLiabilities": 409215,
-          "operatingCashFlow": 90868,
+          "totalLiabilities": 409218,
+          "operatingCashFlow": 90856,
           "netIncome": 38329,
           "fieldStatus": {
             "sales": "available",
@@ -11166,12 +11166,12 @@
         },
         "2026": {
           "fiscalYear": "2026",
-          "sales": 662243,
+          "sales": 608663,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
-          "ppe": 461162,
-          "totalAssets": 791905,
+          "ppe": 462345,
+          "totalAssets": 785602,
           "depreciation": 37391,
           "sgaExpense": null,
           "totalDebt": 174316,
@@ -11179,7 +11179,7 @@
           "retainedEarnings": null,
           "ebit": 80652,
           "marketValueEquity": null,
-          "totalLiabilities": 420137,
+          "totalLiabilities": 413834,
           "operatingCashFlow": 112719,
           "netIncome": 49793,
           "fieldStatus": {
