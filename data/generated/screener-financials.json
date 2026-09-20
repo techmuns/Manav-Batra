@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T07:29:28.404Z",
+  "generatedAt": "2026-09-20T07:53:37.269Z",
   "source": "screener_github_actions",
   "companies": {
     "HDFCBANK": {
@@ -19276,7 +19276,7 @@
         },
         "2025": {
           "fiscalYear": "2025",
-          "sales": 42333,
+          "sales": 48535,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
@@ -19313,7 +19313,7 @@
         },
         "2026": {
           "fiscalYear": "2026",
-          "sales": 48314,
+          "sales": 56362,
           "receivables": null,
           "grossProfit": null,
           "currentAssets": null,
